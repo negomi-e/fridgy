@@ -1,0 +1,30 @@
+import React, { Component } from 'react'
+import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap'
+import { BrowserRouter as Route, NavLink } from "react-router-dom";
+import classes from "./Navigation.module.scss"
+
+export default class Navigation extends Component {
+  render() {
+    return (
+
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">Fudgy</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Route>
+              <NavLink activeClassName={classes.active} to="/" exact >Home</NavLink>
+              <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
+              <NavLink activeClassName={classes.active} to="/registration">Registration</NavLink>
+            </Route>
+          </Nav>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+
+    )
+  }
+}
