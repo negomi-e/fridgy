@@ -2,11 +2,17 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const indexRouter = require('./routes/index.js.js')
+const fridgeRouter = require('./routes/fridge');
+const shoppingListRouter = require('./routes/shoppinglist');
+const usersRouter = require('./routes/users');
+
+require('dotenv').config()
 const logger = require('morgan');
 const dbconnect = require('./middleware/db-connect')
 
 
-const usersRouter = require('./routes/users');
+
 
 const app = express();
 
@@ -24,7 +30,10 @@ app.get('/', function (req, res) {
   res.send('Hello! This API fridgy');
 });
 
-
+//ROUTER
+app.use('/', indexRouter)
+app.use('/fridge', fridgeRouter);
+app.use('/shoppinglist', shoppingListRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

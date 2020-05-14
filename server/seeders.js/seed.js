@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/fridgeitems', { useNewUrlParser: true });
 
-const fridgeitems = require('../models/products');
+const fridgeitems = require('../../immy's backend/models/products');
 
 const entries = [
     {
