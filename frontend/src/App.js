@@ -1,35 +1,31 @@
 import React from 'react';
 import './App.css';
-import { Row, Col, Card, Button } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
-import { Route, Switch, withRouter } from "react-router-dom"
+import { Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 
 import Home from './components/Pages/Home/Home.jsx'
 import Login from './components/Pages/Login/Login.jsx'
-import Registeration from './components/Pages/Registation/Registation.jsx'
+import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Container fluid={false}>
-
         <Navigation />
-
-        {/* <Switch>
-          <PrivateRoute exact path="/">
-            <Home />
-          </PrivateRoute>
-        </Switch> */}
-
-
-        <Route path="/registration" render={() => <Registeration />} />
-        <Route path="/login" render={() => <Login />} />
-
+        <PrivateRoute exact path="/">
+          <Home />
+        </PrivateRoute>
+        <Route path="/registration">
+          <Registeration />
+        </Route>
+        <Route path="/login">
+          <Login history={props.history} />
+        </Route>
       </Container>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App)

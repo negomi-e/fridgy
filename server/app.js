@@ -4,11 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dbconnect = require('./middleware/db-connect')
-
-
-const usersRouter = require('./routes/users');
-
 const app = express();
+//Routes
+const authRouter = require('./routes/auth');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,11 +20,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.send('Hello! This API fridgy');
+  res.send('Hello! fridgy server');
 });
 
 
-app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
