@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/fridgeitems', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/fridgy', { useNewUrlParser: true });
 
-const fridgeitems = require('../../immy's backend/models/products');
+const fridgeitems = require('../models/products');
 
 const entries = [
     {
+      userID: 1,
       label: "Salsify Taro Catsear Garlic",
       category: "Vegetable",
       quantity: '100g',
@@ -12,7 +13,8 @@ const entries = [
       dateBought: new Date(), 
       expiryDate: 20/05/2020
     },
-    {
+    { 
+      userID: 1,
       label: "Kohlrabi Radish Okra Azuki",
       category: "Vegetable",
       quantity: '100g',
