@@ -1,6 +1,6 @@
 (async function fillDatabase() {
   const mongoose = require('mongoose')
-  const User = require('./User')
+  const User = require('../models/User')
   const connectionAddress = 'mongodb://localhost:27017/fridgy';
   mongoose.connect(connectionAddress, { useNewUrlParser: true, useUnifiedTopology: true });
   const db = mongoose.connections;

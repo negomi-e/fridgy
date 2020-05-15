@@ -1,12 +1,33 @@
 import React, { Component } from 'react'
-import Nav from '../../Common/Nav/Navigation.jsx'
+import Items from './Item/Item'
+import { connect } from 'react-redux';
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Homepage</h1>
+        <h1>YOUR FRIDGE</h1>
+
+        <Items />
+
+        <button>Add item to fridge</button>
+
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+
+      
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+};
+
+//ADD CONNECT HERE
+export default connect()(Home);
