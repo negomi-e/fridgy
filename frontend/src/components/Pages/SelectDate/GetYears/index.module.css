@@ -1,0 +1,18 @@
+.year {
+  padding: 10px;
+  margin: 2px;
+  border: 2px tomato solid;
+  border-radius: 3px;
+  background-color: white;
+  width: 30%;
+  font-size: large;
+  font-weight: bold;
+  color: tomato;
+  outline: none;
+}
+
+.year:hover {
+  background-color: tomato;
+  transition-duration: 300ms;
+  color: white;
+}
