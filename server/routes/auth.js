@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ email: email })
     if (!user) throw 'cant find user'
-
+    console.log(user)
     const passAuth = await bcrypt.compare(pass, user.pass)
     if (!passAuth) throw 'incorrect pass'
 
