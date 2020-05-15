@@ -11,10 +11,10 @@ require('dotenv').config()
 const logger = require('morgan');
 const dbconnect = require('./middleware/db-connect')
 
-
-
-
 const app = express();
+//Routes
+const authRouter = require('./routes/auth');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,14 +27,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.send('Hello! This API fridgy');
+  res.send('Hello! fridgy server');
 });
+
+
+
+
 
 //ROUTER
 app.use('/', indexRouter)
 app.use('/fridge', fridgeRouter);
 app.use('/shoppinglist', shoppingListRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -21,7 +21,7 @@ let userSchema = new Schema({
     validate: [validateEmail, 'Please fill a valid email address'],
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
   },
-  password: {
+  pass: {
     type: String,
     required: true,
   },
@@ -32,8 +32,8 @@ let userSchema = new Schema({
 })
 
 userSchema.pre('save', function (next) {
-  if (this.isModified('password') || this.isNew()) {
-    this.password = bcrtypt.hashSync(this.password, 12)
+  if (this.isModified('password') || this.isNew) {
+    this.pass = bcrtypt.hashSync(this.pass, 12)
   }
   next()
 })

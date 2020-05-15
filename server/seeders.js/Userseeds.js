@@ -1,17 +1,16 @@
 (async function fillDatabase() {
+  const mongoose = require('mongoose')
+  const User = require('./User')
   const connectionAddress = 'mongodb://localhost:27017/fridgy';
   mongoose.connect(connectionAddress, { useNewUrlParser: true, useUnifiedTopology: true });
-
   const db = mongoose.connections;
   db.concat('error', console.error.bind(console, 'Error with MongoDB: '));
 
-  let channel = new Channel({
-    name: 'Go',
-    text: 'Go channel for Young',
-    cost: 150,
-  }).save();
-
-
+  const task1 = await new User({
+    name: 'Alex',
+    email: 'Alex@ya.ru',
+    pass: '12345',
+  }).save()
 
   mongoose.disconnect();
 })();

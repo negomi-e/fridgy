@@ -1,0 +1,23 @@
+.formSend {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+html, body, .container, .App, #root {
+  height: 100%;
+}
+
+.authPage {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.red {
+  color: red !important;
+}
