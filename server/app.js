@@ -2,10 +2,9 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const indexRouter = require('./routes/index.js.js')
+const indexRouter = require('./routes/index.js')
 const fridgeRouter = require('./routes/fridge');
 const shoppingListRouter = require('./routes/shoppinglist');
-const usersRouter = require('./routes/users');
 
 require('dotenv').config()
 const logger = require('morgan');
@@ -31,15 +30,10 @@ app.get('/', function (req, res) {
   res.send('Hello! fridgy server');
 });
 
-
-
-
-
 //ROUTER
 app.use('/', indexRouter)
 app.use('/fridge', fridgeRouter);
 app.use('/shoppinglist', shoppingListRouter);
-app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 
 
