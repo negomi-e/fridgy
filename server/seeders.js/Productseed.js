@@ -11,7 +11,7 @@ const entries = [
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 20/05/2020,
+      expiryDate: new Date("2020-05-15")
     },
     { 
       userID: '5ebe5eb65b26c1cd703802d0',
@@ -20,79 +20,79 @@ const entries = [
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 18/05/2020
+      expiryDate: new Date("2020-05-20")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Lotus Root Water Spinach",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 20/05/2020
+      expiryDate: new Date("2020-05-30")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Bean Swiss Chard Seakale",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 27/05/2020
+      expiryDate: new Date("2020-05-21")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Magis Kohlrabi Welsh Onion",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 21/05/2020
+      expiryDate: new Date("2020-06-15")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Parsley Shallot Courgette Tatsoi",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 21/05/2020
+      expiryDate: new Date("2020-05-15")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Bean Mustard Tigernut",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 23/05/2020
+      expiryDate: new Date("2020-05-19")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe7c2db733dce104514873',
       label: "Aubergine Spring Onion",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 27/05/2020
+      expiryDate: new Date("2020-05-18")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe7c2db733dce104514873',
       label: "Chicory Celtuce Parsley",
       category: "Vegetable",
       quantity: '1000g',
       shoppingList: true,
       dateBought: new Date(), 
-      expiryDate: 25/05/2020
+      expiryDate: new Date("2020-05-28")
     },
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe7c2db733dce104514873',
       label: "Coriander Yarrow Sweet Pepper",
       category: "Vegetable",
       quantity: '5',
       shoppingList: true,
       dateBought: new Date(), 
-      expiryDate: 21/05/2020
+      expiryDate: new Date("2020-05-16")
     }
   ];
   

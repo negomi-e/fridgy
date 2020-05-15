@@ -3,41 +3,73 @@ import { connect } from 'react-redux';
 import {
     loadFridge,
 } from '../../../../redux/Think/fridgeThunk';
+import Carousel from 'react-bootstrap/Carousel'
+import sliderimg from '../../../../images/slideblack.png'
+import '../Item/Item.module.scss'
+import SliderItem from '../Item/SliderItem/SliderItem'
 
 class Items extends Component {
 
     componentDidMount() {
-        const {id} = this.props
+        const { id } = this.props
         // console.log(email);
-        
+
         this.props.loadFridge(id);
+
+
     }
 
     render() {
+        // EXPIRY DATE CODE
+        // let times = []
+        // if (this.props.items.length > 0) {
+        //     let array = this.props.items
+        //     console.log('array', array);
+        //     array.forEach((item) => {
+        //         let exp = new Date(item.expiryDate)
+        //         let current = new Date()
+        //         // console.log(exp);
+        //         // console.log(new Date());
 
-        // const { label, expiryDate, id } = this.props.items
+        //         let differenceTIME = exp - current
+        //         let diferenceDay = Math.floor(differenceTIME / (1000 * 3600 * 24))
+        //         return times.push(diferenceDay)
+        //     })
+        //     console.log('daysss', times);
+        // }
+
+
 
         return (
-            <>
-                <ul id="fridge-table">
-                    {this.props.items.length ? this.props.items.map(item => (
-                        <li id={item.id}>
-                        <div className="fridge-item">
-                            <h3>{item.label}</h3>
-                            <p>{item.expiryDate}</p>
-                            <button onClick={() => this.props.onDeleteTask(item._id)}>Delete task</button>
-                            {/* <button onClick={()=>this.props.onEditTask(id)}>Edit task</button>
-            <button onClick={()=>this.props.onAddShopping(id)}>Add to shopping list</button> */}
-                        </div>
-                        </li>
+            <Carousel>
+                {this.props.items.length ? this.props.items.map(item => (
+                    <Carousel.Item key={item.id}>
+                        <img className="d-block w-100"
+                            src={sliderimg}
+                            alt="slide" />
+                        <Carousel.Caption>
+                            <SliderItem props={item} />
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                )) : <Carousel.Item>
+                        <img className="d-block w-100"
+                            src={sliderimg}
+                            alt="slide" />
+                        <Carousel.Caption>
+                            <div>No items available</div>
+                        </Carousel.Caption>
+                    </Carousel.Item>}
 
+                {this.props.error && <Carousel.Item>
+                    <img className="d-block w-100"
+                        src={sliderimg}
+                        alt="slide" />
+                    <Carousel.Caption>
+                        <div className="error">{this.props.error}</div>
+                    </Carousel.Caption>
+                </Carousel.Item>}
 
-                    )) : <div>No items available</div>}
-                </ul>
-
-                {this.props.error && <div className="error">{this.props.error}</div>}
-
-            </>
+            </Carousel>
         )
     }
 }
@@ -51,12 +83,5 @@ const mapStateToProps = state => {
     };
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        // onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
-        // onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
-        // onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
-    }
-};
 
-export default connect(mapStateToProps, {loadFridge,})(Items);
+export default connect(mapStateToProps, { loadFridge, })(Items);

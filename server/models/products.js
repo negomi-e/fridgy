@@ -1,16 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
+
 
 const productSchema = new mongoose.Schema({
-    // userID: [{type: Schema.Types.ObjectId, ref: 'Restorans'  }],
-    email: String,
-    userID: String,
+    userID: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'  },
     label: String,
-    dateBought: Date,
     expiryDate: Date,
-    UPC: Number,
     category: String,
-    quantity: String,
-    shoppingList: Boolean,
+    // shoppingList: Boolean,
+    // UPC: Number,
 });
 
 let productModel = mongoose.model("product", productSchema);
