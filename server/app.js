@@ -2,8 +2,16 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const indexRouter = require('./routes/index.js.js')
+const fridgeRouter = require('./routes/fridge');
+const shoppingListRouter = require('./routes/shoppinglist');
+const usersRouter = require('./routes/users');
+
+require('dotenv').config()
 const logger = require('morgan');
 const dbconnect = require('./middleware/db-connect')
+
+
 const app = express();
 //Routes
 const authRouter = require('./routes/auth');
@@ -24,6 +32,12 @@ app.get('/', function (req, res) {
 });
 
 
+
+//ROUTER
+app.use('/', indexRouter)
+app.use('/fridge', fridgeRouter);
+app.use('/shoppinglist', shoppingListRouter);
+app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
