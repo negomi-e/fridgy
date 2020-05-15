@@ -1,6 +1,6 @@
 import {
   LOGIN_SUCCESS, LOGOUT,
-  CHANGE_INPUT_PASS, CHANGE_INPUT_LOGIN, ERROR
+  ERROR, CHANGE_INPUT
 } from '../Actions/action-types'
 
 const initialState = {
@@ -8,8 +8,6 @@ const initialState = {
   userInfo: {
 
   },
-  inputLogin: '',
-  inputPass: '',
   error: {
     status: false,
     message: '',
@@ -38,16 +36,13 @@ export function authReducer(state = initialState, action) {
         userInfo: {},
       }
 
-    case CHANGE_INPUT_PASS:
+    case CHANGE_INPUT:
       return {
         ...state,
-        inputPass: action.pass,
-      }
-
-    case CHANGE_INPUT_LOGIN:
-      return {
-        ...state,
-        inputLogin: action.login,
+        [action.formName]: {
+          ...state[action.formName],
+          [action.inputName]: action.inputValue
+        },
       }
 
     case ERROR:
