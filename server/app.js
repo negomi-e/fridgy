@@ -5,11 +5,15 @@ const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index.js')
 const fridgeRouter = require('./routes/fridge');
 const shoppingListRouter = require('./routes/shoppinglist');
+<<<<<<< HEAD
 
+=======
+>>>>>>> fddeec8b0de2363e89c7caa822cd9eeac8580256
 
 require('dotenv').config()
 const logger = require('morgan');
 const dbconnect = require('./middleware/db-connect')
+
 
 const app = express();
 //Routes
@@ -29,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   res.send('Hello! fridgy server');
 });
-
 
 //ROUTER
 app.use('/', indexRouter)

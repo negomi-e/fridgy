@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router()
-const Product = require('../models/products')
+// const Product = require('../../immys backend/models/products')
 
 //MAIN PAGE
 

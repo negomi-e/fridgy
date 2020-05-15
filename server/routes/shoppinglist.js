@@ -1,6 +1,7 @@
 const express = require('express')
 const route = express.Router()
 // const Product = require('.././products')
+//const Product = require('.././products')
 
 //SHOPPINGLIST PAGE
 
