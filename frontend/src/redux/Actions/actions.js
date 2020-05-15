@@ -1,6 +1,6 @@
 import {
   LOGIN_SUCCESS, LOGOUT,
-  CHANGE_INPUT_LOGIN, CHANGE_INPUT_PASS, ERROR
+  ERROR, CHANGE_INPUT
 } from './action-types'
 
 export function loginAC(userInfo) {
@@ -16,17 +16,12 @@ export function logoutAC() {
   }
 }
 
-export function changeInputLoginAC(login) {
+export function changeInputAC(formName, inputName, inputValue) {
   return {
-    type: CHANGE_INPUT_LOGIN,
-    login
-  }
-}
-
-export function changeInputPassAC(pass) {
-  return {
-    type: CHANGE_INPUT_PASS,
-    pass
+    type: CHANGE_INPUT,
+    formName,
+    inputName,
+    inputValue,
   }
 }
 

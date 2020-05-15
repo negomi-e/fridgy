@@ -18,7 +18,7 @@ function App(props) {
           <Home />
         </PrivateRoute>
         <Route path="/registration">
-          <Registeration />
+          <Registeration history={props.history} />
         </Route>
         <Route path="/login">
           <Login history={props.history} />
