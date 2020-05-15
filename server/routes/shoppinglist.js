@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router()
-const Product = require('../../immy's backend/models/products')
+const Product = require('.././products')
 
 //SHOPPINGLIST PAGE
 
@@ -25,21 +25,8 @@ route.put('/change/:id', async (req,res)=>{
             await item.save()
 
             res.json()
-        })
+})
 
-this.state ={
-    label: 'Frog',
-
-}
-
-//  fetch('https://localhost:3000/add', {
-//         method: 'POST',
-//         body: JSON.stringify{
-//             userID: state.userid,
-//             label: this.state.label,
-
-//         }
-//  })    
 
 //additem to fridge
 route.post('/add', async (req,res)=>{
