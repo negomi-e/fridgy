@@ -5,10 +5,6 @@ const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index.js')
 const fridgeRouter = require('./routes/fridge');
 const shoppingListRouter = require('./routes/shoppinglist');
-<<<<<<< HEAD
-
-=======
->>>>>>> fddeec8b0de2363e89c7caa822cd9eeac8580256
 
 require('dotenv').config()
 const logger = require('morgan');

@@ -19,25 +19,3 @@ export function listError(err) {
     payload: err,
   };
 }
-
-export function loadFridge() {
-
-    return async function (dispatch, getState) { // thunk
-        dispatch(listLoading());
-          console.log('current state:', getState());
-      
-      try{
-          let request = await fetch(`https://localhost:5000/fridge/`, {
-            method: 'GET',
-            body: JSON.stringify({
-                email: 'Alex@ya.ru'
-            })
-          })
-          let response = await request.json()
-          console.log('HERE IS THE DATA AFTER POST', response);
-          dispatch(listLoaded(response))
-        }catch(err){
-          dispatch(listError(err.message));
-        }
-    }
-}

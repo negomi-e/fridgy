@@ -5,16 +5,16 @@ const fridgeitems = require('../models/products');
 
 const entries = [
     {
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Salsify Taro Catsear Garlic",
       category: "Vegetable",
       quantity: '100g',
       shoppingList: false,
       dateBought: new Date(), 
-      expiryDate: 20/05/2020
+      expiryDate: 20/05/2020,
     },
     { 
-      email: 'Alex@ya.ru',
+      userID: '5ebe5eb65b26c1cd703802d0',
       label: "Kohlrabi Radish Okra Azuki",
       category: "Vegetable",
       quantity: '100g',

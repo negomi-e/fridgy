@@ -10,4 +10,4 @@ const rootReducer = combineReducers({
 })
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
-export default store
+export default store;
