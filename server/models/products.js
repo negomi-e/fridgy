@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    userID: [{type: Schema.Types.ObjectId, ref: 'Restorans'  }],
-    // userID: String,
+    // userID: [{type: Schema.Types.ObjectId, ref: 'Restorans'  }],
+    email: String,
     label: String,
     dateBought: Date,
     expiryDate: Date,
@@ -10,7 +10,6 @@ const productSchema = new mongoose.Schema({
     category: String,
     quantity: String,
     shoppingList: Boolean,
-
 });
 
 let productModel = mongoose.model("product", productSchema);
