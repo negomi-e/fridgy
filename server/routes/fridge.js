@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router()
-// const Product = require('../../immys backend/models/products')
+const Product = require('../models/products')
 
 //MAIN PAGE
 
@@ -9,11 +9,15 @@ const route = express.Router()
 //3. add product to fridge
 //4. 
 
-route.route('/')
-    .get(async function(req,res){
+route.get('/:id', async function(req,res){
+        // return res.json('i am here finding lists');
+        
         try{
-            const {email } = req.body
-            const fridgeitems = await Product.findAll({email: email})
+            console.log('HIT SERVER SIDE');
+            
+            const {id } = req.params
+            const fridgeitems = await Product.find({userID: id})
+            
             console.log('array or object', fridgeitems);
             
             res.json(fridgeitems);
@@ -21,6 +25,7 @@ route.route('/')
             res.send(404).text('No items')
             }
     })
+    
 
 //toggle to shopping list cart
 route.put('/shoppinglist/:id', async (req,res)=>{

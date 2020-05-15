@@ -4,9 +4,10 @@ import {
 } from '../Actions/action-types'
 
 const initialState = {
-  loginStatus: !!window.localStorage.getItem('isAuthenticated') || false,
+  loginStatus: !!window.localStorage.getItem('loginStatus') || false,
   userInfo: {
-
+    email: window.localStorage.getItem('email') || false,
+    id: window.localStorage.getItem('id') || false,
   },
   error: {
     status: false,
@@ -17,7 +18,11 @@ const initialState = {
 export function authReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      window.localStorage.setItem('isAuthenticated', 'true');
+
+      window.localStorage.setItem('loginStatus', 'true');
+      window.localStorage.setItem('id', action.userInfo.id);
+      window.localStorage.setItem('email', action.userInfo.email);
+
       return {
         ...state,
         loginStatus: true,

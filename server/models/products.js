@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
     // userID: [{type: Schema.Types.ObjectId, ref: 'Restorans'  }],
     email: String,
+    userID: String,
     label: String,
     dateBought: Date,
     expiryDate: Date,
