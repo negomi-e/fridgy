@@ -23,7 +23,6 @@ router.post('/login', async (req, res) => {
         email: user.email,
       }
     })
-
   } catch (error) {
     res.json(error)
   }
