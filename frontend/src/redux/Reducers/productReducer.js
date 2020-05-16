@@ -1,9 +1,11 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR } from '../Actions/action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS } from '../Actions/action-types';
 
 const initialState = {
   loading: false,
   items: false,
   listError: false,
+  itemsApi: "",
+  searchTags: ['beef', 'egg', 'milk', 'bisquits', 'potato', 'mashrooms'],
 };
 
 export function productReducer (state = initialState, action) {
@@ -29,6 +31,12 @@ export function productReducer (state = initialState, action) {
         items: false,
         listError: action.payload,
       };
+    case LOAD_ITEMS: 
+    const newItem = action.payload;
+    return {
+      ...state,
+      itemsApi: [newItem]
+    }
     default:
       return state;
   }

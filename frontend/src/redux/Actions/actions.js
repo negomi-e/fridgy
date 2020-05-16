@@ -1,6 +1,6 @@
 import {
   LOGIN_SUCCESS, LOGOUT,
-  ERROR, CHANGE_INPUT
+  ERROR, CHANGE_INPUT,
 } from './action-types'
 
 export function loginAC(userInfo) {
@@ -34,3 +34,5 @@ export function errorAC(status, message) {
     }
   }
 }
+
+
