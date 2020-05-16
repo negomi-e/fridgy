@@ -17,10 +17,20 @@ route.get('/:id', async function(req,res){
             
             const {id } = req.params
             const fridgeitems = await Product.find({userID: id})
+
+            // console.log('ThEIR FRIDGE ITEMS', fridgeitems);
+
+           
             
-            console.log('array or object', fridgeitems);
+            const fruit = fridgeitems.filter((product)=>{ return product.category == 'Fruit'})
+            const meat = fridgeitems.filter((product)=>{ return product.category == 'Meat'})
+            const dairy = fridgeitems.filter((product)=>{ return product.category == 'Dairy'})
             
-            res.json(fridgeitems);
+            const categories = {'fruit': fruit, 'meat': meat, 'dairy': dairy}
+            
+            console.log('array or object', categories);
+            
+            res.json(categories);
             }catch(err){
             res.send(404).text('No items')
             }

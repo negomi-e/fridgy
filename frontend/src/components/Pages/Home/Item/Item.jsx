@@ -1,23 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {
-    loadFridge,
-} from '../../../../redux/Think/fridgeThunk';
+
 import Carousel from 'react-bootstrap/Carousel'
 import sliderimg from '../../../../images/slideblack.png'
 import '../Item/Item.module.scss'
 import SliderItem from '../Item/SliderItem/SliderItem'
 
 class Items extends Component {
-
-    componentDidMount() {
-        const { id } = this.props
-        // console.log(email);
-
-        this.props.loadFridge(id);
-
-
-    }
 
     render() {
         // EXPIRY DATE CODE
@@ -37,12 +26,14 @@ class Items extends Component {
         //     })
         //     console.log('daysss', times);
         // }
+        
 
-
+        const items = this.props.props
+        console.log(items)
 
         return (
             <Carousel>
-                {this.props.items.length ? this.props.items.map(item => (
+                {items ? items.map(item => (
                     <Carousel.Item key={item.id}>
                         <img className="d-block w-100"
                             src={sliderimg}
@@ -76,12 +67,8 @@ class Items extends Component {
 
 const mapStateToProps = state => {
     return {
-        //key is your prop name and it's value from global state
-        items: state.productReducer.items,
         error: state.productReducer.listError,
-        id: state.authReducer.userInfo.id
-    };
+    }
 }
 
-
-export default connect(mapStateToProps, { loadFridge, })(Items);
+export default connect(mapStateToProps)(Items);
