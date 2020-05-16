@@ -17,10 +17,37 @@ route.get('/:id', async function(req,res){
             
             const {id } = req.params
             const fridgeitems = await Product.find({userID: id})
+
+
+
+        if (fridgeitems.length > 0) {
+            // let array = fridgeitems.items
+            // console.log('array', fridgeitems);
+            fridgeitems.forEach((item) => {
+                let exp = new Date(item.expiryDate)
+                let current = new Date()
+                //console.log(exp);
+                // console.log(new Date());
+
+                let differenceTIME =  exp - current 
+                let differenceDay = Math.floor(differenceTIME / (1000 * 3600 * 24))
+                item.dayRemaining = differenceDay; 
+                return;
+                
+            })
             
-            console.log('array or object', fridgeitems);
+        }
+        // console.log('daysss', fridgeitems);
             
-            res.json(fridgeitems);
+            const fruit = fridgeitems.filter((product)=>{ return product.category == 'Fruit'})
+            const meat = fridgeitems.filter((product)=>{ return product.category == 'Meat'})
+            const dairy = fridgeitems.filter((product)=>{ return product.category == 'Dairy'})
+
+    
+            
+            const categories = {'fruit': fruit, 'meat': meat, 'dairy': dairy}
+            // await fridgeitems.save()
+            res.json(categories);
             }catch(err){
             res.send(404).text('No items')
             }

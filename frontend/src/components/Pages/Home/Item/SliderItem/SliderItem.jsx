@@ -1,19 +1,61 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
+// import { Icon } from 'react-native-elements'
+import {BsFillCircleFill} from 'react-icons/bs'
+
+import { Container, Row, Col } from 'react-bootstrap';
+import '../SliderItem/SliderItem.module.scss'
 
 class SliderItem extends Component {
-render(){
-    return (
-        <>
-        <h3>{this.props.label}</h3>
-                            <p>{this.props.expiryDate}</p>
-                            <button onClick={() => this.props.onDeleteTask(this.props.id)}>Delete task</button>
-                            
-                            {/* <button onClick={()=>this.props.onEditTask(id)}>Edit task</button>
+    render() {
+        // console.log(this.props.props);
+
+        const { label, dayRemaining } = this.props.props
+
+        let expiryText = '';
+        let toggleColor;
+
+        //TEXT DISPLAYED
+        if(dayRemaining <= 0){
+            expiryText = 'Item has expired'
+        }else{
+            expiryText = dayRemaining + ' days left'
+        }
+
+        //COLOUR CHANGE
+        if(dayRemaining <= 2){
+            toggleColor = '#FF0000'
+        }else if (dayRemaining >= 3 && dayRemaining < 5){
+            toggleColor = '#FF8C00'
+        }else{
+            toggleColor = '#228B22'
+        }
+
+
+        return (
+            <>
+            <Container>
+                <h3>{label}</h3>
+                <p><BsFillCircleFill color={toggleColor} />  {expiryText}</p>
+                
+                    <Row className="justify-content-md-center">
+                        <Col xs lg="1" onClick={() => this.props.onDeleteTask(this.props.id)}><AiOutlineDelete /></Col>
+                        <Col xs lg="1"><AiFillEdit /></Col>
+                        <Col xs lg="1"><AiOutlinePlus /></Col>
+                        <Col xs lg="1"><AiOutlineShoppingCart /></Col>
+                    </Row>
+                </Container>
+
+
+
+
+
+                {/* <button onClick={()=>this.props.onEditTask(id)}>Edit task</button>
             <button onClick={()=>this.props.onAddShopping(id)}>Add to shopping list</button> */}
-        </>
-    )
-}
+            </>
+        )
+    }
 }
 
 // const mapDispatchToProps = dispatch => {
