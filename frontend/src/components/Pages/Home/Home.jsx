@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
+// import { useHistory } from "react-router-dom";
+// import history from '././history'
 import {
   loadFridge,
 } from '../../../redux/Think/fridgeThunk';
@@ -17,12 +19,7 @@ class Home extends Component {
   render() {
     // console.log('items', this.props.items);
     const {fruit, meat, dairy} = this.props.items
-  
-    // console.log('fruits', fruit);
-    // console.log('meat', meat);
-    // console.log('dairy', dairy);
     
-  
     return (
       <div>
         <h1>YOUR FRIDGE</h1>
@@ -34,7 +31,9 @@ class Home extends Component {
         <ItemsCarousel props={dairy}/>
         
 
-        <button>Add item to fridge</button>
+        <button 
+        // onClick={() => history.push('/addFridgeItem')}
+        >Add item to fridge</button>
 
       </div>
     )

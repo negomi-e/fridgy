@@ -21,7 +21,9 @@ class Navigation extends Component {
             {
               this.props.loginStatus
                 ?
+                <><NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
                 <a onClick={this.logout} >Logout</a>
+                </>
                 :
                 <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
             }

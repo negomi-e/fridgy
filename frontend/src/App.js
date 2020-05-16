@@ -5,6 +5,9 @@ import { Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 
 import Home from './components/Pages/Home/Home.jsx'
+import ShoppingList from './components/Pages/ShoppingList/ShoppingList.jsx'
+import AddFridgeItem from './components/Pages/AddFridgeItem/AddFridgeItem.jsx'
+
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
@@ -22,6 +25,12 @@ function App(props) {
         </Route>
         <Route path="/login">
           <Login history={props.history} />
+        </Route>
+        <Route path="/shoppingList">
+          <ShoppingList  />
+        </Route>
+        <Route path="/addFridgeItem">
+          <AddFridgeItem />
         </Route>
       </Container>
     </div>

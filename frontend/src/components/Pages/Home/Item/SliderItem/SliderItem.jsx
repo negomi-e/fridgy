@@ -11,7 +11,7 @@ class SliderItem extends Component {
     render() {
         // console.log(this.props.props);
 
-        const { label, dayRemaining } = this.props.props
+        const { label, dayRemaining, _id } = this.props.props
 
         let expiryText = '';
         let toggleColor;
@@ -40,29 +40,25 @@ class SliderItem extends Component {
                 <p><BsFillCircleFill color={toggleColor} />  {expiryText}</p>
                 
                     <Row className="justify-content-md-center">
-                        <Col xs lg="1" onClick={() => this.props.onDeleteTask(this.props.id)}><AiOutlineDelete /></Col>
-                        <Col xs lg="1"><AiFillEdit /></Col>
-                        <Col xs lg="1"><AiOutlinePlus /></Col>
-                        <Col xs lg="1"><AiOutlineShoppingCart /></Col>
+                        <Col xs lg="1" onClick={() => this.props.onDeleteTask(_id)}><AiOutlineDelete /></Col>
+                        <Col xs lg="1" onClick={()=>this.props.onEditTask(_id)}><AiFillEdit /></Col>
+                        <Col xs lg="1" onClick={()=>this.props.getRecipes(_id)}><AiOutlinePlus /></Col>
+                        <Col xs lg="1" onClick={()=>this.props.onAddShopping(_id)}><AiOutlineShoppingCart /></Col>
                     </Row>
                 </Container>
 
-
-
-
-
-                {/* <button onClick={()=>this.props.onEditTask(id)}>Edit task</button>
-            <button onClick={()=>this.props.onAddShopping(id)}>Add to shopping list</button> */}
             </>
         )
     }
 }
 
+//ACTION FUNCTION NEED TO WRITTEN
 // const mapDispatchToProps = dispatch => {
 //     return {
-//         // onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
-//         // onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
-//         // onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
+//         onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
+//         onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
+//         onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
+//         getShopping: (id) => dispatch({ type: actionTypes.FIND_SHOPPING, elementID: id }),
 //     }
 // };
 
