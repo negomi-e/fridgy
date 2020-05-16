@@ -9,27 +9,9 @@ import SliderItem from '../Item/SliderItem/SliderItem'
 class Items extends Component {
 
     render() {
-        // EXPIRY DATE CODE
-        // let times = []
-        // if (this.props.items.length > 0) {
-        //     let array = this.props.items
-        //     console.log('array', array);
-        //     array.forEach((item) => {
-        //         let exp = new Date(item.expiryDate)
-        //         let current = new Date()
-        //         // console.log(exp);
-        //         // console.log(new Date());
-
-        //         let differenceTIME = exp - current
-        //         let diferenceDay = Math.floor(differenceTIME / (1000 * 3600 * 24))
-        //         return times.push(diferenceDay)
-        //     })
-        //     console.log('daysss', times);
-        // }
-        
-
+    
         const items = this.props.props
-        console.log(items)
+        // console.log(items)
 
         return (
             <Carousel>

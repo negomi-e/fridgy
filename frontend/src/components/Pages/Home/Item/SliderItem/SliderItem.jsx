@@ -1,22 +1,43 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
-// import { Container, Row, Col } from 'reactstrap';
+// import { Icon } from 'react-native-elements'
+import {BsFillCircleFill} from 'react-icons/bs'
+
 import { Container, Row, Col } from 'react-bootstrap';
 import '../SliderItem/SliderItem.module.scss'
 
 class SliderItem extends Component {
     render() {
-        console.log(this.props.props);
+        // console.log(this.props.props);
 
-        const { label, expiryDate } = this.props.props
+        const { label, dayRemaining } = this.props.props
+
+        let expiryText = '';
+        let toggleColor;
+
+        //TEXT DISPLAYED
+        if(dayRemaining <= 0){
+            expiryText = 'Item has expired'
+        }else{
+            expiryText = dayRemaining + ' days left'
+        }
+
+        //COLOUR CHANGE
+        if(dayRemaining <= 2){
+            toggleColor = '#FF0000'
+        }else if (dayRemaining >= 3 && dayRemaining < 5){
+            toggleColor = '#FF8C00'
+        }else{
+            toggleColor = '#228B22'
+        }
 
 
         return (
             <>
             <Container>
                 <h3>{label}</h3>
-                <p>{expiryDate}</p>
+                <p><BsFillCircleFill color={toggleColor} />  {expiryText}</p>
                 
                     <Row className="justify-content-md-center">
                         <Col xs lg="1" onClick={() => this.props.onDeleteTask(this.props.id)}><AiOutlineDelete /></Col>

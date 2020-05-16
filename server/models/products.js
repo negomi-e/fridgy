@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema({
     label: String,
     expiryDate: Date,
     category: String,
+    dayRemaining: Number,
     // shoppingList: Boolean,
     // UPC: Number,
 });

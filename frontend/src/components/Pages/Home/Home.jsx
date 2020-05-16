@@ -15,7 +15,7 @@ class Home extends Component {
 
 }
   render() {
-    console.log('items', this.props.items);
+    // console.log('items', this.props.items);
     const {fruit, meat, dairy} = this.props.items
   
     // console.log('fruits', fruit);
