@@ -1,4 +1,4 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR } from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS } from './action-types';
 
 export function listLoading() {
   return {
@@ -18,4 +18,26 @@ export function listError(err) {
     type: LIST_ERROR,
     payload: err,
   };
+}
+
+export const loadItems = (search) => {
+  return async (dispatch) => {
+    let response = await fetch(`https://yummly2.p.rapidapi.com/feeds/search?FAT_KCALMax=1000&maxTotalTimeInSeconds=7200&allowedAttribute=diet-lacto-vegetarian%252Cdiet-low-fodmap&q=${search}&start=0&maxResult=3`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "yummly2.p.rapidapi.com",
+        "x-rapidapi-key": "bc823de7d7msh02ef7b6e50fa82bp1df302jsn3b6fce001d4a"
+      }
+    })
+    let json = await response.json();
+    let { feed } = json
+    await dispatch(takeItems(feed))
+  }
+}
+
+export const takeItems = (items) => {
+  return {
+    type: LOAD_ITEMS,
+    payload: items
+  }
 }
