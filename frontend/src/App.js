@@ -7,6 +7,7 @@ import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 import Home from './components/Pages/Home/Home.jsx'
 import ShoppingList from './components/Pages/ShoppingList/ShoppingList.jsx'
 import AddFridgeItem from './components/Pages/AddFridgeItem/AddFridgeItem.jsx'
+import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
@@ -18,7 +19,7 @@ function App(props) {
       <Container fluid={false}>
         <Navigation />
         <PrivateRoute exact path="/">
-          <Home />
+          <Home history={props.history}/>
         </PrivateRoute>
         <Route path="/registration">
           <Registeration history={props.history} />
@@ -31,6 +32,9 @@ function App(props) {
         </Route>
         <Route path="/addFridgeItem">
           <AddFridgeItem />
+        </Route>
+        <Route path="/recipes/:id">
+          <RecipePage history={props.history}/>
         </Route>
       </Container>
     </div>

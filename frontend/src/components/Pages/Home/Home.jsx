@@ -19,6 +19,7 @@ class Home extends Component {
   render() {
     // console.log('items', this.props.items);
     const {fruit, meat, dairy} = this.props.items
+    const history =  this.props
     
     return (
       <div>
@@ -32,7 +33,7 @@ class Home extends Component {
         
 
         <button 
-        // onClick={() => history.push('/addFridgeItem')}
+        onClick={() => history.push('/addFridgeItem')}
         >Add item to fridge</button>
 
       </div>
