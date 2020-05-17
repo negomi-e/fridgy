@@ -5,6 +5,7 @@ import { changeInputAC } from '../../../redux/Actions/actions'
 import { thunkLogin } from '../../../redux/Think/authThink'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import AddFridgeItem from '../AddFridgeItem/AddFridgeItem'
 
 class Login extends Component {
   componentDidUpdate() {
@@ -59,8 +60,8 @@ class Login extends Component {
 
 
         </Form>
+        <AddFridgeItem/>
       </section>
-
     )
   }
 }
