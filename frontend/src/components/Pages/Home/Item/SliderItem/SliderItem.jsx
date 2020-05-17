@@ -2,49 +2,68 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 // import { Icon } from 'react-native-elements'
-import {BsFillCircleFill} from 'react-icons/bs'
+import { BsFillCircleFill } from 'react-icons/bs'
+import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
+import {productImage} from '../../../../../images/banana.jpeg'
 
-import { Container, Row, Col } from 'react-bootstrap';
-import '../SliderItem/SliderItem.module.scss'
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import '../SliderItem/SliderItem.css'
 
 class SliderItem extends Component {
+    redirectToTarget = (label) => {
+        this.props.history.push(`/recipes/${label}`)
+    }
+
     render() {
         // console.log(this.props.props);
 
-        const { label, dayRemaining, _id } = this.props.props
+        const { label, dayRemaining, _id, category } = this.props.props
+
+        console.log('Does category exist?', this.props.props)
 
         let expiryText = '';
         let toggleColor;
 
         //TEXT DISPLAYED
-        if(dayRemaining <= 0){
+        if (dayRemaining <= 0) {
             expiryText = 'Item has expired'
-        }else{
+        } else {
             expiryText = dayRemaining + ' days left'
         }
 
         //COLOUR CHANGE
-        if(dayRemaining <= 2){
+        if (dayRemaining <= 2) {
             toggleColor = '#FF0000'
-        }else if (dayRemaining >= 3 && dayRemaining < 5){
+        } else if (dayRemaining >= 3 && dayRemaining < 5) {
             toggleColor = '#FF8C00'
-        }else{
+        } else {
             toggleColor = '#228B22'
         }
 
 
         return (
             <>
-            <Container>
-                <h3>{label}</h3>
-                <p><BsFillCircleFill color={toggleColor} />  {expiryText}</p>
-                
-                    <Row className="justify-content-md-center">
-                        <Col xs lg="1" onClick={() => this.props.onDeleteTask(_id)}><AiOutlineDelete /></Col>
-                        <Col xs lg="1" onClick={()=>this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                        <Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col>
-                        <Col xs lg="1" onClick={()=>this.props.onAddShopping(_id)}><AiOutlineShoppingCart /></Col>
-                    </Row>
+                <Container>
+                    <Card>
+                        {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
+                        <Card.Body>
+                            <Card.Title style={{color:'black'}}>{label}</Card.Title>
+                            <Card.Text>
+                                <Row className="justify-content-md-center" style={{backgroundColor:'black'}}>
+                                    <Col xs lg="1" onClick={()=> this.props.deleteItemThunk(_id, category)}><AiOutlineDelete /></Col>
+                                    <Col xs lg="1" onClick={() => this.props.onEditTask(_id)}><AiFillEdit /></Col>
+                                    <Col xs lg="1" onClick={() => this.redirectToTarget(label)}><AiOutlinePlus /></Col>
+                                    <Col xs lg="1" onClick={() => this.props.onAddShopping(_id)}><AiOutlineShoppingCart /></Col>
+                                </Row>
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
+                        </Card.Footer>
+                    </Card>
+
+
+
                 </Container>
 
             </>
@@ -53,13 +72,14 @@ class SliderItem extends Component {
 }
 
 //ACTION FUNCTION NEED TO WRITTEN
-// const mapDispatchToProps = dispatch => {
+// const mapDispatchToProps = (dispatch) => {
 //     return {
-//         onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
-//         onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
-//         onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
-//         getRecipes: (id) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),
+//         onDelete: (id) => dispatch(deleteItemThunk(id)),
+//         //         // onEditTask: (id) => dispatch({ type: EDIT_ITEM, elementID: id }),
+//         //         // onAddShopping: (id) => dispatch({ type: ADD_ITEM, elementID: id }),
+//         //         // getRecipes: (id) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),  
+//         // deleteItemThunk
 //     }
 // };
 
-export default connect()(SliderItem);
+export default connect(null, {deleteItemThunk, })(SliderItem);

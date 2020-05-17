@@ -33,7 +33,7 @@ function App(props) {
         <Route path="/addFridgeItem">
           <AddFridgeItem />
         </Route>
-        <Route path="/recipes/:id">
+        <Route path="/recipes/:label">
           <RecipePage history={props.history}/>
         </Route>
       </Container>

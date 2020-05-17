@@ -1,4 +1,4 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS } from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, DELETE_ITEM } from './action-types';
 
 export function listLoading() {
   return {
@@ -17,6 +17,14 @@ export function listError(err) {
   return {
     type: LIST_ERROR,
     payload: err,
+  };
+}
+
+export function deleteItem(id, category) {
+  return {
+    type: DELETE_ITEM,
+    elementID: id,
+    category: category
   };
 }
 
