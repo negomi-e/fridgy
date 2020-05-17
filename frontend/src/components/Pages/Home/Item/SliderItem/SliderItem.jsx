@@ -42,7 +42,7 @@ class SliderItem extends Component {
                     <Row className="justify-content-md-center">
                         <Col xs lg="1" onClick={() => this.props.onDeleteTask(_id)}><AiOutlineDelete /></Col>
                         <Col xs lg="1" onClick={()=>this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                        <Col xs lg="1" onClick={()=>this.props.getRecipes(_id)}><AiOutlinePlus /></Col>
+                        <Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col>
                         <Col xs lg="1" onClick={()=>this.props.onAddShopping(_id)}><AiOutlineShoppingCart /></Col>
                     </Row>
                 </Container>
@@ -58,7 +58,7 @@ class SliderItem extends Component {
 //         onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
 //         onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
 //         onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
-//         getShopping: (id) => dispatch({ type: actionTypes.FIND_SHOPPING, elementID: id }),
+//         getRecipes: (id) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),
 //     }
 // };
 
