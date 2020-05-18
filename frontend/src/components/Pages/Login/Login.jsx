@@ -57,10 +57,7 @@ class Login extends Component {
           {
             <Form.Text className={`${error.status ? "red" : "hidden"} `}>error: {error.message}</Form.Text>
           }
-
-
         </Form>
-        <AddFridgeItem/>
       </section>
     )
   }
