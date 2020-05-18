@@ -28,14 +28,10 @@ class Who extends Component {
         totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
         
         <div className="wrap-deck">
-
-                
-
               <TeamMember props={this.state.Alexey} />
               <TeamMember props={this.state.Dima} />
               <TeamMember props={this.state.Kostya} />
               <TeamMember props={this.state.Imogen} />
-              
         </div>
     </div>
     )

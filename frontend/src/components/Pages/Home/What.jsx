@@ -12,6 +12,7 @@ class What extends Component {
 
     return (
       <div >
+        <h3>WHAT DO WE DO</h3>
         <p>We aim to help reduce food waste and help to be more conscious of the food in your fridge</p>
       </div>
     )
