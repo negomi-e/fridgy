@@ -2,24 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
-// import { Icon } from 'react-native-elements'
 import { BsFillCircleFill } from 'react-icons/bs'
-import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
-import {productImage} from '../../../../../images/banana.jpeg'
-import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk'
-
-
-import {NavLink} from 'react-router-dom'
-
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
+import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
+import { NavLink } from 'react-router-dom'
+import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 
 
 class SliderItem extends Component {
   render() {
-    // console.log(this.props.props);
 
-    const { label, dayRemaining, _id } = this.props.props
+    const { label, dayRemaining, _id, category } = this.props.props
 
 
     let expiryText = '';
@@ -41,33 +35,40 @@ class SliderItem extends Component {
       toggleColor = '#228B22'
     }
 
-        return (
-            <>
+    return (
+      <>
+        {/* Refact - переписать верстку и кнопки + добавить обратную связь по клику */}
 
-                <Container>
-                    <Card>
-                        {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
-                        <Card.Body>
-                            <Card.Title style={{color:'black'}}>{label}</Card.Title>
-                            <Card.Text>
-                                <Row className="justify-content-md-center" style={{backgroundColor:'black'}}>
-                                    <Col xs lg="1" onClick={()=> this.props.deleteItemThunk(_id, category)}><AiOutlineDelete /></Col>
-                                    <Col xs lg="1" onClick={() => this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                                   
-                                    <NavLink to={`/recipes/${label}`}><Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col></NavLink>
-                                    <Col xs lg="1" onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}><AiOutlineShoppingCart /></Col>
-                                </Row>
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
-                        </Card.Footer>
-                    </Card>
+        <Card>
+          {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
+          <div className="sliderItem-title">
+            <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
+            <div className="sliderItem-content">
+              <div className="sliderItem-status">
+                <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
+              </div>
+            </div>
+          </div>
+          <div className="wrapSliderItem-control">
+            <div className="sliderItem-control">
+              <a onClick={() => this.props.deleteItemThunk(_id, category)} variant="light">
+                <AiOutlineDelete />
+              </a>
+              <a onClick={() => this.props.onEditTask(_id)}>
+                <AiFillEdit />
+              </a>
+              <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
+                <AiOutlinePlus />
+              </NavLink>
+              <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
+                <AiOutlineShoppingCart />
+              </a>
+            </div>
 
 
-                </Container>
+          </div>
 
-   
+        </Card>
 
       </>
     )
@@ -79,7 +80,7 @@ class SliderItem extends Component {
 export default connect(
   (state) => ({
     userId: state.authReducer.userInfo.id
-  }), 
+  }),
   { addProductSL_Thunk, deleteItemThunk, getRecipes }
 )(SliderItem);
 

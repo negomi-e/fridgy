@@ -5,6 +5,7 @@ import deleteImg from './delete.png'
 
 export function ModalWindow(props) {
   const [smShow, setSmShow] = useState(false);
+  //Refact - ошибка при открытии окна
   return (
     <>
       <Button variant="light" onClick={() => setSmShow(true)}>

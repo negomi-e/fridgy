@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import classes from './Login.module.scss'
 import { changeInputAC } from '../../../redux/Actions/actions'
-import { thunkLogin } from '../../../redux/Think/authThink'
+import { thunkLogin } from '../../../redux/Thunk/authThunk'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import AddFridgeItem from '../AddFridgeItem/AddFridgeItem'
 
 class Login extends Component {
   componentDidUpdate() {
@@ -56,11 +57,8 @@ class Login extends Component {
           {
             <Form.Text className={`${error.status ? "red" : "hidden"} `}>error: {error.message}</Form.Text>
           }
-
-
         </Form>
       </section>
-
     )
   }
 }
