@@ -8,10 +8,11 @@ export function listLoading() {
   };
 }
 
-export function listLoaded(list) {
+export function listLoaded(list,toptags) {
   return {
     type: LIST_LOADED,
-    payload: list,
+    items: list,
+    tags: toptags
   };
 }
 

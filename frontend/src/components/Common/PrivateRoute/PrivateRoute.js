@@ -7,7 +7,7 @@ function PrivateRoute({ children, loginStatus, email, ...rest }) {
     <Route {...rest} render={({ location }) =>
       loginStatus && email != ''
         ? (children)
-        : (<Redirect to={{ pathname: "/login", state: { from: location } }} />)
+        : (<Redirect to={{ pathname: "/home", state: { from: location } }} />)
     }
     />
   );

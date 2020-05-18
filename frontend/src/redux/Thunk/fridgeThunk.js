@@ -6,8 +6,10 @@ export const loadFridge = (id) => async (dispatch) => {
           try{
               let request = await fetch(`/fridge/${id}`)
               let response = await request.json()
+              let list = response.list
+              let tags = response.tags
               // console.log('HERE IS THE DATA AFTER POST', response);
-              dispatch(listLoaded(response))
+              dispatch(listLoaded(list, tags))
             }catch(err){
               dispatch(listError(err.message));
             }

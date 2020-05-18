@@ -16,20 +16,24 @@ class Navigation extends Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Fridgy</Navbar.Brand>
+        <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={classes.NavBarWrap + " mr-auto"}>
-            <NavLink activeClassName={classes.active} to="/" exact >Home</NavLink>
+            
             {
               this.props.loginStatus
                 ?
                 <>
-                  <NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
-                  <a onClick={this.logout} >Logout</a>
+                <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
+                <NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                <a onClick={this.logout} >Logout</a>
                 </>
                 :
+                <>
+                <NavLink activeClassName={classes.active} to="/home"  exact >Home</NavLink>
                 <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
+                </>
             }
           </Nav>
           <AddFridgeItem />
