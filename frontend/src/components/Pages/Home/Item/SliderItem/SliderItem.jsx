@@ -8,6 +8,7 @@ import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk
 import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
+import backImg from './backfruit.jpg'
 
 
 class SliderItem extends Component {
@@ -41,12 +42,26 @@ class SliderItem extends Component {
 
         <Card>
           {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
-          <div className="sliderItem-title">
+          <div className="sliderItem-imgWrap">
+            <img src={backImg} alt="img" />
+          </div>
+          <div className="sliderItem-content">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
-            <div className="sliderItem-content">
-              <div className="sliderItem-status">
-                <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
-              </div>
+            <div>
+              <ul className="sliderItem-list">
+                <li className="sliderItem-listItem">
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li className="sliderItem-listItem">
+                  Lorem ipsum dolor sit amet.
+                </li>
+                <li className="sliderItem-listItem">
+                  Lorem ipsum dolor sit amet.
+                </li>
+              </ul>
+            </div>
+            <div className="sliderItem-status">
+              <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
             </div>
           </div>
           <div className="wrapSliderItem-control">

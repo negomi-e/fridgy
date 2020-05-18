@@ -27,6 +27,7 @@ html, body, .container, .App, #root {
 body{
   color: #000 !important;
   background-color: #fff;
+  position: relative;
 }
 
 .btn-img {

@@ -5,20 +5,20 @@ import { loadFridge } from '../../../redux/Think/fridgeThunk';
 
 class Home extends Component {
   componentDidMount() {
-    const { id } = this.props
-    this.props.loadFridge(id);
+    const { userId } = this.props
+    this.props.loadFridge(userId);
   }
 
   render() {
-    const { fruit, meat, dairy } = this.props.items
+    const categories = Object.keys(this.props.items)
     return (
       <div>
-        <h1>YOUR FRIDGE</h1>
-        <ItemsCarousel props={fruit} />
-        <hr />
-        <ItemsCarousel props={meat} />
-        <hr />
-        <ItemsCarousel props={dairy} />
+        <h2>Your fridgy</h2>
+        {
+          categories.map(category => {
+            return <ItemsCarousel props={this.props.items[category]} />
+          })
+        }
       </div>
     )
   }
@@ -29,7 +29,7 @@ const mapStateToProps = state => {
     //key is your prop name and it's value from global state
     items: state.productReducer.items,
     error: state.productReducer.listError,
-    id: state.authReducer.userInfo.id
+    userId: state.authReducer.userInfo.id
   };
 }
 
