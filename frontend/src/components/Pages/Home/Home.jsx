@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
+import Welcome from './Welcome'
+import What from './What'
+import Who from './Who'
 
 
 class Home extends Component {
@@ -11,12 +14,11 @@ class Home extends Component {
   render() {
 
     return (
-      <div>
-        <h1>Welcome to Fridgy</h1>
-
-        <p>We aim to help reduce food waste and help to be more conscious of the food in your fridge</p>
-
-      </div>
+      <>
+      <Welcome />
+      <What />
+      <Who />
+      </>
     )
   }
 }
