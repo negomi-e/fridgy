@@ -7,7 +7,7 @@ const initialState = {
   items: false,
   listError: false,
   itemsApi: "",
-  searchTags: ['beef', 'egg', 'milk', 'bisquits', 'potato', 'mashrooms'],
+  searchTags: [],
   label: "",
 };
 
@@ -24,8 +24,9 @@ export function productReducer (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload,
+        items: action.items,
         listError: false,
+        searchTags: action.tags
       };
     case LIST_ERROR:
       return {
