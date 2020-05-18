@@ -4,9 +4,9 @@ import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 // import { Icon } from 'react-native-elements'
 import { BsFillCircleFill } from 'react-icons/bs'
-import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
+import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
 import {productImage} from '../../../../../images/banana.jpeg'
-import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk'
+import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
 
 
 import {NavLink} from 'react-router-dom'

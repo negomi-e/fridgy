@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import history from '././history'
 import {
   loadFridge,
-} from '../../../redux/Think/fridgeThunk';
+} from '../../../redux/Thunk/fridgeThunk';
 
 class Home extends Component {
   componentDidMount() {
