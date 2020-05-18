@@ -39,7 +39,7 @@ route.get('/:id', async function(req,res){
 
     
             
-            const categories = {'fruit': fruit, 'meat': meat, 'dairy': dairy}
+            const categories = {'Fruit': fruit, 'Meat': meat, 'Dairy': dairy}
             // await fridgeitems.save()
             res.json(categories);
             }catch(err){

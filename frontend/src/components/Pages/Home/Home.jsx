@@ -22,18 +22,18 @@ class Home extends Component {
   
   render() {
     // console.log('items', this.props.items);
-    const { fruit, meat, dairy } = this.props.items
+    const { Fruit, Meat, Dairy } = this.props.items
     
 
     return (
       <div>
         <h1>YOUR FRIDGE</h1>
 
-        <ItemsCarousel props={fruit} />
+        <ItemsCarousel props={Fruit} />
         <hr />
-        <ItemsCarousel props={meat} />
+        <ItemsCarousel props={Meat} />
         <hr />
-        <ItemsCarousel props={dairy} />
+        <ItemsCarousel props={Dairy} />
 
 
         <button
