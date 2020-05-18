@@ -72,12 +72,12 @@ route.put('/change/:id', async (req,res)=>{
 
 
 //additem to fridge
-route.post('/addFridgeItem', async (req,res)=>{
+route.post('/add', async (req,res)=>{
 
 
     let newitem = await new Product({
         // userID: req.body.userID,
-        label: req.body.item.body,
+        label: req.body.item.label,
         expiryDate: req.body.item.expiryDate,
         category: req.body.item.category,
         dayRemaining: req.body.item.dayRemaining,

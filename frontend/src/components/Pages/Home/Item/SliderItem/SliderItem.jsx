@@ -19,7 +19,7 @@ class SliderItem extends Component {
   render() {
     // console.log(this.props.props);
 
-    const { label, dayRemaining, _id } = this.props.props
+    const { label, dayRemaining, _id, category } = this.props.props
 
 
     let expiryText = '';
