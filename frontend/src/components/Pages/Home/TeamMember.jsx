@@ -10,7 +10,7 @@ class TeamMember extends Component {
     render() {
         return (
             <div className="teamMember">
-                <Image src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" roundedCircle  />
+                <Image src={this.props.props.image} roundedCircle  />
             
                 <h3>{this.props.props.name}</h3>
                 <div className="member-description">

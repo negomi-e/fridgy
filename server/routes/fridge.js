@@ -11,7 +11,8 @@ route.get('/:id', async function(req,res){
             const {id } = req.params
             const fridgeitems = await Product.find({userID: id})
             fridgeitems.sort((a,b) => a.expiryDate - b.expiryDate);
-            const tags = fridgeitems.slice(0,6)
+            const closeToExpire = fridgeitems.slice(0,5)
+            const tags = closeToExpire.map(item => {return item.label})
 
 
         if (fridgeitems.length > 0) {
