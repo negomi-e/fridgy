@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
-import Welcome from './Welcome'
-import What from './What'
-import Who from './Who'
+
+import FrontParallax from './FrontParallax'
 
 class Home extends Component {
   componentDidMount() {
@@ -13,9 +12,8 @@ class Home extends Component {
 
     return (
       <>
-      <Welcome />
-      <What />
-      <Who />
+      <FrontParallax />
+      
       </>
     )
   }
