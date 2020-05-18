@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
-import { loadFridge } from '../../../redux/Think/fridgeThunk';
+import { loadFridge } from '../../../redux/Thunk/fridgeThunk';
 
 class Home extends Component {
   componentDidMount() {

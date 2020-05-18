@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Complete from './Complete.png'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { completeProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk.js.js'
+import { completeProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk.js'
 
 class BtnComplete extends Component {
   CheckProduct = (e) => {
