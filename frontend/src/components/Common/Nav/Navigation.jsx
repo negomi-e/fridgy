@@ -11,6 +11,8 @@ class Navigation extends Component {
     e.preventDefault()
     this.props.logoutAC()
   }
+
+  //Refactor - цвет ссылок 
   render() {
     return (
       <Navbar bg="light" expand="lg">
@@ -22,8 +24,9 @@ class Navigation extends Component {
             {
               this.props.loginStatus
                 ?
-                <><NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
-                <a onClick={this.logout} >Logout</a>
+                <>
+                  <NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                  <a onClick={this.logout} >Logout</a>
                 </>
                 :
                 <NavLink activeClassName={classes.active} to="/login">Login</NavLink>

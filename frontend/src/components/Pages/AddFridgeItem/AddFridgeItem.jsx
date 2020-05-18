@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-// import SelectDate from '../SelectDate';
+import SelectDate from '../SelectDate';
 import { InputGroup, FormControl, Form, Button, Modal } from 'react-bootstrap';
 import '../AddFridgeItem/AddFridgeItem.module.scss';
 
 export default class extends Component {
   state = {
     open: false,
-    isSelectDateOpen: false,
+    // isSelectDateOpen: false,
     label: '',
     expiryDate: new Date(),
     category: 'Other',
     dayRemaining: 1
   }
-
-  setOpen = () => {this.setState({open: !this.state.open})}
+  //Refact - перенести запрос в reduxThunk
+  setOpen = () => { this.setState({ open: !this.state.open }) }
 
   addItem = async () => {
     const item = {
@@ -29,17 +29,17 @@ export default class extends Component {
       },
       body: JSON.stringify(item)
     })
-    this.setState({open: !this.state.open});
+    this.setState({ open: !this.state.open });
   }
 
   onChangeValue = event => {
-    this.setState({label: event.target.value})
+    this.setState({ label: event.target.value })
   }
 
   render() {
     return (
       <>
-        <Button onClick={() => this.setOpen()}>additem</Button>
+        <Button onClick={() => this.setOpen()}>Add item</Button>
         <Modal show={this.state.open} onHide={this.setOpen} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Type data for item</Modal.Title>
@@ -55,6 +55,7 @@ export default class extends Component {
                 <Form.Control as="select" custom>
                   <option>Other</option>
                   <option>Vegetables</option>
+                  <option>Fruit</option>
                   <option>Meat</option>
                   <option>Diary</option>
                 </Form.Control>
@@ -64,7 +65,7 @@ export default class extends Component {
           <Modal.Footer>
           <Button variant='primary' type='submit' value='expireDate'>Not today?</Button>
           <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
-          <SelectDate expiryDate={this.state.expiryDate}/>
+          <SelectDate expiryDate={String(this.state.expiryDate)}/>
           </Modal.Footer>
         </Modal>
       </>

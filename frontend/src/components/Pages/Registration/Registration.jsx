@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import classes from './Registation.module.scss'
 import { connect } from 'react-redux'
-import { thunkRegistration } from '../../../redux/Think/authThink'
+import { thunkRegistration } from '../../../redux/Thunk/authThunk'
 import { changeInputAC } from '../../../redux/Actions/actions'
 
 class Registation extends Component {
