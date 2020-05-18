@@ -12,11 +12,16 @@ import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
+import { AlertSuccess, AlertError } from './components/Common/Push/Alerts.jsx'
 
 function App(props) {
   return (
     <div className="App">
+
       <Container fluid={false}>
+        {/* <AlertSuccess /> */}
+        <AlertError />
+
         <Navigation />
         <PrivateRoute exact path="/">
           <Home history={props.history} />

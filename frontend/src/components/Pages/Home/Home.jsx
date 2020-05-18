@@ -5,23 +5,22 @@ import { loadFridge } from '../../../redux/Thunk/fridgeThunk';
 
 class Home extends Component {
   componentDidMount() {
-    const { id } = this.props
-    this.props.loadFridge(id);
+    const { userId } = this.props
+    this.props.loadFridge(userId);
   }
 
   render() {
 
-    const { Fruit, Meat, Dairy } = this.props.items
-    
+    const categories = Object.keys(this.props.items)
     return (
       <div>
-        <h1>YOUR FRIDGE</h1>
+        <h2>Your fridgy</h2>
+        {
+          categories.map(category => {
+            return <ItemsCarousel props={this.props.items[category]} />
+          })
+        }
 
-        <ItemsCarousel props={Fruit} />
-        <hr />
-        <ItemsCarousel props={Meat} />
-        <hr />
-        <ItemsCarousel props={Dairy} />
       </div>
     )
   }
@@ -32,7 +31,7 @@ const mapStateToProps = state => {
     //key is your prop name and it's value from global state
     items: state.productReducer.items,
     error: state.productReducer.listError,
-    id: state.authReducer.userInfo.id
+    userId: state.authReducer.userInfo.id
   };
 }
 
