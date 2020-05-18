@@ -6,12 +6,12 @@ import RenderRecipePage from './RenderRecipePage';
 class RecipePage extends React.Component {
 
 
-  // async componentDidMount() {
-  //   this.props.loadItems('beef');
-  // }
+  async componentDidMount() {
+    this.props.loadItems(this.props.label);
+  }
 
   render() {
-    console.log(this.props.itemsApi)
+    console.log(this.props.label, 'THIS CONSOLE FOR RECIPE COMPONENT')
 
     return (
       <div>
@@ -29,15 +29,13 @@ class RecipePage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    itemsApi: state.itemsApi,
-    searchTags: state.searchTags
+    itemsApi: state.productReducer.itemsApi,
+    searchTags: state.productReducer.searchTags,
+    label: state.productReducer.label
 
   };
 };
 
-const mapDispatchToProps = {
-  loadItems,
-  takeItems,
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipePage);
+
+export default connect(mapStateToProps, {loadItems, takeItems})(RecipePage);

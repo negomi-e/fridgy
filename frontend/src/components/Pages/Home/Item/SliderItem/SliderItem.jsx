@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 // import { Icon } from 'react-native-elements'
 import { BsFillCircleFill } from 'react-icons/bs'
@@ -7,8 +8,12 @@ import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
 import {productImage} from '../../../../../images/banana.jpeg'
 import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk'
 
+
+import {NavLink} from 'react-router-dom'
+
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
+
 
 class SliderItem extends Component {
   render() {
@@ -38,6 +43,7 @@ class SliderItem extends Component {
 
         return (
             <>
+
                 <Container>
                     <Card>
                         {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
@@ -47,7 +53,8 @@ class SliderItem extends Component {
                                 <Row className="justify-content-md-center" style={{backgroundColor:'black'}}>
                                     <Col xs lg="1" onClick={()=> this.props.deleteItemThunk(_id, category)}><AiOutlineDelete /></Col>
                                     <Col xs lg="1" onClick={() => this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                                    <Col xs lg="1" onClick={() => this.redirectToTarget(label)}><AiOutlinePlus /></Col>
+                                   
+                                    <NavLink to={`/recipes/${label}`}><Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col></NavLink>
                                     <Col xs lg="1" onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}><AiOutlineShoppingCart /></Col>
                                 </Row>
                             </Card.Text>
@@ -56,7 +63,6 @@ class SliderItem extends Component {
                             <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
                         </Card.Footer>
                     </Card>
-
 
 
                 </Container>
@@ -68,20 +74,12 @@ class SliderItem extends Component {
   }
 }
 
-//ACTION FUNCTION NEED TO WRITTEN
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         onDelete: (id) => dispatch(deleteItemThunk(id)),
-//         //         // onEditTask: (id) => dispatch({ type: EDIT_ITEM, elementID: id }),
-//         //         // onAddShopping: (id) => dispatch({ type: ADD_ITEM, elementID: id }),
-//         //         // getRecipes: (id) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),  
-//         // deleteItemThunk
-//     }
-// };
+
 
 export default connect(
   (state) => ({
     userId: state.authReducer.userInfo.id
-  }),
-  { addProductSL_Thunk, deleteItemThunk }
+  }), 
+  { addProductSL_Thunk, deleteItemThunk, getRecipes }
 )(SliderItem);
+

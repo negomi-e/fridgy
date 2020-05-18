@@ -1,4 +1,6 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, DELETE_ITEM  } from '../Actions/action-types';
+
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL ,  DELETE_ITEM} from '../Actions/action-types';
+
 
 const initialState = {
   loading: false,
@@ -6,6 +8,7 @@ const initialState = {
   listError: false,
   itemsApi: "",
   searchTags: ['beef', 'egg', 'milk', 'bisquits', 'potato', 'mashrooms'],
+  label: "",
 };
 
 export function productReducer (state = initialState, action) {
@@ -37,6 +40,13 @@ export function productReducer (state = initialState, action) {
       ...state,
       itemsApi: [newItem]
     }
+
+    case LOAD_LABEL:
+      return {
+        ...state,
+        label: action.payload
+      }
+
     case DELETE_ITEM: 
 
     let cat
@@ -57,6 +67,7 @@ export function productReducer (state = initialState, action) {
       ...state,
       cat: updatedArray
     }
+
     default:
       return state;
   }
