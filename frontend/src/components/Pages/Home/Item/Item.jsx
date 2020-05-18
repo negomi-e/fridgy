@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 import Carousel from 'react-bootstrap/Carousel'
-import sliderimg from '../../../../images/slideblack.png'
-import '../Item/Item.module.scss'
+import sliderimg from '../../../../images/sliderwhite.png'
+import '../Item/Item.css'
 import SliderItem from '../Item/SliderItem/SliderItem'
 
 class Items extends Component {
@@ -16,16 +16,18 @@ class Items extends Component {
         return (
             <Carousel>
                 {items ? items.map(item => (
-                    <Carousel.Item key={item.id}>
+                    <Carousel.Item key={item.id} >
                         <img className="d-block w-100"
                             src={sliderimg}
-                            alt="slide" />
+                            alt="slide" 
+                            />
                         <Carousel.Caption>
                             <SliderItem props={item} />
                         </Carousel.Caption>
                     </Carousel.Item>
                 )) : <Carousel.Item>
                         <img className="d-block w-100"
+                            
                             src={sliderimg}
                             alt="slide" />
                         <Carousel.Caption>
@@ -35,6 +37,7 @@ class Items extends Component {
 
                 {this.props.error && <Carousel.Item>
                     <img className="d-block w-100"
+                        
                         src={sliderimg}
                         alt="slide" />
                     <Carousel.Caption>
