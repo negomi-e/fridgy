@@ -47,19 +47,16 @@ class SliderItem extends Component {
           </div>
           <div className="sliderItem-content">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
-            <div>
+            {/* <div>
               <ul className="sliderItem-list">
                 <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
+                  <p>Lorem ipsum dolor sit amet.</p>
                 </li>
                 <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
+                  <p>Lorem ipsum dolor sit amet.</p>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="sliderItem-status">
               <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
             </div>

@@ -6,7 +6,6 @@
 
 html, body, .container, .App, #root {
   height: 100%;
-
 }
 
 .authPage {
@@ -53,4 +52,15 @@ body{
 
 .carousel-caption {
   color: #000 !important;
+}
+
+
+/* Fonts size */
+
+p, span {
+  font-size: 16px;
+}
+
+.card-title{
+  font-size: 58px;
 }
