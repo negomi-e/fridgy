@@ -6,6 +6,7 @@ import '../AddFridgeItem/AddFridgeItem.module.scss';
 export default class extends Component {
   state = {
     open: false,
+    isSelectDateOpen: false,
     label: '',
     expiryDate: new Date(),
     category: 'Other',
@@ -46,12 +47,8 @@ export default class extends Component {
           <Modal.Body>
             Item
             <InputGroup size="lg">
-              {/* <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg">Item1</InputGroup.Text>
-              </InputGroup.Prepend> */}
               <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" onChange={this.onChangeValue} value={this.state.label} />
             </InputGroup>
-            
             <Form>
               <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>Category</Form.Label>
@@ -67,7 +64,7 @@ export default class extends Component {
           <Modal.Footer>
           <Button variant='primary' type='submit' value='expireDate'>Not today?</Button>
           <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
-        {/* <SelectDate /> */}
+          <SelectDate expiryDate={this.state.expiryDate}/>
           </Modal.Footer>
         </Modal>
       </>

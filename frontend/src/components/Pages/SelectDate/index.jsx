@@ -42,6 +42,7 @@ export default class extends React.Component {
     return (
       <div className={style.selectDate}>
         <h1>
+          {this.props.expiryDate}
           {this.state.year} . {this.state.month} . {this.state.day}
         </h1>
         <p>
