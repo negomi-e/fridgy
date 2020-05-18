@@ -76,8 +76,11 @@ route.post('/addFridgeItem', async (req,res)=>{
 
 
     let newitem = await new Product({
-        userID: req.body.userID,
-        label: req.body.label
+        // userID: req.body.userID,
+        label: req.body.item.body,
+        expiryDate: req.body.item.expiryDate,
+        category: req.body.item.category,
+        dayRemaining: req.body.item.dayRemaining,
     })
 
     await newitem.save()
