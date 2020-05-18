@@ -39,7 +39,7 @@ route.get('/:id', async function(req,res){
 
     
             
-            const categories = {'fruit': fruit, 'meat': meat, 'dairy': dairy}
+            const categories = {'Fruit': fruit, 'Meat': meat, 'Dairy': dairy}
             // await fridgeitems.save()
             res.json(categories);
             }catch(err){
@@ -72,12 +72,12 @@ route.put('/change/:id', async (req,res)=>{
 
 
 //additem to fridge
-route.post('/addFridgeItem', async (req,res)=>{
+route.post('/add', async (req,res)=>{
 
 
     let newitem = await new Product({
-        // userID: req.body.userID,
-        label: req.body.item.body,
+        userID: req.body.userID,
+        label: req.body.item.label,
         expiryDate: req.body.item.expiryDate,
         category: req.body.item.category,
         dayRemaining: req.body.item.dayRemaining,

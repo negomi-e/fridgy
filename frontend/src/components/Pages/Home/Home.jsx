@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
-import { loadFridge } from '../../../redux/Think/fridgeThunk';
+import { loadFridge } from '../../../redux/Thunk/fridgeThunk';
 
 class Home extends Component {
   componentDidMount() {
@@ -10,6 +10,7 @@ class Home extends Component {
   }
 
   render() {
+
     const categories = Object.keys(this.props.items)
     return (
       <div>
@@ -19,6 +20,7 @@ class Home extends Component {
             return <ItemsCarousel props={this.props.items[category]} />
           })
         }
+
       </div>
     )
   }

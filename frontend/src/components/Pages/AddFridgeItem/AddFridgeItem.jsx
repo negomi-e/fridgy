@@ -38,7 +38,7 @@ export default class extends Component {
   render() {
     return (
       <>
-        <Button onClick={() => this.setOpen()}>additem</Button>
+        <Button onClick={() => this.setOpen()}>Add item</Button>
         <Modal show={this.state.open} onHide={this.setOpen} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Type data for item</Modal.Title>
@@ -55,6 +55,7 @@ export default class extends Component {
                 <Form.Control as="select" custom>
                   <option>Other</option>
                   <option>Vegetables</option>
+                  <option>Fruit</option>
                   <option>Meat</option>
                   <option>Diary</option>
                 </Form.Control>

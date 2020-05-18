@@ -48,24 +48,11 @@ export function productReducer (state = initialState, action) {
       }
 
     case DELETE_ITEM: 
-
-    let cat
-    if(action.category === 'Meat'){
-      cat = 'meat'
-    }else if(action.category === 'Dairy'){
-      cat = 'dairy'
-    }else if(action.category === 'Fruit'){
-      cat = 'fruit'
-    }
+    const  updatedArray = state.items[action.category].filter(result=> result._id !== action.elementID? result: false);
   
-   
-    console.log(state.items[cat])
-
-    const  updatedArray = state.items[cat].filter(result=> result.id !== action.elementID);
-    console.log(updatedArray)
     return {
       ...state,
-      cat: updatedArray
+      items: {...state.items, [action.category]: updatedArray}
     }
 
     default:
