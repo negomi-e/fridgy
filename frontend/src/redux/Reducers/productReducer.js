@@ -59,12 +59,10 @@ export function productReducer (state = initialState, action) {
     // }
   
    
-    console.log(state.items[action.category])
+    // console.log('this is the category we want to edit', state.items[action.category])
 
-    const  updatedArray = state.items[action.category].filter(result=> result.id !== action.elementID? result: false);
-  
+    const  updatedArray = state.items[action.category].filter(result=> result._id !== action.elementID);
     
-    console.log(updatedArray)
     return {
       ...state,
       items: {...state.items, [action.category]: updatedArray}
