@@ -4,8 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index.js')
 const fridgeRouter = require('./routes/fridge');
-const shoppingListRouter = require('./routes/shoppinglist');
-
+const shoppingListRouter = require('./routes/shopping-list');
 
 require('dotenv').config()
 const logger = require('morgan');
@@ -34,7 +33,7 @@ app.get('/', function (req, res) {
 //ROUTER
 app.use('/', indexRouter)
 app.use('/fridge', fridgeRouter);
-app.use('/shoppinglist', shoppingListRouter);
+app.use('/shopping-list', shoppingListRouter);
 app.use('/auth', authRouter);
 
 

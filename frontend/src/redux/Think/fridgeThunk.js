@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { listLoading, listLoaded,listError, deleteItem  } from '../Actions/fridge-actions'
 export const loadFridge = (id) => async (dispatch) => {
             dispatch(listLoading());
@@ -31,3 +32,21 @@ export const deleteItemThunk = (id, category) => async (dispatch) =>{
   }
 }
     
+=======
+import { listLoading, listLoaded, listError } from '../Actions/fridge-actions'
+export const loadFridge = (id) => async (dispatch) => {
+  dispatch(listLoading());
+  //   console.log('current state:', getState());
+
+  try {
+    let request = await fetch(`/fridge/${id}`)
+    let response = await request.json()
+    // console.log('HERE IS THE DATA AFTER POST', response);
+    dispatch(listLoaded(response))
+  } catch (err) {
+    dispatch(listError(err.message));
+  }
+}
+
+
+>>>>>>> ab850a89f89dad043111499c31f46ff07e387f5b

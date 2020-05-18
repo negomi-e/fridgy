@@ -19,7 +19,7 @@ function App(props) {
       <Container fluid={false}>
         <Navigation />
         <PrivateRoute exact path="/">
-          <Home history={props.history}/>
+          <Home history={props.history} />
         </PrivateRoute>
         <Route path="/registration">
           <Registeration history={props.history} />
@@ -27,14 +27,19 @@ function App(props) {
         <Route path="/login">
           <Login history={props.history} />
         </Route>
-        <Route path="/shoppingList">
-          <ShoppingList  />
-        </Route>
+        <PrivateRoute path="/shoppingList">
+          <ShoppingList />
+        </PrivateRoute>
         <Route path="/addFridgeItem">
           <AddFridgeItem />
         </Route>
+<<<<<<< HEAD
         <Route path="/recipes/:label">
           <RecipePage history={props.history}/>
+=======
+        <Route path="/recipes/:id">
+          <RecipePage history={props.history} />
+>>>>>>> ab850a89f89dad043111499c31f46ff07e387f5b
         </Route>
       </Container>
     </div>
