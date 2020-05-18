@@ -1,60 +1,25 @@
 import React, { Component } from 'react'
-import ItemsCarousel from './Item/Item'
+
 import { connect } from 'react-redux';
-// import { useHistory } from "react-router-dom";
-// import history from '././history'
-import {
-  loadFridge,
-} from '../../../redux/Think/fridgeThunk';
+
 
 class Home extends Component {
   componentDidMount() {
-    const { id } = this.props
-    // console.log(email);
-
-    this.props.loadFridge(id);
 
   }
 
-  redirectToTarget = () => {
-    this.props.history.push(`/addFridgeItem`)
-  }
-  
   render() {
-    // console.log('items', this.props.items);
-    const { Fruit, Meat, Dairy } = this.props.items
-    
 
     return (
       <div>
-        <h1>YOUR FRIDGE</h1>
+        <h1>Welcome to Fridgy</h1>
 
-        <ItemsCarousel props={Fruit} />
-        <hr />
-        <ItemsCarousel props={Meat} />
-        <hr />
-        <ItemsCarousel props={Dairy} />
-
-
-        <button
-          onClick={this.redirectToTarget}
-        >Add item to fridge</button>
+        <p>We aim to help reduce food waste and help to be more conscious of the food in your fridge</p>
 
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    //key is your prop name and it's value from global state
-    items: state.productReducer.items,
-    error: state.productReducer.listError,
-    id: state.authReducer.userInfo.id
-  };
-}
 
-
-export default connect(mapStateToProps, { loadFridge, })(Home);
-
-
+export default connect()(Home);

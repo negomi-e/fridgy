@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { deleteProductSL_Thunk } from '../../../../redux/Think/shoppingListThunk.js'
+import { deleteProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk.js'
 
 
 class BtnDelete extends Component {

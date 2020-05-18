@@ -4,11 +4,12 @@ import Container from 'react-bootstrap/Container'
 import { Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 
-import Home from './components/Pages/Home/Home.jsx'
+import Fridge from './components/Pages/Fridge/Fridge'
 import ShoppingList from './components/Pages/ShoppingList/ShoppingList.jsx'
 import AddFridgeItem from './components/Pages/AddFridgeItem/AddFridgeItem.jsx'
 import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 
+import Home from './components/Pages/Home/Home'
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
@@ -18,24 +19,27 @@ function App(props) {
     <div className="App">
       <Container fluid={false}>
         <Navigation />
-        <PrivateRoute exact path="/">
-          <Home history={props.history} />
+        <Route>
+          <Home exact path="/home" />
+        </Route>
+        <PrivateRoute exact path="/fridge">
+          <Fridge history={props.history} />
         </PrivateRoute>
-        <Route path="/registration">
+        <Route exact path="/registration">
           <Registeration history={props.history} />
         </Route>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login history={props.history} />
         </Route>
-        <PrivateRoute path="/shoppingList">
+        <PrivateRoute exact path="/shoppingList">
           <ShoppingList />
         </PrivateRoute>
-        <Route path="/addFridgeItem">
+        <PrivateRoute exact path="/addFridgeItem">
           <AddFridgeItem />
-        </Route>
-        <Route path="/recipes/:label">
+        </PrivateRoute>
+        <PrivateRoute path="/recipes/:label">
           <RecipePage history={props.history} />
-        </Route>
+        </PrivateRoute>
       </Container>
     </div>
   );

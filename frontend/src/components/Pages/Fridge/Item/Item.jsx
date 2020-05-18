@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Carousel from 'react-bootstrap/Carousel'
 import sliderimg from '../../../../images/sliderwhite.png'
-import '../Item/Item.css'
-import SliderItem from '../Item/SliderItem/SliderItem'
+import './Item.css'
+import SliderItem from './SliderItem/SliderItem'
 
 class Items extends Component {
 
