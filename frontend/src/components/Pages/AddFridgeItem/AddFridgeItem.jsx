@@ -8,7 +8,7 @@ const now = new Date();
 export default class extends Component {
   state = {
     open: false,
-    // isSelectDateOpen: false,
+    isSelectDateOpen: false,
     label: '',
     expiryDate: now,
     category: 'Other',
@@ -38,7 +38,7 @@ export default class extends Component {
       },
       body: JSON.stringify(item)
     })
-    this.setState({ open: !this.state.open });
+    this.setState({ open: !this.state.open, label: '', expiryDate: now, category: 'Other', dayRemaining: 0, isSelectDateOpen: false });
   }
 
   onChangeValue = event => {
