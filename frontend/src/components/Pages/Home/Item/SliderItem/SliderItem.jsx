@@ -64,8 +64,6 @@ class SliderItem extends Component {
                 <AiOutlineShoppingCart />
               </a>
             </div>
-
-
           </div>
 
         </Card>
