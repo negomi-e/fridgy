@@ -67,7 +67,7 @@ export function productReducer (state = initialState, action) {
     console.log(updatedArray)
     return {
       ...state,
-      // items: 
+      items: {...state.items, [action.category]: updatedArray}
     }
 
     default:
