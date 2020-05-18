@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SelectDate from '../SelectDate';
-import { InputGroup, FormControl, Form, Button, Modal } from 'react-bootstrap';
+import { InputGroup, FormControl, Form, Button, Modal, Collapse } from 'react-bootstrap';
 import '../AddFridgeItem/AddFridgeItem.module.scss';
 
 const now = new Date();
@@ -18,7 +18,9 @@ export default class extends Component {
     day: String(now.getDate()),
   }
   //Refact - перенести запрос в reduxThunk
-  setOpen = () => { this.setState({ open: !this.state.open }) }
+  setOpen = () => { this.setState({ open: !this.state.open }) };
+
+  setOpenCalendar = () => { this.setState({ isSelectDateOpen: !this.state.isSelectDateOpen }) };
 
   addItem = async () => {
     const timeDiff = Math.abs(new Date(this.state.year, this.state.month - 1, this.state.day) - now);
@@ -30,13 +32,12 @@ export default class extends Component {
       category: this.state.category,
       dayRemaining: this.state.dayRemaining,
     }
-    console.log(timeDiff, diffDays, item);
     await fetch('/fridge/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify(item)
+      body: JSON.stringify(item),
     })
     this.setState({ open: !this.state.open, label: '', expiryDate: now, category: 'Other', dayRemaining: 0, isSelectDateOpen: false });
   }
@@ -85,14 +86,18 @@ export default class extends Component {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant='outline-primary' type='submit' value='expireDate'>{this.state.year}.{this.state.month}.{this.state.day}</Button>
+            <Button variant='outline-primary' onClick={this.setOpenCalendar} aria-controls="example-collapse-text" aria-expanded={this.state.isSelectDateOpen} type='submit' value='expireDate'>Expiry Date: {this.state.year}.{this.state.month}.{this.state.day}</Button>
             <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
-            <SelectDate
-              state={String(this.state)}
-              changeExpireYear={this.changeExpireYear}
-              changeExpireMonth={this.changeExpireMonth}
-              changeExpireDay={this.changeExpireDay}
-            />
+            <Collapse in={this.state.isSelectDateOpen}>
+              <div id="example-collapse-text">
+              <SelectDate
+                state={String(this.state)}
+                changeExpireYear={this.changeExpireYear}
+                changeExpireMonth={this.changeExpireMonth}
+                changeExpireDay={this.changeExpireDay}
+              />
+              </div>
+            </Collapse>
           </Modal.Footer>
         </Modal>
       </>
