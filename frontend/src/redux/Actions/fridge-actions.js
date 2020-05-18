@@ -1,5 +1,5 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL , DELETE_ITEM} from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM } from './action-types';
 
 
 export function listLoading() {
@@ -41,7 +41,8 @@ export const loadItems = (search) => {
     })
     let json = await response.json();
     let { feed } = json
-    await dispatch(takeItems(feed))
+    dispatch(takeItems(feed))
+    
   }
 }
 

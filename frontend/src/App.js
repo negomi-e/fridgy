@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container'
 import { Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
+import { alertErrorAC, alertSuccesAC } from "./redux/Actions/actions"
 
 import Home from './components/Pages/Home/Home.jsx'
 import ShoppingList from './components/Pages/ShoppingList/ShoppingList.jsx'
@@ -12,15 +13,34 @@ import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
-import { AlertSuccess, AlertError } from './components/Common/Push/Alerts.jsx'
+import { AlertSuccess, AlertError } from './components/Common/Alerts/Alerts.jsx'
+import { connect } from 'react-redux';
 
 function App(props) {
+
+  useEffect(() => {
+    if (props.alertSuccess) {
+      setTimeout(() => {
+        props.alertSuccesAC()
+      }, 2000)
+    }
+    if (props.alertError) {
+      setTimeout(() => {
+        props.alertErrorAC()
+      }, 2000)
+    }
+  })
+  console.log()
   return (
     <div className="App">
 
       <Container fluid={false}>
-        {/* <AlertSuccess /> */}
-        <AlertError />
+        {
+          props.alertSuccess ? <AlertSuccess /> : null
+        }
+        {
+          props.alertError ? <AlertError /> : null
+        }
 
         <Navigation />
         <PrivateRoute exact path="/">
@@ -46,4 +66,10 @@ function App(props) {
   );
 }
 
-export default withRouter(App)
+export default connect(
+  (state) => ({
+    alertSuccess: state.shoppingListReducer.successAlert,
+    alertError: state.shoppingListReducer.errorAlert
+  }),
+  { alertSuccesAC, alertErrorAC }
+)(withRouter(App))

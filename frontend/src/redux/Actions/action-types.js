@@ -20,4 +20,6 @@ export const COMPLETE_PRODUCT_SL = 'COMPLETE_PRODUCT_SL';
 export const SET_PRODUCT_SL = 'SET_PRODUCT_SL';
 export const CHANGE_INPUT_SL = 'CHANGE_INPUT_SL';
 
-
+//ALERTS
+export const ALERT_SUCCESS = 'ALERT_SUCCESS';
+export const ALERT_ERROR = 'ALERT_ERROR';

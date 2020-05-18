@@ -1,6 +1,6 @@
 import {
   LOGIN_SUCCESS, LOGOUT,
-  ERROR, CHANGE_INPUT,
+  ERROR, CHANGE_INPUT, ALERT_ERROR, ALERT_SUCCESS
 } from './action-types'
 
 
@@ -36,4 +36,17 @@ export function errorAC(status, message) {
   }
 }
 
+export function alertSuccesAC(message) {
+  return {
+    type: ALERT_SUCCESS,
+    message
+  }
+}
+
+export function alertErrorAC(message) {
+  return {
+    type: ALERT_ERROR,
+    message
+  }
+}
 

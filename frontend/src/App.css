@@ -3,6 +3,12 @@
   margin: 0 auto;
   text-align: center;
 }
+.preloaderWrap {
+  padding: 20px;
+}
+.preloaderWrap img {
+  height: 30px;
+}
 
 html, body, .container, .App, #root {
   height: 100%;
@@ -26,6 +32,9 @@ html, body, .container, .App, #root {
 body{
   color: #000 !important;
   background-color: #fff;
+}
+
+.container {
   position: relative;
 }
 
