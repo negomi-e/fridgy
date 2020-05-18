@@ -5,11 +5,8 @@ import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } fro
 import { BsFillCircleFill } from 'react-icons/bs'
 import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
 import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk'
-
-
 import { NavLink } from 'react-router-dom'
-
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 
 
@@ -44,20 +41,33 @@ class SliderItem extends Component {
 
         <Card>
           {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
-          <Card.Body>
+          <div className="sliderItem-title">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
-            <Card.Text>
-              <Row className="justify-content-md-center" style={{ backgroundColor: 'black' }}>
-                <Col xs lg="1" onClick={() => this.props.deleteItemThunk(_id, category)}><AiOutlineDelete /></Col>
-                <Col xs lg="1" onClick={() => this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                <NavLink to={`/recipes/${label}`}><Col xs lg="1" onClick={() => this.props.getRecipes(label)}><AiOutlinePlus /></Col></NavLink>
-                <Col xs lg="1" onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}><AiOutlineShoppingCart /></Col>
-              </Row>
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
-          </Card.Footer>
+            <div className="sliderItem-content">
+              <div className="sliderItem-status">
+                <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
+              </div>
+            </div>
+          </div>
+          <div className="wrapSliderItem-control">
+            <div className="sliderItem-control">
+              <a onClick={() => this.props.deleteItemThunk(_id, category)} variant="light">
+                <AiOutlineDelete />
+              </a>
+              <a onClick={() => this.props.onEditTask(_id)}>
+                <AiFillEdit />
+              </a>
+              <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
+                <AiOutlinePlus />
+              </NavLink>
+              <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
+                <AiOutlineShoppingCart />
+              </a>
+            </div>
+
+
+          </div>
+
         </Card>
 
       </>

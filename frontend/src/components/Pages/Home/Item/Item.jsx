@@ -13,7 +13,7 @@ class Items extends Component {
     // console.log(items)
 
     return (
-      <Carousel>
+      <Carousel interval={null} controls={false} fade={true} touch={true}>
         {items ? items.map(item => (
           <Carousel.Item key={item._id} >
             <img className="d-block w-100" src={sliderimg} />
