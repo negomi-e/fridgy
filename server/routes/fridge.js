@@ -11,7 +11,8 @@ route.get('/:id', async function(req,res){
             const {id } = req.params
             const fridgeitems = await Product.find({userID: id})
             fridgeitems.sort((a,b) => a.expiryDate - b.expiryDate);
-
+            const closeToExpire = fridgeitems.slice(0,5)
+            const tags = closeToExpire.map(item => {return item.label})
 
 
         if (fridgeitems.length > 0) {
@@ -41,7 +42,7 @@ route.get('/:id', async function(req,res){
             
             const categories = {'Fruit': fruit, 'Meat': meat, 'Dairy': dairy}
             // await fridgeitems.save()
-            res.json(categories);
+            res.json({list: categories, tags: tags});
             }catch(err){
             res.send(404).text('No items')
             }

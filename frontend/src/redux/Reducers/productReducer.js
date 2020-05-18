@@ -7,7 +7,7 @@ const initialState = {
   items: false,
   listError: false,
   itemsApi: "",
-  searchTags: ['beef', 'egg', 'milk', 'bisquits', 'potato', 'mashrooms'],
+  searchTags: [],
   label: "",
 };
 
@@ -24,8 +24,9 @@ export function productReducer (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload,
+        items: action.items,
         listError: false,
+        searchTags: action.tags
       };
     case LIST_ERROR:
       return {
@@ -48,23 +49,8 @@ export function productReducer (state = initialState, action) {
       }
 
     case DELETE_ITEM: 
-
-    // let cat
-    // if(action.category === 'Meat'){
-    //   cat = 'meat'
-    // }else if(action.category === 'Dairy'){
-    //   cat = 'dairy'
-    // }else if(action.category === 'Fruit'){
-    //   cat = 'fruit'
-    // }
+    const  updatedArray = state.items[action.category].filter(result=> result._id !== action.elementID? result: false);
   
-   
-    console.log(state.items[action.category])
-
-    const  updatedArray = state.items[action.category].filter(result=> result.id !== action.elementID? result: false);
-  
-    
-    console.log(updatedArray)
     return {
       ...state,
       items: {...state.items, [action.category]: updatedArray}
