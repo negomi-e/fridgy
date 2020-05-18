@@ -11,8 +11,8 @@ export default class extends Component {
     category: 'Other',
     dayRemaining: 1
   }
-
-  setOpen = () => {this.setState({open: !this.state.open})}
+  //Refact - перенести запрос в reduxThunk
+  setOpen = () => { this.setState({ open: !this.state.open }) }
 
   addItem = async () => {
     const item = {
@@ -28,11 +28,11 @@ export default class extends Component {
       },
       body: JSON.stringify(item)
     })
-    this.setState({open: !this.state.open});
+    this.setState({ open: !this.state.open });
   }
 
   onChangeValue = event => {
-    this.setState({label: event.target.value})
+    this.setState({ label: event.target.value })
   }
 
   render() {
@@ -46,12 +46,9 @@ export default class extends Component {
           <Modal.Body>
             Item
             <InputGroup size="lg">
-              {/* <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-lg">Item1</InputGroup.Text>
-              </InputGroup.Prepend> */}
               <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" onChange={this.onChangeValue} value={this.state.label} />
             </InputGroup>
-            
+
             <Form>
               <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>Category</Form.Label>
@@ -66,9 +63,9 @@ export default class extends Component {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-          <Button variant='primary' type='submit' value='expireDate'>Not today?</Button>
-          <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
-        {/* <SelectDate /> */}
+            <Button variant='primary' type='submit' value='expireDate'>Not today?</Button>
+            <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
+            {/* <SelectDate /> */}
           </Modal.Footer>
         </Modal>
       </>

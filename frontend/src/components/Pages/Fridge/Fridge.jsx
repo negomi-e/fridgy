@@ -35,11 +35,6 @@ class Fridge extends Component {
         <hr />
         <ItemsCarousel props={Dairy} />
 
-
-        <button
-          onClick={this.redirectToTarget}
-        >Add item to fridge</button>
-
       </div>
     )
   }

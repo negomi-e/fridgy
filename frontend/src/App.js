@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container'
-import { Route, withRouter } from "react-router-dom"
+import { Switch, Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 
 import Fridge from './components/Pages/Fridge/Fridge'
@@ -18,28 +18,32 @@ function App(props) {
   return (
     <div className="App">
       <Container fluid={false}>
+        
         <Navigation />
-        <Route>
-          <Home exact path="/home" />
-        </Route>
-        <PrivateRoute exact path="/fridge">
-          <Fridge history={props.history} />
-        </PrivateRoute>
-        <Route exact path="/registration">
+        <Switch>
+        <Route path="/registration">
           <Registeration history={props.history} />
         </Route>
-        <Route exact path="/login">
+        <Route path="/login">
           <Login history={props.history} />
         </Route>
-        <PrivateRoute exact path="/shoppingList">
+        <Route path="/home">
+          <Home />
+        </Route>
+
+        <PrivateRoute exact path="/">
+          <Fridge history={props.history} />
+        </PrivateRoute>
+        <PrivateRoute path="/shoppingList">
           <ShoppingList />
         </PrivateRoute>
-        <PrivateRoute exact path="/addFridgeItem">
+        <PrivateRoute path="/addFridgeItem">
           <AddFridgeItem />
         </PrivateRoute>
         <PrivateRoute path="/recipes/:label">
           <RecipePage history={props.history} />
         </PrivateRoute>
+        </Switch>
       </Container>
     </div>
   );
