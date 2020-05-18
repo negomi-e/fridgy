@@ -1,4 +1,6 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS } from './action-types';
+
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL , DELETE_ITEM} from './action-types';
+
 
 export function listLoading() {
   return {
@@ -17,6 +19,14 @@ export function listError(err) {
   return {
     type: LIST_ERROR,
     payload: err,
+  };
+}
+
+export function deleteItem(id, category) {
+  return {
+    type: DELETE_ITEM,
+    elementID: id,
+    category: category
   };
 }
 
@@ -39,5 +49,12 @@ export const takeItems = (items) => {
   return {
     type: LOAD_ITEMS,
     payload: items
+  }
+}
+
+export const getRecipes = (item) => {
+  return {
+    type: LOAD_LABEL,
+    payload: item
   }
 }

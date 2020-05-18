@@ -23,3 +23,27 @@ html, body, .container, .App, #root {
 }
 
 
+body{
+  color: #000 !important;
+}
+
+.btn-img {
+  height: 20px;
+}
+
+.complete {
+  transition: 0.5 ease-in-out all;
+  background-color: rgba(38, 243, 127, 0.158);
+}
+
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controlBlock_SL * {
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}

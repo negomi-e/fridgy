@@ -1,0 +1,22 @@
+img{
+    height:200px;
+}
+.Carousel{
+    width:300px;
+    height: 200px
+}
+
+.carousel-indicators li{
+    background-color: grey;
+    /* width: auto; */
+}
+
+.carousel-control-next-icon{
+    background-color: grey;
+    border-radius: 25%;
+}
+
+.carousel-control-prev-icon{
+    background-color: grey;
+    border-radius: 25%;
+}

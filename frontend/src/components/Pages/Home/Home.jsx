@@ -14,26 +14,30 @@ class Home extends Component {
 
     this.props.loadFridge(id);
 
+  }
 
-}
+  redirectToTarget = () => {
+    this.props.history.push(`/addFridgeItem`)
+  }
+  
   render() {
     // console.log('items', this.props.items);
-    const {fruit, meat, dairy} = this.props.items
-    const history =  this.props
+    const { fruit, meat, dairy } = this.props.items
     
+
     return (
       <div>
         <h1>YOUR FRIDGE</h1>
 
         <ItemsCarousel props={fruit} />
         <hr />
-        <ItemsCarousel props={meat}/>
+        <ItemsCarousel props={meat} />
         <hr />
-        <ItemsCarousel props={dairy}/>
-        
+        <ItemsCarousel props={dairy} />
 
-        <button 
-        onClick={() => history.push('/addFridgeItem')}
+
+        <button
+          onClick={this.redirectToTarget}
         >Add item to fridge</button>
 
       </div>
@@ -43,10 +47,10 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-      //key is your prop name and it's value from global state
-      items: state.productReducer.items,
-      error: state.productReducer.listError,
-      id: state.authReducer.userInfo.id
+    //key is your prop name and it's value from global state
+    items: state.productReducer.items,
+    error: state.productReducer.listError,
+    id: state.authReducer.userInfo.id
   };
 }
 

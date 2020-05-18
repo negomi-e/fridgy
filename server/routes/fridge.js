@@ -2,13 +2,6 @@ const express = require('express')
 const route = express.Router()
 const Product = require('../models/products')
 
-//MAIN PAGE
-
-//1. render main fridge
-//2. delete expired product from fridge
-//3. add product to fridge
-//4. 
-
 route.get('/:id', async function(req,res){
         // return res.json('i am here finding lists');
         
@@ -17,6 +10,7 @@ route.get('/:id', async function(req,res){
             
             const {id } = req.params
             const fridgeitems = await Product.find({userID: id})
+            fridgeitems.sort((a,b) => a.expiryDate - b.expiryDate);
 
 
 
@@ -52,20 +46,16 @@ route.get('/:id', async function(req,res){
             res.send(404).text('No items')
             }
     })
+
+//delete item from fridge
+route.delete('/delete/:id', async (req,res)=>{
     
-
-//toggle to shopping list cart
-route.put('/shoppinglist/:id', async (req,res)=>{
-    try{
-            let item = await Product.findbyId({'_id':req.params.id})
-            item.shoppinglist = !item.shoppinglist
-            await item.save()
-            res.json()
-    }catch(err){
-        res.send(404).text('Cant toggle')
-        }
+    await Product.findOneAndDelete({'_id': req.params.id});
+    const fridgeitems = await Product.find()
+    console.log(fridgeitems)
+    res.json({success: true})
 })
-
+    
 //edit item info
 route.put('/change/:id', async (req,res)=>{
     try{
@@ -82,7 +72,7 @@ route.put('/change/:id', async (req,res)=>{
 
 
 //additem to fridge
-route.post('/add', async (req,res)=>{
+route.post('/addFridgeItem', async (req,res)=>{
 
 
     let newitem = await new Product({
@@ -98,10 +88,22 @@ route.post('/add', async (req,res)=>{
 })
 
 
-//delete item from fridge
-route.delete('/delete/:id', async (req,res)=>{
-    await Product.deleteOne({'_id': req.params.id});
-    res.json()
-})
+//add item from fridge to shopping list
+//const Shopping = require('../models/shopping')
+// route.post('/addshoppinglist/:id', async (req,res)=>{
+//     let item = await Product.findbyId({'_id':req.params.id})
+
+
+//     let newshoppingitem = await new Shopping({
+//         userID: item.userID,
+//         label: item.label,
+//         categories: item.label
+//     })
+
+//     await newshoppingitem.save()
+//     res.json()
+// })
+
+
 
 module.exports = route

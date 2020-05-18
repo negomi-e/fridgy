@@ -1,12 +1,48 @@
 import React, { Component } from 'react'
 import '../ShoppingList/ShoppingList.module.scss'
+import { connect } from 'react-redux'
+import ProductSL from './ProductSL/ProductSL.jsx'
+import { ListGroup } from 'react-bootstrap'
+import Form from './ControlElements/Form'
+import { setProductSL_Thunk } from '../../../redux/Think/shoppingListThunk'
 
-export default class ShoppingList extends Component {
+
+
+class ShoppingList extends Component {
+  componentDidMount = () => {
+    this.props.setProductSL_Thunk(this.props.userId)
+  }
+  // componentDidUpdate = () => {
+  //   this.props.setProductSL_Thunk()
+  // }
+
+
   render() {
+    const { products } = this.props
     return (
-      <div>
-        <h1>Here is your shopping list</h1>
-      </div>
+      <section>
+        <h2>Shopping list</h2>
+        <ListGroup variant="flush">
+          <div>
+            <Form></Form>
+          </div>
+          {
+
+            products.map(product => {
+              return <ProductSL key={product._id} {...product} />
+            })
+            // < span > Not found products</span>
+          }
+
+        </ListGroup>
+      </section >
     )
   }
 }
+
+export default connect(
+  (state) => ({
+    products: state.shoppingListReducer.products,
+    userId: state.authReducer.userInfo.id
+  }),
+  { setProductSL_Thunk })(ShoppingList)
