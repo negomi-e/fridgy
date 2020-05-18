@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 // import { Icon } from 'react-native-elements'
 import {BsFillCircleFill} from 'react-icons/bs'
+
+import {NavLink} from 'react-router-dom'
 
 import { Container, Row, Col } from 'react-bootstrap';
 import '../SliderItem/SliderItem.module.scss'
@@ -37,12 +40,12 @@ class SliderItem extends Component {
             <>
             <Container>
                 <h3>{label}</h3>
-                <p><BsFillCircleFill color={toggleColor} />  {expiryText}</p>
+                <p><BsFillCircleFill color={toggleColor} />{expiryText}</p>
                 
                     <Row className="justify-content-md-center">
                         <Col xs lg="1" onClick={() => this.props.onDeleteTask(_id)}><AiOutlineDelete /></Col>
                         <Col xs lg="1" onClick={()=>this.props.onEditTask(_id)}><AiFillEdit /></Col>
-                        <Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col>
+                        <NavLink to={`/recipes/${label}`}><Col xs lg="1" onClick={()=>this.props.getRecipes(label)}><AiOutlinePlus /></Col></NavLink>
                         <Col xs lg="1" onClick={()=>this.props.onAddShopping(_id)}><AiOutlineShoppingCart /></Col>
                     </Row>
                 </Container>
@@ -52,14 +55,20 @@ class SliderItem extends Component {
     }
 }
 
-//ACTION FUNCTION NEED TO WRITTEN
+// ACTION FUNCTION NEED TO WRITTEN
 // const mapDispatchToProps = dispatch => {
 //     return {
-//         onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
-//         onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
-//         onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
-//         getRecipes: (id) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),
+//         // onDeleteTask: (id) => dispatch({ type: DELETE_ITEM, elementID: id }),
+//         // onEditTask: (id) => dispatch({ type: actionTypes.EDIT_ITEM, elementID: id }),
+//         // onAddShopping: (id) => dispatch({ type: actionTypes.ADD_ITEM, elementID: id }),
+//         getRecipes: (label) => dispatch({ type: actionTypes.FIND_RECIPES, elementID: id }),
 //     }
 // };
 
-export default connect()(SliderItem);
+const mapDispatchToProps = {
+  getRecipes,
+}
+
+
+
+export default connect(null,mapDispatchToProps)(SliderItem);

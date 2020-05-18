@@ -1,4 +1,4 @@
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS } from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL } from './action-types';
 
 export function listLoading() {
   return {
@@ -39,5 +39,12 @@ export const takeItems = (items) => {
   return {
     type: LOAD_ITEMS,
     payload: items
+  }
+}
+
+export const getRecipes = (item) => {
+  return {
+    type: LOAD_LABEL,
+    payload: item
   }
 }
