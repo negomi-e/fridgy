@@ -5,6 +5,7 @@ import TeamMember from './TeamMember';
 import dimaimg from '../../../images/dima.png'
 import kostyaimg from '../../../images/kostya.jpg'
 import imogenimg from '../../../images/imogen.png'
+import alexeyimg from '../../../images/alexey.png'
 
 const test = 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
 
@@ -14,7 +15,7 @@ class Who extends Component {
   state = {
     Imogen: { name: 'Imogen', job: 'Web Developer', image: imogenimg, twitter: '', github: '' },
     Dima: { name: 'Dima', job: 'Web Developer', image: dimaimg, twitter: '', github: '' },
-    Alexey: { name: 'Alexey', job: 'Web Developer', image: test, twitter: '', github: '' },
+    Alexey: { name: 'Alexey', job: 'Web Developer', image: alexeyimg, twitter: '', github: '' },
     Kostya: { name: 'Kostya', job: 'Web Developer', image: kostyaimg, twitter: '', github: '' },
   }
 
