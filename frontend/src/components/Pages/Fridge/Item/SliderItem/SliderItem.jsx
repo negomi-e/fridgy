@@ -9,9 +9,23 @@ import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 import backImg from './backfruit.jpg'
+import ItemModal from '../../../AddFridgeItem/ItemModal'
 
 
 class SliderItem extends Component {
+  state={
+    open: false,
+    update: true,
+
+      id: this.props.data._id,
+      label: this.props.data.label,
+      expiryDate: this.props.data.expiryDate,
+      dayRemaining: this.props.data.dayRemaining,
+      category: this.props.data.category,
+  }
+
+  setOpen = () => { this.setState({ open: !this.state.open }) };
+
   render() {
     const { label, dayRemaining, _id } = this.props.data
 
@@ -37,7 +51,7 @@ class SliderItem extends Component {
     return (
       <>
         {/* Refact - переписать верстку и кнопки + добавить обратную связь по клику */}
-
+        {this.state.open? <ItemModal props={this.state}/>: null}
         <Card>
           {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
           <div className="sliderItem-imgWrap">
@@ -52,10 +66,10 @@ class SliderItem extends Component {
           </div>
           <div className="wrapSliderItem-control">
             <div className="sliderItem-control">
-              <a onClick={() => this.props.deleteItemThunk(_id)} variant="light">
+              <a onClick={()=> this.props.deleteItemThunk(_id)} variant="light">
                 <AiOutlineDelete />
               </a>
-              <a onClick={() => this.props.onEditTask(_id)}>
+              <a onClick={this.setOpen}>
                 <AiFillEdit />
               </a>
               <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>

@@ -46,14 +46,15 @@ route.delete('/delete/:id', async (req, res) => {
 })
 
 //edit item info
-route.put('/change/:id', async (req, res) => {
+route.put('/update/:id', async (req, res) => {
   try {
-    const { label, expiryDate } = req.body
+    const { label, expiryDate, category } = req.body
     let item = await Product.findbyId({ '_id': req.params.id })
     item.label = label
     item.expiryDate = expiryDate
+    item.category = category
     await item.save()
-    res.json()
+    res.json({message: 'success'})
   } catch (err) {
     res.send(404).text('Cant update')
   }
@@ -84,22 +85,6 @@ route.post('/add', async (req, res) => {
   }
 })
 
-
-//add item from fridge to shopping list
-//const Shopping = require('../models/shopping')
-// route.post('/addshoppinglist/:id', async (req,res)=>{
-//     let item = await Product.findbyId({'_id':req.params.id})
-
-
-//     let newshoppingitem = await new Shopping({
-//         userID: item.userID,
-//         label: item.label,
-//         categories: item.label
-//     })
-
-//     await newshoppingitem.save()
-//     res.json()
-// })
 
 
 

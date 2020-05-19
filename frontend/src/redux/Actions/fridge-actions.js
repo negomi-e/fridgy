@@ -1,5 +1,5 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT } from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT, UPDATE_PRODUCT } from './action-types';
 
 
 export function listLoading() {
@@ -66,3 +66,13 @@ export function addProductAC(product) {
     product,
   }
 }
+
+export function updateProductAC(data) {
+  return {
+    type: UPDATE_PRODUCT,
+    id: data.id,
+    data: data,
+  }
+}
+
+
