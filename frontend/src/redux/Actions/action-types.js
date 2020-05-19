@@ -8,7 +8,7 @@ export const LIST_LOADING = 'LIST_LOADING';
 export const LIST_LOADED = 'LIST_LOADED';
 export const LIST_ERROR = 'LIST_ERROR';
 export const LOAD_ITEMS = 'LOAD_ITEMS';
-
+export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const LOAD_LABEL = 'LOAD_LABEL';
 
 export const DELETE_ITEM = 'DELETE_ITEM';

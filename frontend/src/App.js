@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import Container from 'react-bootstrap/Container'
-import { Route, withRouter } from "react-router-dom"
+import { Switch, Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 import { alertErrorAC, alertSuccesAC } from "./redux/Actions/actions"
 
-import Home from './components/Pages/Home/Home.jsx'
+import Fridge from './components/Pages/Fridge/Fridge'
 import ShoppingList from './components/Pages/ShoppingList/ShoppingList.jsx'
 import AddFridgeItem from './components/Pages/AddFridgeItem/AddFridgeItem.jsx'
 import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 
+import Home from './components/Pages/Home/Home'
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
@@ -42,25 +43,32 @@ function App(props) {
           props.alertError ? <AlertError /> : null
         }
 
+        
         <Navigation />
-        <PrivateRoute exact path="/">
-          <Home history={props.history} />
-        </PrivateRoute>
+        <Switch>
         <Route path="/registration">
           <Registeration history={props.history} />
         </Route>
         <Route path="/login">
           <Login history={props.history} />
         </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
+
+        <PrivateRoute exact path="/">
+          <Fridge history={props.history} />
+        </PrivateRoute>
         <PrivateRoute path="/shoppingList">
           <ShoppingList />
         </PrivateRoute>
-        <Route path="/addFridgeItem">
+        <PrivateRoute path="/addFridgeItem">
           <AddFridgeItem />
-        </Route>
-        <Route path="/recipes/:label">
+        </PrivateRoute>
+        <PrivateRoute path="/recipes/:label">
           <RecipePage history={props.history} />
-        </Route>
+        </PrivateRoute>
+        </Switch>
       </Container>
     </div>
   );

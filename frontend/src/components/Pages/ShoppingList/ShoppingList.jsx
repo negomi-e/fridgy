@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ProductSL from './ProductSL/ProductSL.jsx'
 import { ListGroup } from 'react-bootstrap'
 import Form from './ControlElements/Form'
-import { setProductSL_Thunk } from '../../../redux/Think/shoppingListThunk'
+import { setProductSL_Thunk } from '../../../redux/Thunk/shoppingListThunk'
 
 
 

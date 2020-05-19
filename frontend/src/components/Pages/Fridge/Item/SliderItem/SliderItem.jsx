@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
 import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsFillCircleFill } from 'react-icons/bs'
-import { deleteItemThunk } from '../../../../../redux/Think/fridgeThunk'
-import { addProductSL_Thunk } from '../../../../../redux/Think/shoppingListThunk'
+import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
+import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
 import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
@@ -13,9 +13,7 @@ import backImg from './backfruit.jpg'
 
 class SliderItem extends Component {
   render() {
-
-    const { label, dayRemaining, _id, category } = this.props.props
-
+    const { label, dayRemaining, _id } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -54,7 +52,7 @@ class SliderItem extends Component {
           </div>
           <div className="wrapSliderItem-control">
             <div className="sliderItem-control">
-              <a onClick={() => this.props.deleteItemThunk(_id, category)} variant="light">
+              <a onClick={() => this.props.deleteItemThunk(_id)} variant="light">
                 <AiOutlineDelete />
               </a>
               <a onClick={() => this.props.onEditTask(_id)}>
@@ -68,15 +66,11 @@ class SliderItem extends Component {
               </a>
             </div>
           </div>
-
         </Card>
-
       </>
     )
   }
 }
-
-
 
 export default connect(
   (state) => ({

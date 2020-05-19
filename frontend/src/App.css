@@ -73,3 +73,21 @@ p, span {
 .card-title{
   font-size: 58px;
 }
+.overlay{
+  background-color: #000000;
+  opacity: 0.6;
+  position: absolute;
+  z-index: inherit 1;
+}
+
+.overlay-what{
+  background-color: #000000;
+  opacity: 0.6;
+  position: absolute;
+  z-index: inherit 1;
+}
+
+.wrap-deck{
+  display:flex;
+  justify-content: space-between;
+}

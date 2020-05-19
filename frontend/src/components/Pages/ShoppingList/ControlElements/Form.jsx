@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormControl, InputGroup, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { addProductSL_Thunk } from '../../../../redux/Think/shoppingListThunk'
+import { addProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk'
 import { changeInputSL_AC } from '../../../../redux/Actions/actions-sl'
 
 class Form extends Component {

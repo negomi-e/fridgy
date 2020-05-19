@@ -1,13 +1,16 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM } from '../Actions/action-types';
+import {
+  LIST_LOADING, LIST_LOADED, LIST_ERROR,
+  LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT
+} from '../Actions/action-types';
 
 
 const initialState = {
   loading: false,
-  items: false,
+  items: [],
   listError: false,
   itemsApi: "",
-  searchTags: ['beef', 'egg', 'milk', 'bisquits', 'potato', 'mashrooms'],
+  searchTags: [],
   label: "",
 };
 
@@ -17,15 +20,15 @@ export function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        items: false,
         listError: false,
       };
     case LIST_LOADED:
       return {
         ...state,
         loading: false,
-        items: action.payload,
+        items: action.items,
         listError: false,
+        searchTags: action.tags
       };
     case LIST_ERROR:
       return {
@@ -49,24 +52,16 @@ export function productReducer(state = initialState, action) {
       }
 
     case DELETE_ITEM:
-
-      let cat
-      if (action.category === 'Meat') {
-        cat = 'meat'
-      } else if (action.category === 'Dairy') {
-        cat = 'dairy'
-      } else if (action.category === 'Fruit') {
-        cat = 'fruit'
-      }
-
-
-      console.log(state.items[cat])
-
-      const updatedArray = state.items[cat].filter(result => result.id !== action.elementID);
-      console.log(updatedArray)
+      const updatedArray = state.items.filter(product => product._id !== action.id ? product : false);
       return {
         ...state,
-        cat: updatedArray
+        items: [...updatedArray]
+      }
+
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        items: [...state.items, action.product]
       }
 
     default:
