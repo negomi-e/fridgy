@@ -11,7 +11,7 @@ class Welcome extends Component {
   render() {
 
     return (
-      <div classname="overlay">
+      <div className="welcome">
         <h1>Welcome to Fridgy</h1>
       </div>
     )

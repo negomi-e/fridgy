@@ -11,7 +11,7 @@ class What extends Component {
   render() {
 
     return (
-      <div >
+      <div className="what">
         <h3>WHAT DO WE DO</h3>
         <p>We aim to help reduce food waste and help to be more conscious of the food in your fridge</p>
       </div>
