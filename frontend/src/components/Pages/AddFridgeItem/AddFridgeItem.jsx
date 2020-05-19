@@ -2,44 +2,49 @@ import React, { Component } from 'react';
 import SelectDate from '../SelectDate';
 import { InputGroup, FormControl, Form, Button, Modal, Collapse } from 'react-bootstrap';
 import '../AddFridgeItem/AddFridgeItem.module.scss';
+import { connect } from 'react-redux'
+import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
 
 const now = new Date();
-
-export default class extends Component {
+class AddFridgeItem extends Component {
   state = {
     open: false,
     isSelectDateOpen: false,
+
     label: '',
     expiryDate: now,
-    category: 'Other',
     dayRemaining: 0,
+    category: 'Other',
+
     year: String(now.getFullYear()),
     month: String(now.getMonth() + 1),
     day: String(now.getDate()),
   }
-  //Refact - перенести запрос в reduxThunk
+  //Modal window methods
   setOpen = () => { this.setState({ open: !this.state.open }) };
-
   setOpenCalendar = () => { this.setState({ isSelectDateOpen: !this.state.isSelectDateOpen }) };
 
-  addItem = async () => {
-    const timeDiff = Math.abs(new Date(this.state.year, this.state.month - 1, this.state.day) - now);
+  //Method date
+  calcRemainingDay = () => {
+    const timeDiff = Math.abs(new Date(this.state.year, this.state.month - 1, this.state.day) - now)
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    await this.setState({dayRemaining: diffDays, expiryDate: new Date(this.state.year, this.state.month - 1, this.state.day)});
-    const item = {
+    this.setState({
+      dayRemaining: diffDays,
+      expiryDate: new Date(this.state.year, this.state.month, this.state.day)
+    });
+  }
+
+
+  addItem = () => {
+    this.calcRemainingDay()
+    const product = {
+      userId: this.props.userId,
       label: this.state.label,
       expiryDate: this.state.expiryDate,
-      category: this.state.category,
       dayRemaining: this.state.dayRemaining,
+      category: this.state.category,
     }
-    await fetch('/fridge/add', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(item),
-    })
-    this.setState({ open: !this.state.open, label: '', expiryDate: now, category: 'Other', dayRemaining: 0, isSelectDateOpen: false });
+    this.props.addProductThunk(product)
   }
 
   onChangeValue = event => {
@@ -58,8 +63,12 @@ export default class extends Component {
     this.setState({ day: event.target.value });
   };
 
+  changeCategory = event => {
+    this.setState({ category: event.target.value })
+  };
 
   render() {
+    console.log(this.props)
     return (
       <>
         <Button onClick={() => this.setOpen()}>Add item</Button>
@@ -75,7 +84,7 @@ export default class extends Component {
             <Form>
               <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>Category</Form.Label>
-                <Form.Control as="select" custom>
+                <Form.Control onChange={this.changeCategory} as="select" custom>
                   <option>Other</option>
                   <option>Vegetables</option>
                   <option>Fruit</option>
@@ -86,16 +95,16 @@ export default class extends Component {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant='outline-primary' onClick={this.setOpenCalendar} aria-controls="example-collapse-text" aria-expanded={this.state.isSelectDateOpen} type='submit' value='expireDate'>Expiry Date: {this.state.year}.{this.state.month}.{this.state.day}</Button>
+            <Button variant='outline-primary' onClick={this.setOpenCalendar} aria-controls="example-collapse-text" aria-expanded={this.state.isSelectDateOpen} type='submit' value='expireDate'>Expiry Date: {this.state.day}.{this.state.month}.{this.state.year}</Button>
             <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>
             <Collapse in={this.state.isSelectDateOpen}>
               <div id="example-collapse-text">
-              <SelectDate
-                state={String(this.state)}
-                changeExpireYear={this.changeExpireYear}
-                changeExpireMonth={this.changeExpireMonth}
-                changeExpireDay={this.changeExpireDay}
-              />
+                <SelectDate
+                  state={String(this.state)}
+                  changeExpireYear={this.changeExpireYear}
+                  changeExpireMonth={this.changeExpireMonth}
+                  changeExpireDay={this.changeExpireDay}
+                />
               </div>
             </Collapse>
           </Modal.Footer>
@@ -104,3 +113,10 @@ export default class extends Component {
     )
   }
 }
+
+export default connect(
+  (state) => ({
+    userId: state.authReducer.userInfo.id
+  }),
+  { addProductThunk }
+)(AddFridgeItem)

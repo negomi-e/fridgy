@@ -13,9 +13,7 @@ import backImg from './backfruit.jpg'
 
 class SliderItem extends Component {
   render() {
-
-    const { label, dayRemaining, _id, category } = this.props.props
-
+    const { label, dayRemaining, _id } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -47,26 +45,14 @@ class SliderItem extends Component {
           </div>
           <div className="sliderItem-content">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
-            <div>
-              <ul className="sliderItem-list">
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-              </ul>
-            </div>
+
             <div className="sliderItem-status">
               <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
             </div>
           </div>
           <div className="wrapSliderItem-control">
             <div className="sliderItem-control">
-              <a onClick={() => this.props.deleteItemThunk(_id, category)} variant="light">
+              <a onClick={() => this.props.deleteItemThunk(_id)} variant="light">
                 <AiOutlineDelete />
               </a>
               <a onClick={() => this.props.onEditTask(_id)}>
@@ -80,15 +66,11 @@ class SliderItem extends Component {
               </a>
             </div>
           </div>
-
         </Card>
-
       </>
     )
   }
 }
-
-
 
 export default connect(
   (state) => ({

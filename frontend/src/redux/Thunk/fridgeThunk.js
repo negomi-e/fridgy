@@ -1,35 +1,48 @@
-import { listLoading, listLoaded,listError, deleteItem  } from '../Actions/fridge-actions'
-export const loadFridge = (id) => async (dispatch) => {
-            dispatch(listLoading());
-            //   console.log('current state:', getState());
-          
-          try{
-              let request = await fetch(`/fridge/${id}`)
-              let response = await request.json()
-              let list = response.list
-              let tags = response.tags
-              // console.log('HERE IS THE DATA AFTER POST', response);
-              dispatch(listLoaded(list, tags))
-            }catch(err){
-              dispatch(listError(err.message));
-            }
-        }
+import {
+  listLoading, listLoaded,
+  listError, deleteItem, addProductAC
+} from '../Actions/fridge-actions'
 
-export const deleteItemThunk = (id, category) => async (dispatch) =>{
-  
-  try{
-    let req = await fetch(`/fridge/delete/${id}`,{
+export const loadFridge = (id) => async (dispatch) => {
+  dispatch(listLoading());
+  try {
+    let request = await fetch(`/fridge/${id}`)
+    let response = await request.json()
+    let { allProducts, tags, message } = response
+    if (message === 'success') {
+      dispatch(listLoaded(allProducts, tags))
+    }
+  } catch (err) {
+    dispatch(listError(err.message));
+  }
+}
+
+export const deleteItemThunk = (id) => async (dispatch) => {
+  try {
+    let req = await fetch(`/fridge/delete/${id}`, {
       method: 'DELETE',
     })
     let res = await req.json()
-    console.log('response from delete fetch- is it true?', res)
-    
-    if(res){
-    dispatch(deleteItem(id, category))
-
+    if (res.message = 'success') {
+      dispatch(deleteItem(id))
     }
-  }catch(err){
-    
+  } catch (err) {
+
   }
 }
-    
+
+export const addProductThunk = (product) => async (dispatch) => {
+  const res = await fetch('/fridge/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(product),
+  })
+
+  const json = await res.json()
+  if (json.message === 'success') {
+    dispatch(addProductAC(json.newItem))
+  }
+}
+

@@ -3,10 +3,15 @@
   margin: 0 auto;
   text-align: center;
 }
+.preloaderWrap {
+  padding: 20px;
+}
+.preloaderWrap img {
+  height: 30px;
+}
 
 html, body, .container, .App, #root {
   height: 100%;
-
 }
 
 .authPage {
@@ -27,6 +32,9 @@ html, body, .container, .App, #root {
 body{
   color: #000 !important;
   background-color: #fff;
+}
+
+.container {
   position: relative;
 }
 
@@ -55,6 +63,16 @@ body{
   color: #000 !important;
 }
 
+
+/* Fonts size */
+
+p, span {
+  font-size: 16px;
+}
+
+.card-title{
+  font-size: 58px;
+}
 .overlay{
   background-color: #000000;
   opacity: 0.6;
