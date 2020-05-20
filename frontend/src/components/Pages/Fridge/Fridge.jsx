@@ -3,6 +3,7 @@ import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
 // import { useHistory } from "react-router-dom";
 // import history from '././history'
+import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
 import {
   loadFridge,
 } from '../../../redux/Thunk/fridgeThunk';
@@ -37,7 +38,9 @@ class Fridge extends Component {
 
     return (
       <div className="fridge">
-        <h1>Your fridgy</h1>
+        <h2>Your fridgy</h2>
+        <AddFridgeItem />
+
         {
           categories.map(category => {
             return <ItemsCarousel data={sortProduct[category]} />
