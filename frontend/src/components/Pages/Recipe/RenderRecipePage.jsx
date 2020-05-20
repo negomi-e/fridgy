@@ -17,7 +17,7 @@ class RenderRecipePage extends React.Component {
   render() {
     console.log(this.props)
     return (
-<<<<<<< HEAD
+
       <div className='wrapped-recipe-card'>
         {this.props.loading
             ? <Preloader />

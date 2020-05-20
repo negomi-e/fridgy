@@ -10,6 +10,7 @@ export const LIST_ERROR = 'LIST_ERROR';
 export const LOAD_ITEMS = 'LOAD_ITEMS';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const LOAD_LABEL = 'LOAD_LABEL';
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
 export const DELETE_ITEM = 'DELETE_ITEM';
 

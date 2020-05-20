@@ -1,6 +1,6 @@
 import {
   listLoading, listLoaded,
-  listError, deleteItem, addProductAC
+  listError, deleteItem, addProductAC, updateProductAC
 } from '../Actions/fridge-actions'
 
 export const loadFridge = (id) => async (dispatch) => {
@@ -46,3 +46,17 @@ export const addProductThunk = (product) => async (dispatch) => {
   }
 }
 
+export const updateProductThunk = (product) => async (dispatch) => {
+  const res = await fetch(`/fridge/update/${product.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(product),
+  })
+
+  const json = await res.json()
+  if (json.message === 'success') {
+    dispatch(updateProductAC(product))
+  }
+}

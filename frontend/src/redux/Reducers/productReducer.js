@@ -1,7 +1,7 @@
 
 import {
   LIST_LOADING, LIST_LOADED, LIST_ERROR,
-  LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT
+  LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT, UPDATE_PRODUCT
 } from '../Actions/action-types';
 
 
@@ -62,6 +62,13 @@ export function productReducer(state = initialState, action) {
       return {
         ...state,
         items: [...state.items, action.product]
+      }
+    case UPDATE_PRODUCT:
+      const updatedItems = state.items.map(product => {if(product.id === action.id)
+         return action.data} )
+      return {
+        ...state,
+        items: updatedItems
       }
 
     default:
