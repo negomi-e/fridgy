@@ -4,10 +4,13 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import { connect } from 'react-redux';
 import Welcome from './Welcome'
 import What from './What'
-import Who from './Who'
 import OurApp from './OurApp'
-import TopBanner from './TopBanner'
+import Who from './Who'
 import FactBanner from './FactBanner'
+import Features from './Features'
+import TopBanner from './TopBanner'
+
+
 
 class Home extends Component {
   componentDidMount() {
@@ -21,13 +24,13 @@ class Home extends Component {
         <TopBanner />
         <Welcome />
         <What />
-        {/* <FactBanner /> */}
-        <OurApp />
+        <FactBanner />
+        <Features />
+        <OurApp/>
         <Who />
+        
       </div>
       </ParallaxProvider>
-
-
     )
   }
 }

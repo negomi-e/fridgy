@@ -87,7 +87,7 @@ p, span {
   font-weight: bold;
 }
 
-/* LOGIN REGISTERgit  */
+/* LOGIN REGISTER  */
 
 .formSend{
   margin-top: 50px;
@@ -104,7 +104,8 @@ p, span {
 
 
 .homepage .welcome-banner .parallax-inner{
-    display: flex;
+  width: 100% !important;
+  display: flex;
     flex-flow: column wrap;
     align-items: space-around;
     justify-content: center;
@@ -118,13 +119,48 @@ p, span {
   width: 100%;
 }
 
-.homepage .what-banner .what-text{
+
+.homepage .what-banner .parallax-inner{
+  text-align: center;
   align-items: center;
-  vertical-align: center;
+  vertical-align: center;  
 }
 
 .homepage .what-banner .img{
   object-fit: scale-down;
+}
+
+.homepage .fact-banner {    
+  line-height: 0;       
+   -webkit-column-count: 2;    
+   -webkit-column-gap: 0px;    
+   -moz-column-count: 2;
+   -moz-column-gap: 0px;
+    column-count: 2;    
+    column-gap: 0px;    
+}  
+.homepage .fact-banner img {    
+  width: 100% !important;    
+  height: auto !important;  
+  padding: 10px;
+} 
+
+.homepage .fact-banner{    
+  display:inline-block;    
+  margin-right: auto;    
+  margin-left: auto;  
+}
+
+@media (max-width: 1000px) {
+ .homepage .fact-banner {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}  
+
+.ourteam, .homepage .features-banner .title-bar{
+  padding: 50px;
 }
 
 
