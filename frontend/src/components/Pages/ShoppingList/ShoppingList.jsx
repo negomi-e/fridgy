@@ -29,7 +29,7 @@ class ShoppingList extends Component {
           {
 
             products.map(product => {
-              return <ProductSL key={product._id} {...product} />
+              return <ProductSL key={product._id || Symbol()} {...product} />
             })
             // < span > Not found products</span>
           }

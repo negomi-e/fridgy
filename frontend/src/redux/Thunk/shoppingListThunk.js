@@ -1,4 +1,10 @@
-import { setProductSL_AC, addProductSL_AC, deleteProductSL_AC, completeProductSL_AC } from '../Actions/actions-sl'
+import {
+  setProductSL_AC, addProductSL_AC,
+  deleteProductSL_AC, completeProductSL_AC
+} from '../Actions/actions-sl'
+import {
+  alertErrorAC, alertSuccesAC
+} from '../Actions/actions'
 
 export const setProductSL_Thunk = (userId) => async (dispatch) => {
   try {
@@ -6,7 +12,7 @@ export const setProductSL_Thunk = (userId) => async (dispatch) => {
     const allProducts = await res.json()
     dispatch(setProductSL_AC(allProducts))
   } catch (error) {
-    console.log(error)
+    dispatch(alertErrorAC())
   }
 }
 
@@ -21,9 +27,14 @@ export const addProductSL_Thunk = (text, userId) => async (dispatch) => {
       }),
     })
     const product = await res.json()
-    dispatch(addProductSL_AC(product.createdProduct))
+    if (product.message = 'success') {
+      dispatch(addProductSL_AC(product.createdProduct))
+      dispatch(alertSuccesAC())
+    } else {
+      throw `product`
+    }
   } catch (error) {
-    console.log(error)
+    dispatch(alertErrorAC())
   }
 }
 

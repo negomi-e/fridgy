@@ -27,6 +27,7 @@ class Form extends Component {
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
             onChange={this.updateInput}
+            value={this.props.inputTextSL}
           />
           <InputGroup.Append>
             <Button

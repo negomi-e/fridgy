@@ -4,6 +4,7 @@ const ProductSL = require('../models/ProductsSL')
 
 route.get('/:userId', async function (req, res, next) {
   try {
+    if (!req.params.userId) throw 'cant get userId'
     const allProductsSL = await ProductSL.find({
       userID: req.params.userId
     })
@@ -17,7 +18,8 @@ route.get('/:userId', async function (req, res, next) {
 route.post('/', async function (req, res) {
   const { text, userId } = req.body
   try {
-    if (!text) throw ' label not specified'
+    if (!text) throw 'label not specified'
+    if (!userId) throw 'cant get userId'
     const newProductSL = await new ProductSL({
       userID: userId,
       label: text,

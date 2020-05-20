@@ -1,18 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadItems, takeItems } from '../../../redux/Actions/fridge-actions'
+
+import { loadItems, takeItems, listLoading } from '../../../redux/Actions/fridge-actions'
 import "./recipe.css";
 import {Button} from 'reactstrap'
+import Preloader from '../../Common/Preloader/Preloader.jsx'
+
+
+
 
 class RenderRecipePage extends React.Component {
 
-
+  componentDidMount() {
+    this.props.listLoading()
+  }
   render() {
-
     console.log(this.props)
     return (
+<<<<<<< HEAD
       <div className='wrapped-recipe-card'>
-        {this.props.itemsApi &&
+        {this.props.loading
+            ? <Preloader />
+            : this.props.itemsApi &&
           this.props.itemsApi[0].map((item) => {
             return <>
               <div className="display-container">
@@ -41,11 +50,11 @@ class RenderRecipePage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     itemsApi: state.productReducer.itemsApi,
-    searchTags: state.productReducer.searchTags
-
+    searchTags: state.productReducer.searchTags,
+    loading: state.productReducer.loading
   };
 };
 
 
 
-export default connect(mapStateToProps, {loadItems, takeItems})(RenderRecipePage);
+export default connect(mapStateToProps, { loadItems, takeItems, listLoading })(RenderRecipePage);
