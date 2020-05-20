@@ -43,31 +43,31 @@ function App(props) {
           props.alertError ? <AlertError /> : null
         }
 
-        
+
         <Navigation />
         <Switch>
-        <Route path="/registration">
-          <Registeration history={props.history} />
-        </Route>
-        <Route path="/login">
-          <Login history={props.history} />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
+          <Route path="/registration">
+            <Registeration history={props.history} />
+          </Route>
+          <Route path="/login">
+            <Login history={props.history} />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
 
-        <PrivateRoute exact path="/">
-          <Fridge history={props.history} />
-        </PrivateRoute>
-        <PrivateRoute path="/shoppingList">
-          <ShoppingList />
-        </PrivateRoute>
-        <PrivateRoute path="/addFridgeItem">
-          <AddFridgeItem />
-        </PrivateRoute>
-        <PrivateRoute path="/recipes/:label">
-          <RecipePage history={props.history} />
-        </PrivateRoute>
+          <PrivateRoute exact path="/">
+            <Fridge history={props.history} />
+          </PrivateRoute>
+          <PrivateRoute path="/shoppingList">
+            <ShoppingList />
+          </PrivateRoute>
+          <PrivateRoute path="/addFridgeItem">
+            <AddFridgeItem />
+          </PrivateRoute>
+          <PrivateRoute path="/recipes/:label">
+            <RecipePage history={props.history} />
+          </PrivateRoute>
         </Switch>
       </Container>
     </div>

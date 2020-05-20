@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import classes from "./Navigation.module.scss";
 import { logoutAC } from "../../../redux/Actions/actions"
 import { connect } from "react-redux"
-import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
+
 
 class Navigation extends Component {
   logout = (e) => {
@@ -12,7 +12,6 @@ class Navigation extends Component {
     this.props.logoutAC()
   }
 
-  //Refactor - цвет ссылок 
   render() {
     return (
       <Navbar bg="light" expand="lg">
@@ -36,7 +35,7 @@ class Navigation extends Component {
                 </>
             }
           </Nav>
-          <AddFridgeItem />
+       
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
