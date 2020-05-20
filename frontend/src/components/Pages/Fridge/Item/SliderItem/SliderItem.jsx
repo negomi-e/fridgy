@@ -10,6 +10,9 @@ import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 import backImg from './backfruit.jpg'
 import ItemModal from '../../../AddFridgeItem/ItemModal'
+import FruitBasket from '../../../../../images/Vegetables.jpg'
+import MeatBasket from '../../../../../images/meat.jpg'
+import DairyBasket from '../../../../../images/Dairy.jpg'
 
 
 class SliderItem extends Component {
@@ -27,7 +30,7 @@ class SliderItem extends Component {
   setOpen = () => { this.setState({ open: !this.state.open }) };
 
   render() {
-    const { label, dayRemaining, _id } = this.props.data
+    const { label, dayRemaining, _id, category } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -55,7 +58,7 @@ class SliderItem extends Component {
         <Card>
           {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
           <div className="sliderItem-imgWrap">
-            <img src={backImg} alt="img" />
+            <img src={MeatBasket} alt="img" />
           </div>
           <div className="sliderItem-content">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
