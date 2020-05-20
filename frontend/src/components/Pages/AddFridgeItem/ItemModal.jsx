@@ -10,6 +10,8 @@ class ItemModal extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            scanphoto: false,
+
             update: this.props.props.update,
             open: true,
             isSelectDateOpen: false,
@@ -28,6 +30,9 @@ class ItemModal extends Component {
     //Modal window methods
     setOpen = () => { this.setState({ open: !this.state.open }) };
     setOpenCalendar = () => { this.setState({ isSelectDateOpen: !this.state.isSelectDateOpen }) };
+
+    //PHOTO OPTION
+    setScanPhoto = () => { this.setState({ scanphoto: !this.state.scanphoto }) };
 
     //Method date
     calcRemainingDay = () => {

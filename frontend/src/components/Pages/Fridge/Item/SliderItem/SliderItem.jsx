@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
-import { AiOutlineDelete, AiFillEdit, AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsFillCircleFill } from 'react-icons/bs'
 import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
 import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
 import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
+import { IoIosListBox, IoIosTrash } from "react-icons/io";
 import '../SliderItem/SliderItem.css'
+
 import backImg from './backfruit.jpg'
 import ItemModal from '../../../AddFridgeItem/ItemModal'
 import FruitBasket from '../../../../../images/Vegetables.jpg'
 import MeatBasket from '../../../../../images/meat.jpg'
 import DairyBasket from '../../../../../images/Dairy.jpg'
+
 
 
 class SliderItem extends Component {
@@ -53,37 +56,38 @@ class SliderItem extends Component {
 
     return (
       <>
-        {/* Refact - переписать верстку и кнопки + добавить обратную связь по клику */}
         {this.state.open? <ItemModal props={this.state}/>: null}
-        <Card>
-          {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
-          <div className="sliderItem-imgWrap">
-            <img src={MeatBasket} alt="img" />
-          </div>
-          <div className="sliderItem-content">
-            <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
 
-            <div className="sliderItem-status">
-              <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
-            </div>
+        <div className="sliderItem-close">
+          <a onClick={() => this.props.deleteItemThunk(_id)} variant="light"><IoIosTrash /></a>
+        </div>
+
+
+
+        <div className="sliderItem-content">
+          <h2 className="sliderItem-title">{label}</h2>
+
+          <div className="sliderItem-status">
+            <small className="text-muted"><BsFillCircleFill color={toggleColor} />{expiryText}</small>
+
           </div>
-          <div className="wrapSliderItem-control">
-            <div className="sliderItem-control">
-              <a onClick={()=> this.props.deleteItemThunk(_id)} variant="light">
-                <AiOutlineDelete />
-              </a>
-              <a onClick={this.setOpen}>
-                <AiFillEdit />
-              </a>
-              <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
-                <AiOutlinePlus />
-              </NavLink>
-              <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
-                <AiOutlineShoppingCart />
-              </a>
-            </div>
-          </div>
-        </Card>
+
+        </div>
+        <div className="wrapSliderItem-control">
+
+
+          <a onClick={this.setOpen}>
+            <IoIosListBox />
+          </a>
+          <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
+            <AiOutlinePlus />
+          </NavLink>
+          <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
+            <AiOutlineShoppingCart />
+          </a>
+
+        </div>
+
       </>
     )
   }
