@@ -15,9 +15,19 @@ html, body, .container, .App, #root {
 font-style: normal;
 font-weight: 400;
 color: #000 !important;
-  background-color: #fff;
+
 }
 
+body{
+  
+  background-color: #F2EEDD;
+background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
+height: 100%;
+min-height: 300vh;
+
+align-items: center;
+justify-content: center;
+}
 /* Fonts size */
 
 p, span {
@@ -50,6 +60,8 @@ p, span {
 .navbar{
   background-color: #f49f0a;
   width: 100%;
+  border-radius: 10px;
+  /* box-shadow: -20px -20px 0px 0px rgba(100,100,100,.1); */
 }
 
 .navbar .nav-nav-bar{
@@ -73,7 +85,7 @@ p, span {
   font-weight: bold;
 }
 
-/* LOGIN REGISTER */
+/* LOGIN REGISTERgit  */
 
 .formSend{
   margin-top: 50px;
@@ -82,20 +94,121 @@ p, span {
 /* HOMEPAGE */
 .homepage{
   margin-top: 20px;
+  position: relative;
 }
  .homepage div{
-  height: 200px;
+  min-height: 50px;
+  width: 100% ;
+
  }
-.homepage .welcome{
+/* .homepage .welcome{
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center 
+} */
+
+.homepage .welcome-banner{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: space-around;
+    justify-content: center;
+    align-items: center;
+    /* height: 50vh; */
 }
 
-.homepage .what{
-  
+.homepage .welcome-banner .copy {
+    margin: 0.2em 0;
+    text-align: center;
 }
+
+
+.homepage .welcome-banner .letter {
+    display: inline-block;
+}
+
+
+.homepage .ourApp #wrapper{
+  perspective: 1300px
+}
+
+/*Basic Phone styling*/
+.homepage .ourApp .phone {
+  border: 40px solid #121212;
+  border-width: 55px 7px;
+  border-radius: 40px;
+  margin: 50px auto;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+ -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 2s; /* Firefox < 16 */
+      -ms-animation: fadein 2s; /* Internet Explorer */
+       -o-animation: fadein 2s; /* Opera < 12.1 */
+          animation: fadein 2s;
+}
+
+.homepage .ourApp .phone iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#000;
+}
+
+/*Different Perspectives*/
+
+/* Table View */
+.homepage .ourApp .phone.view_1 {
+  width: 360px;
+  height: 640px;
+  -webkit-transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+          transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+  box-shadow: -3px 3px 0 #000, -6px 6px 0 #000, -9px 9px 0 #000, -12px 12px 0 #000, -14px 10px 20px #000;
+}
+
+.homepage .who .root{
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50vh;
+  margin-bottom: 50vh;
+}
+
+.who .divider {
+  display: block;
+  width: 100%;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+}
+
+.who .container {
+  position: relative;
+  width: 40em;
+}
+
+.who .boxOutline {
+  position: absolute;
+  top: 20%;
+  right: 7%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.who .boxBg {
+  width: 100%;
+}
+
+.who .text {
+  position: absolute;
+  top: 28%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
 
 .homepage .ourteam{
   height: 300px;
@@ -133,9 +246,10 @@ p, span {
     margin:4rem auto;
     padding:2rem 3rem 3rem;
     max-width:500px;
-    background: #efca08;;
+    background: #f49f0a;
     color:#FFF;
     box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
+    border-radius: 10px;
 }
 
 .controlBlock_SL * {

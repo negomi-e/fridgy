@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
 
+// import style from './IntroCopy.scss';
+import { ParallaxBanner } from 'react-scroll-parallax';
+import fridgeimage from '../../../../src/images/fridge-open.jpg'
 
 class Welcome extends Component {
   componentDidMount() {
@@ -11,10 +14,27 @@ class Welcome extends Component {
   render() {
 
     return (
-      <div className="welcome">
-        <h1>Welcome to Fridgy</h1>
-      </div>
-    )
+      
+        <ParallaxBanner
+    className="your-class"
+    layers={[
+        {
+            image: {fridgeimage},
+            amount: 0.4,
+        },
+        // {
+        //     image: 'https://foo.com/bar.png',
+        //     amount: 0.2,
+        // },
+    ]}
+>
+    <h1>Welcome to Fridgy</h1>
+    <img src={fridgeimage} alt="fridge"/>
+</ParallaxBanner>
+
+    );
+
+
   }
 }
 
