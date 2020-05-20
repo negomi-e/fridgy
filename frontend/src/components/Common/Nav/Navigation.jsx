@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap'
+import { Nav, Navbar, Form, Button, FormControl, Container } from 'react-bootstrap'
 import { NavLink, Link } from "react-router-dom";
 import classes from "./Navigation.module.scss";
 import { logoutAC } from "../../../redux/Actions/actions"
@@ -15,33 +15,29 @@ class Navigation extends Component {
   render() {
     return (
       <Navbar expand="lg">
-        <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={classes.NavBarWrap + " mr-auto"}>
-            
-            {
-              this.props.loginStatus
-                ?
-                <>
-                <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
-                <NavLink className="nav_link" activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
-                <NavLink className="nav_link" activeClassName={classes.active} to="/recipes/:id">Recipe</NavLink>
-                <a onClick={this.logout} >Logout</a>
-                </>
-                :
-                <>
-                <NavLink activeClassName={classes.active} to="/home"  exact >Home</NavLink>
-                <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
-                </>
-            }
-          </Nav>
-       
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
+        <Container>
+          <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className={classes.NavBarWrap + " mr-auto"}>
+              {
+                this.props.loginStatus
+                  ?
+                  <>
+                    <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
+                    <NavLink className="nav_link" activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                    <NavLink className="nav_link" activeClassName={classes.active} to="/recipes/:id">Recipe</NavLink>
+                    <a onClick={this.logout} >Logout</a>
+                  </>
+                  :
+                  <>
+                    <NavLink activeClassName={classes.active} to="/home" exact >Home</NavLink>
+                    <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
+                  </>
+              }
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
     )
   }
