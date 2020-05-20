@@ -31,7 +31,7 @@ class Who extends Component {
   render() {
 
     return (
-      <div className="root">
+      <div className="root who-banner">
         {/* <Svg svg={divider} className={style.divider} /> */}
         <div className="container">
             {/* <Svg svg={boxBg} className={style.boxBg} /> */}

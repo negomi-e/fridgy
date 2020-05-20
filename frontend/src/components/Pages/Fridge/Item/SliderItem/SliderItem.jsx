@@ -11,7 +11,7 @@ import { IoIosListBox, IoIosTrash } from "react-icons/io";
 import '../SliderItem/SliderItem.css'
 
 import backImg from './backfruit.jpg'
-import ItemModal from '../../../AddFridgeItem/ItemModal'
+import ItemModal from '../../../../Common/Modal/ItemModal'
 import FruitBasket from '../../../../../images/Vegetables.jpg'
 import MeatBasket from '../../../../../images/meat.jpg'
 import DairyBasket from '../../../../../images/Dairy.jpg'
@@ -40,9 +40,9 @@ class SliderItem extends Component {
 
     //TEXT DISPLAYED
     if (dayRemaining <= 0) {
-      expiryText = 'Item has expired'
+      expiryText = ' Item has expired'
     } else {
-      expiryText = dayRemaining + ' days left'
+      expiryText = ' ' + dayRemaining + ' days left'
     }
 
     //COLOUR CHANGE

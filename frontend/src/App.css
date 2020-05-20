@@ -3,6 +3,9 @@
   margin: 0 auto;
   text-align: center;
 }
+
+/* PRELOADER */
+
 .preloaderWrap {
   padding: 20px;
 }
@@ -19,12 +22,12 @@ color: #000 !important;
 }
 
 body{
-  
-  background-color: #F2EEDD;
+background-color: #F2EEDD;
 background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
+background-repeat: no-repeat;
+background-size: cover;
 height: 100%;
-min-height: 300vh;
-
+min-height: 100vh;
 align-items: center;
 justify-content: center;
 }
@@ -93,38 +96,36 @@ p, span {
 
 /* HOMEPAGE */
 .homepage{
-  margin-top: 20px;
   position: relative;
 }
  .homepage div{
-  min-height: 50px;
+  min-height: 200px;
   width: 100% ;
-
  }
-/* .homepage .welcome{
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center 
-} */
 
-.homepage .welcome-banner{
+
+.homepage .welcome-banner .parallax-inner{
     display: flex;
     flex-flow: column wrap;
     align-items: space-around;
     justify-content: center;
     align-items: center;
-    /* height: 50vh; */
+    vertical-align: center;    
 }
 
-.homepage .welcome-banner .copy {
-    margin: 0.2em 0;
-    text-align: center;
+.homepage .what-banner{
+  /* position: relative; */
+  overflow: hidden;
+  width: 100%;
 }
 
+.homepage .what-banner .what-text{
+  align-items: center;
+  vertical-align: center;
+}
 
-.homepage .welcome-banner .letter {
-    display: inline-block;
+.homepage .what-banner .img{
+  object-fit: scale-down;
 }
 
 
@@ -166,7 +167,11 @@ p, span {
   box-shadow: -3px 3px 0 #000, -6px 6px 0 #000, -9px 9px 0 #000, -12px 12px 0 #000, -14px 10px 20px #000;
 }
 
-.homepage .who .root{
+
+
+
+
+.homepage .who-banner .root{
   position: relative;
   display: flex;
   flex-flow: column wrap;
@@ -176,19 +181,19 @@ p, span {
   margin-bottom: 50vh;
 }
 
-.who .divider {
+.who-banner .divider {
   display: block;
   width: 100%;
   margin-top: 25vh;
   margin-bottom: 25vh;
 }
 
-.who .container {
+.who-banner .container {
   position: relative;
   width: 40em;
 }
 
-.who .boxOutline {
+.who-banner .boxOutline {
   position: absolute;
   top: 20%;
   right: 7%;
@@ -197,11 +202,11 @@ p, span {
   z-index: 1;
 }
 
-.who .boxBg {
+.who-banner .boxBg {
   width: 100%;
 }
 
-.who .text {
+.who-banner .text {
   position: absolute;
   top: 28%;
   left: 0;

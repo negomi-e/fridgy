@@ -44,14 +44,15 @@ class Login extends Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
+            <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
 
           <Button variant="primary" type="submit" >
             Submit
           </Button>
           <div>
-            <NavLink activeClassName={classes.active} to="/registration">Registration</NavLink>
+            <hr />
+            <NavLink activeClassName={classes.active} to="/registration">Not registered? Register here </NavLink>
           </div>
 
           {

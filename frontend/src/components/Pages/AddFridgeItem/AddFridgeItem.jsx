@@ -11,7 +11,7 @@ import {
 import '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
-import ItemModal from './ItemModal'
+import ItemModal from '../../../components/Common/Modal/ItemModal'
 
 const now = new Date();
 class AddFridgeItem extends Component {

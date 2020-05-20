@@ -12,7 +12,7 @@ class OurApp extends Component {
   render() {
 
     return (
-        <div id="inner_wrap">  
+        <div className="ourApp" id="inner_wrap">  
 
     <div id="wrapper">
     <div className="phone view_1" id="phone_1">
