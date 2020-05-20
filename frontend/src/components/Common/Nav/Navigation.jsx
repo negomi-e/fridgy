@@ -15,6 +15,7 @@ class Navigation extends Component {
   render() {
     return (
       <Navbar expand="lg">
+
         <Container>
           <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -33,11 +34,20 @@ class Navigation extends Component {
                   <>
                     <NavLink activeClassName={classes.active} to="/home" exact >Home</NavLink>
                     <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
+                  <NavLink activeClassName={classes.active} to="/registration">Register</NavLink>
                   </>
               }
             </Nav>
           </Navbar.Collapse>
         </Container>
+
+       
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+
       </Navbar>
     )
   }

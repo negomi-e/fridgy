@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import SelectDate from '../SelectDate';
-import { InputGroup, FormControl, Form, Button, Modal, Collapse } from 'react-bootstrap';
+import {
+  InputGroup,
+  FormControl,
+  Form,
+  Button,
+  Modal,
+  Collapse,
+} from 'react-bootstrap';
 import '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
-import ItemModal from './ItemModal'
+import ItemModal from '../../../components/Common/Modal/ItemModal'
 
 const now = new Date();
 class AddFridgeItem extends Component {
@@ -32,7 +39,7 @@ class AddFridgeItem extends Component {
         <Button onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
       </>
-    )
+    );
   }
 }
 

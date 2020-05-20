@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SelectDate from '../SelectDate';
+import SelectDate from '../../Pages/SelectDate'
 import { InputGroup, FormControl, Form, Button, Modal, Collapse } from 'react-bootstrap';
-import '../AddFridgeItem/AddFridgeItem.module.scss';
+import '../../Pages/AddFridgeItem/AddFridgeItem.module.scss'
 import { connect } from 'react-redux'
 import { addProductThunk, updateProductThunk } from '../../../redux/Thunk/fridgeThunk'
 
@@ -45,8 +45,8 @@ class ItemModal extends Component {
     }
 
 
-    addItem = () => {
-        this.calcRemainingDay()
+    addItem = async () => {
+        await this.calcRemainingDay()
         const product = {
             userId: this.props.userId,
             label: this.state.label,
@@ -56,6 +56,7 @@ class ItemModal extends Component {
             id: this.props.id,
         }
         this.props.addProductThunk(product)
+        this.setOpen()
     }
 
     editItem = () => {
@@ -67,6 +68,7 @@ class ItemModal extends Component {
             category: this.state.category,
         }
         this.props.updateProductThunk(product)
+        this.setOpen()
     }
 
     onChangeValue = event => {
