@@ -6,6 +6,8 @@ import Welcome from './Welcome'
 import What from './What'
 import Who from './Who'
 import OurApp from './OurApp'
+import TopBanner from './TopBanner'
+import FactBanner from './FactBanner'
 
 class Home extends Component {
   componentDidMount() {
@@ -16,18 +18,12 @@ class Home extends Component {
     return (
       <ParallaxProvider>
       <div className="homepage">
-      <div className="welcome-banner">
+        <TopBanner />
         <Welcome />
-        </div>
-      <div className="what-banner">
         <What />
-      </div>
-      <div className="ourApp">
+        {/* <FactBanner /> */}
         <OurApp />
-      </div>
-      <div className="who-banner">
         <Who />
-      </div>
       </div>
       </ParallaxProvider>
 

@@ -33,6 +33,7 @@ class Navigation extends Component {
                 <>
                 <NavLink activeClassName={classes.active} to="/home"  exact >Home</NavLink>
                 <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
+                <NavLink activeClassName={classes.active} to="/registration">Register</NavLink>
                 </>
             }
           </Nav>

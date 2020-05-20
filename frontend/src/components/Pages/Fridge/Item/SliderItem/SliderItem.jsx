@@ -40,9 +40,9 @@ class SliderItem extends Component {
 
     //TEXT DISPLAYED
     if (dayRemaining <= 0) {
-      expiryText = 'Item has expired'
+      expiryText = ' Item has expired'
     } else {
-      expiryText = dayRemaining + ' days left'
+      expiryText = ' ' + dayRemaining + ' days left'
     }
 
     //COLOUR CHANGE
