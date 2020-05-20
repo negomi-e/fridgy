@@ -37,9 +37,10 @@ class Fridge extends Component {
     }, {})
 
     return (
-      <div>
+      <div className="fridge">
         <h2>Your fridgy</h2>
         <AddFridgeItem />
+
         {
           categories.map(category => {
             return <ItemsCarousel data={sortProduct[category]} />

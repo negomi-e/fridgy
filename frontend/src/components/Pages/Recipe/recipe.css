@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Vidaloka&display=swap');
+ 
+ .display-named {
+   display: flex;
+  font-size: 30px ;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  color: #03192D;
+  justify-content: space-between;
+  /* margin: 0 70px 0 0; */
+  
+}
+
+.display-items-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.display-a {
+  text-decoration:none !important;
+  color: azure;
+}
+
+.img {
+  width: auto ;
+  height: auto;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+  width: 900px;
+}
+
+.display-image {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+}
+
+.display-ingredient {
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  /* margin-left: 20px ; */
+}
+
+
+
+.wrapped-recipe-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.display-items {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  margin: 30 0 ;
+  justify-content: left;
+  display: flex;
+}
+
+.ingredients {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+

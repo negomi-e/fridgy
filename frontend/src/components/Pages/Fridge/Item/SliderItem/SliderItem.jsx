@@ -10,10 +10,30 @@ import { Card } from 'react-bootstrap';
 import { IoIosListBox, IoIosTrash } from "react-icons/io";
 import '../SliderItem/SliderItem.css'
 
+import backImg from './backfruit.jpg'
+import ItemModal from '../../../AddFridgeItem/ItemModal'
+import FruitBasket from '../../../../../images/Vegetables.jpg'
+import MeatBasket from '../../../../../images/meat.jpg'
+import DairyBasket from '../../../../../images/Dairy.jpg'
+
+
 
 class SliderItem extends Component {
+  state={
+    open: false,
+    update: true,
+
+      id: this.props.data._id,
+      label: this.props.data.label,
+      expiryDate: this.props.data.expiryDate,
+      dayRemaining: this.props.data.dayRemaining,
+      category: this.props.data.category,
+  }
+
+  setOpen = () => { this.setState({ open: !this.state.open }) };
+
   render() {
-    const { label, dayRemaining, _id } = this.props.data
+    const { label, dayRemaining, _id, category } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -36,6 +56,8 @@ class SliderItem extends Component {
 
     return (
       <>
+        {this.state.open? <ItemModal props={this.state}/>: null}
+
         <div className="sliderItem-close">
           <a onClick={() => this.props.deleteItemThunk(_id)} variant="light"><IoIosTrash /></a>
         </div>
@@ -47,13 +69,14 @@ class SliderItem extends Component {
 
           <div className="sliderItem-status">
             <small className="text-muted"><BsFillCircleFill color={toggleColor} />{expiryText}</small>
+
           </div>
 
         </div>
         <div className="wrapSliderItem-control">
 
 
-          <a onClick={() => this.props.onEditTask(_id)}>
+          <a onClick={this.setOpen}>
             <IoIosListBox />
           </a>
           <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>

@@ -31,7 +31,6 @@ class Form extends Component {
           />
           <InputGroup.Append>
             <Button
-              variant="outline-secondary"
               onClick={this.addProduct}>
               Add
             </Button>

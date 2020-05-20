@@ -14,7 +14,7 @@ class Navigation extends Component {
 
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg">
         <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -25,7 +25,8 @@ class Navigation extends Component {
                 ?
                 <>
                 <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
-                <NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                <NavLink className="nav_link" activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                <NavLink className="nav_link" activeClassName={classes.active} to="/recipes/:id">Recipe</NavLink>
                 <a onClick={this.logout} >Logout</a>
                 </>
                 :
