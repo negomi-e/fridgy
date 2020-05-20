@@ -13,7 +13,7 @@ export default class ProductSL extends Component {
     return (
       <ListGroup.Item id={this.props._id} className={this.props.status ? "complete" : "no-complete"}>
         <div className="textBlock_SL">
-          <p>{this.props.label}</p>
+          <span className="label">{this.props.label}</span>
         </div>
         <div className="controlBlock_SL">
           <BtnComplete id={this.props._id} />

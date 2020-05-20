@@ -12,20 +12,18 @@ class ShoppingList extends Component {
   componentDidMount = () => {
     this.props.setProductSL_Thunk(this.props.userId)
   }
-  // componentDidUpdate = () => {
-  //   this.props.setProductSL_Thunk()
-  // }
 
 
   render() {
     const { products } = this.props
     return (
-      <section>
+      <section className="shoppinglist">
         <h2>Shopping list</h2>
         <ListGroup variant="flush">
           <div>
             <Form></Form>
           </div>
+          <div classname="list-body">
           {
 
             products.map(product => {
@@ -33,6 +31,7 @@ class ShoppingList extends Component {
             })
             // < span > Not found products</span>
           }
+          </div>
 
         </ListGroup>
       </section >
