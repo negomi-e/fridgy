@@ -1,5 +1,5 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL , DELETE_ITEM} from './action-types';
+import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT, UPDATE_PRODUCT } from './action-types';
 
 
 export function listLoading() {
@@ -8,11 +8,11 @@ export function listLoading() {
   };
 }
 
-export function listLoaded(list,toptags) {
+export function listLoaded(allProducts, tags) {
   return {
     type: LIST_LOADED,
-    items: list,
-    tags: toptags
+    items: allProducts,
+    tags
   };
 }
 
@@ -23,11 +23,10 @@ export function listError(err) {
   };
 }
 
-export function deleteItem(id, category) {
+export function deleteItem(id) {
   return {
     type: DELETE_ITEM,
-    elementID: id,
-    category: category
+    id,
   };
 }
 
@@ -42,7 +41,8 @@ export const loadItems = (search) => {
     })
     let json = await response.json();
     let { feed } = json
-    await dispatch(takeItems(feed))
+    dispatch(takeItems(feed))
+
   }
 }
 
@@ -59,3 +59,20 @@ export const getRecipes = (item) => {
     payload: item
   }
 }
+
+export function addProductAC(product) {
+  return {
+    type: ADD_PRODUCT,
+    product,
+  }
+}
+
+export function updateProductAC(data) {
+  return {
+    type: UPDATE_PRODUCT,
+    id: data.id,
+    data: data,
+  }
+}
+
+

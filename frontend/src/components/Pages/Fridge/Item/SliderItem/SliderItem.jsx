@@ -9,13 +9,28 @@ import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 import backImg from './backfruit.jpg'
+import ItemModal from '../../../AddFridgeItem/ItemModal'
+import FruitBasket from '../../../../../images/Vegetables.jpg'
+import MeatBasket from '../../../../../images/meat.jpg'
+import DairyBasket from '../../../../../images/Dairy.jpg'
 
 
 class SliderItem extends Component {
+  state={
+    open: false,
+    update: true,
+
+      id: this.props.data._id,
+      label: this.props.data.label,
+      expiryDate: this.props.data.expiryDate,
+      dayRemaining: this.props.data.dayRemaining,
+      category: this.props.data.category,
+  }
+
+  setOpen = () => { this.setState({ open: !this.state.open }) };
+
   render() {
-
-    const { label, dayRemaining, _id, category } = this.props.props
-
+    const { label, dayRemaining, _id, category } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -39,37 +54,25 @@ class SliderItem extends Component {
     return (
       <>
         {/* Refact - переписать верстку и кнопки + добавить обратную связь по клику */}
-
+        {this.state.open? <ItemModal props={this.state}/>: null}
         <Card>
           {/* <Card.Img variant="top" src={productImage} alt="product" /> */}
           <div className="sliderItem-imgWrap">
-            <img src={backImg} alt="img" />
+            <img src={MeatBasket} alt="img" />
           </div>
           <div className="sliderItem-content">
             <Card.Title style={{ color: 'black' }}>{label}</Card.Title>
-            <div>
-              <ul className="sliderItem-list">
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-                <li className="sliderItem-listItem">
-                  Lorem ipsum dolor sit amet.
-                </li>
-              </ul>
-            </div>
+
             <div className="sliderItem-status">
               <small className="text-muted"><BsFillCircleFill color={toggleColor} />  {expiryText}</small>
             </div>
           </div>
           <div className="wrapSliderItem-control">
             <div className="sliderItem-control">
-              <a onClick={() => this.props.deleteItemThunk(_id, category)} variant="light">
+              <a onClick={()=> this.props.deleteItemThunk(_id)} variant="light">
                 <AiOutlineDelete />
               </a>
-              <a onClick={() => this.props.onEditTask(_id)}>
+              <a onClick={this.setOpen}>
                 <AiFillEdit />
               </a>
               <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
@@ -80,15 +83,11 @@ class SliderItem extends Component {
               </a>
             </div>
           </div>
-
         </Card>
-
       </>
     )
   }
 }
-
-
 
 export default connect(
   (state) => ({

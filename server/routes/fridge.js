@@ -2,108 +2,89 @@ const express = require('express')
 const route = express.Router()
 const Product = require('../models/products')
 
-route.get('/:id', async function(req,res){
-        // return res.json('i am here finding lists');
-        
-        try{
-            console.log('HIT SERVER SIDE');
-            
-            const {id } = req.params
-            const fridgeitems = await Product.find({userID: id})
-            fridgeitems.sort((a,b) => a.expiryDate - b.expiryDate);
-            const closeToExpire = fridgeitems.slice(0,5)
-            const tags = closeToExpire.map(item => {return item.label})
+route.get('/:id', async function (req, res) {
+  // return res.json('i am here finding lists');
 
+  try {
+    const { id } = req.params
+    const fridgeitems = await Product.find({ userID: id })
+    fridgeitems.sort((a, b) => a.expiryDate - b.expiryDate);
+    const closeToExpire = fridgeitems.slice(0, 5)
+    //Create tags for recipts
+    const tags = closeToExpire.map(item => { return item.label })
 
-        if (fridgeitems.length > 0) {
-            // let array = fridgeitems.items
-            // console.log('array', fridgeitems);
-            fridgeitems.forEach((item) => {
-                let exp = new Date(item.expiryDate)
-                let current = new Date()
-                //console.log(exp);
-                // console.log(new Date());
+    if (fridgeitems.length > 0) {
+      fridgeitems.forEach((item) => {
+        let exp = new Date(item.expiryDate)
+        let current = new Date()
+        let differenceTIME = exp - current
+        let differenceDay = Math.floor(differenceTIME / (1000 * 3600 * 24))
+        item.dayRemaining = differenceDay;
+        return;
+      })
+    }
 
-                let differenceTIME =  exp - current 
-                let differenceDay = Math.floor(differenceTIME / (1000 * 3600 * 24))
-                item.dayRemaining = differenceDay; 
-                return;
-                
-            })
-            
-        }
-        // console.log('daysss', fridgeitems);
-            
-            const fruit = fridgeitems.filter((product)=>{ return product.category == 'Fruit'})
-            const meat = fridgeitems.filter((product)=>{ return product.category == 'Meat'})
-            const dairy = fridgeitems.filter((product)=>{ return product.category == 'Dairy'})
+    res.json({
+      message: 'success',
+      allProducts: fridgeitems,
+      tags: tags,
+    });
 
-    
-            
-            const categories = {'Fruit': fruit, 'Meat': meat, 'Dairy': dairy}
-            // await fridgeitems.save()
-            res.json({list: categories, tags: tags});
-            }catch(err){
-            res.send(404).text('No items')
-            }
-    })
+  } catch (err) {
+    res.send(404).text('No items')
+  }
+})
 
 //delete item from fridge
-route.delete('/delete/:id', async (req,res)=>{
-    
-    await Product.findOneAndDelete({'_id': req.params.id});
-    const fridgeitems = await Product.find()
-    console.log(fridgeitems)
-    res.json({success: true})
+route.delete('/delete/:id', async (req, res) => {
+  try {
+    await Product.findOneAndDelete({ '_id': req.params.id });
+    res.json({ success: 'success' })
+  } catch (error) {
+    res.json(error.message)
+  }
 })
-    
+
 //edit item info
-route.put('/change/:id', async (req,res)=>{
-    try{
-            const {label, expiryDate } = req.body
-            let item = await Product.findbyId({'_id':req.params.id})
-            item.label = label
-            item.expiryDate = expiryDate
-            await item.save()
-            res.json()
-    }catch(err){
-        res.send(404).text('Cant update')
-        }
+route.put('/update/:id', async (req, res) => {
+  try {
+    const { label, expiryDate, category } = req.body
+    let item = await Product.findbyId({ '_id': req.params.id })
+    item.label = label
+    item.expiryDate = expiryDate
+    item.category = category
+    await item.save()
+    res.json({message: 'success'})
+  } catch (err) {
+    res.send(404).text('Cant update')
+  }
 })
 
 
 //additem to fridge
-route.post('/add', async (req,res)=>{
+route.post('/add', async (req, res) => {
 
+  try {
+    const { userId, label, expiryDate, category, dayRemaining } = req.body
+    //if (!userId) throw 'not user id'
+    let newItem = await new Product({
+      userID: userId,
+      label,
+      expiryDate: new Date(expiryDate),
+      category,
+      dayRemaining,
+    }).save()
 
-    let newitem = await new Product({
-        userID: req.body.userID,
-        label: req.body.item.label,
-        expiryDate: req.body.item.expiryDate,
-        category: req.body.item.category,
-        dayRemaining: req.body.item.dayRemaining,
+    res.json({
+      message: 'success',
+      newItem,
     })
 
-    await newitem.save()
-    res.json()
+  } catch (error) {
+    res.json(error.message)
+  }
 })
 
-
-//add item from fridge to shopping list
-//const Shopping = require('../models/shopping')
-// route.post('/addshoppinglist/:id', async (req,res)=>{
-//     let item = await Product.findbyId({'_id':req.params.id})
-
-
-//     let newshoppingitem = await new Shopping({
-//         userID: item.userID,
-//         label: item.label,
-//         categories: item.label
-//     })
-
-//     await newshoppingitem.save()
-//     res.json()
-// })
 
 
 

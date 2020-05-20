@@ -10,23 +10,37 @@ import {
 class Fridge extends Component {
   componentDidMount() {
     const { id } = this.props
-    
     this.props.loadFridge(id);
-
   }
 
   redirectToTarget = () => {
     this.props.history.push(`/addFridgeItem`)
   }
-  
+
   render() {
-    const categories = Object.keys(this.props.items)
+    const { items = [] } = this.props
+    const categories = []
+
+    for (let i = 0; i < items.length; i++) {
+      if (!categories.includes(items[i].category))
+        categories.push(items[i].category)
+    }
+
+    const sortProduct = items.reduce((accum, currentItem, arr) => {
+      const categoryName = currentItem.category
+      if (!accum[categoryName]) {
+        accum[categoryName] = []
+      }
+      accum[categoryName].push(currentItem)
+      return accum
+    }, {})
+
     return (
-      <div>
-        <h2>Your fridgy</h2>
+      <div className="fridge">
+        <h1>Your fridgy</h1>
         {
           categories.map(category => {
-            return <ItemsCarousel props={this.props.items[category]} />
+            return <ItemsCarousel data={sortProduct[category]} />
           })
         }
 

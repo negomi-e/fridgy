@@ -15,7 +15,7 @@ class Navigation extends Component {
   //Refactor - цвет ссылок 
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg">
         <Navbar.Brand href="/home">Fridgy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -26,7 +26,7 @@ class Navigation extends Component {
                 ?
                 <>
                 <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
-                <NavLink activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
+                <NavLink className="nav_link" activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
                 <a onClick={this.logout} >Logout</a>
                 </>
                 :

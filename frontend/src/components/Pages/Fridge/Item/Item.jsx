@@ -8,8 +8,7 @@ import SliderItem from './SliderItem/SliderItem'
 class Items extends Component {
 
   render() {
-
-    const items = this.props.props
+    const items = this.props.data
     // console.log(items)
 
     return (
@@ -18,7 +17,7 @@ class Items extends Component {
           <Carousel.Item key={item._id} >
             <img className="d-block w-100" src={sliderimg} />
             <Carousel.Caption>
-              <SliderItem props={item} />
+              <SliderItem data={item} />
             </Carousel.Caption>
           </Carousel.Item>
         )) : <Carousel.Item>

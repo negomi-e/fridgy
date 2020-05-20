@@ -4,10 +4,15 @@ import {
   COMPLETE_PRODUCT_SL,
   SET_PRODUCT_SL,
   CHANGE_INPUT_SL,
+  ALERT_ERROR,
+  ALERT_SUCCESS,
+
 } from '../Actions/action-types'
 
 const initialState = {
   loading: false,
+  errorAlert: false,
+  successAlert: false,
   products: [],
   inputTextSL: '',
 }
@@ -40,6 +45,7 @@ export function shoppingListReducer(state = initialState, action) {
           return 0
         }),
         loading: false,
+        inputTextSL: '',
       }
 
     case DELETE_PRODUCT_SL:
@@ -65,6 +71,16 @@ export function shoppingListReducer(state = initialState, action) {
             return 0
           }),
         loading: false
+      }
+    case ALERT_ERROR:
+      return {
+        ...state,
+        errorAlert: !state.errorAlert,
+      }
+    case ALERT_SUCCESS:
+      return {
+        ...state,
+        successAlert: !state.successAlert,
       }
 
     default:

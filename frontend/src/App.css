@@ -3,10 +3,199 @@
   margin: 0 auto;
   text-align: center;
 }
+.preloaderWrap {
+  padding: 20px;
+}
+.preloaderWrap img {
+  height: 30px;
+}
 
 html, body, .container, .App, #root {
-  height: 100%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-style: normal;
+font-weight: 400;
+color: #000 !important;
+  background-color: #fff;
+}
 
+/* Fonts size */
+
+p, span {
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
+  text-align:center;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background-color: #00a6a6;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-outline-success {
+  color: #e08d07f3;
+  border-color: #e08d07f3;
+}
+
+.btn-img {
+  height: 20px;
+}
+
+/* NAV BAR */
+
+.navbar{
+  background-color: #f49f0a;
+  width: 100%;
+}
+
+.navbar .nav-nav-bar{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* HOW TO UNCODE NAVLINK ??*/
+.navbar a{
+  color: white;
+  text-decoration: none;
+}
+.navbar a:hover{
+  opacity:.8;
+  
+}
+
+.navbar a .active{
+  opacity:.6;
+  font-weight: bold;
+}
+
+/* LOGIN REGISTER */
+
+.formSend{
+  margin-top: 50px;
+}
+
+/* HOMEPAGE */
+.homepage{
+  margin-top: 20px;
+}
+ .homepage div{
+  height: 200px;
+ }
+.homepage .welcome{
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center 
+}
+
+.homepage .what{
+  
+}
+
+.homepage .ourteam{
+  height: 300px;
+}
+
+.ourteam .wrap-deck{
+  display:flex;
+  justify-content: space-between;
+}
+
+.teamMember img{
+  margin: 20px
+}
+
+
+/* FRIDGE PAGE */
+
+.fridge h1{
+  margin: 30px;
+}
+
+.carousel-caption {
+  color: #000 !important;
+}
+
+.card-title{
+  font-size: 58px;
+}
+
+
+
+
+/* SHOPPING LIST */
+.shoppinglist{
+    margin:4rem auto;
+    padding:2rem 3rem 3rem;
+    max-width:500px;
+    background: #efca08;;
+    color:#FFF;
+    box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
+}
+
+.controlBlock_SL * {
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.shoppinglist .list-body{
+	margin-top:2.6rem;
+	list-style:none;
+}
+
+.shoppinglist .label {
+	position:relative;
+	transition:opacity .2s linear;
+}
+.shoppinglist .complete .label {
+  opacity:.6;
+  text-decoration: line-through;
+  animation: strike 4s linear; 
+}
+.shoppinglist .complete .label:before {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:-.5rem;
+	display:block;
+	width:0%;
+	height:1px;
+	background:#FFF;
+	
+}
+
+.shoppinglist .list-group-item{
+	display:flex;
+	margin:0 -3rem 4px;
+	padding:1.1rem 3rem;
+	justify-content:space-between;
+	align-items:center;
+  background:rgba(255,255,255,0.1);
+}
+
+/* SHOPPING FORM */
+.shoppinglist form {
+	margin-top:3rem;
+	display:flex;
+	flex-wrap:wrap;
+}
+.shoppinglist form label {
+	min-width:100%;
+	margin-bottom:.5rem;
+	font-size:1.3rem;
+}
+.shoppinglist form input {
+	flex-grow:1;
+	border:none;
+	background:#f7f1f1;
+	padding:0 1.5em;
+	font-size:initial;
 }
 
 .authPage {
@@ -21,55 +210,4 @@ html, body, .container, .App, #root {
 
 .red {
   color: red !important;
-}
-
-
-body{
-  color: #000 !important;
-  background-color: #fff;
-  position: relative;
-}
-
-.btn-img {
-  height: 20px;
-}
-
-.complete {
-  transition: 0.5 ease-in-out all;
-  background-color: rgba(38, 243, 127, 0.158);
-}
-
-
-.list-group-item {
-  display: flex;
-  justify-content: space-between;
-}
-
-.controlBlock_SL * {
-  margin: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-.carousel-caption {
-  color: #000 !important;
-}
-
-.overlay{
-  background-color: #000000;
-  opacity: 0.6;
-  position: absolute;
-  z-index: inherit 1;
-}
-
-.overlay-what{
-  background-color: #000000;
-  opacity: 0.6;
-  position: absolute;
-  z-index: inherit 1;
-}
-
-.wrap-deck{
-  display:flex;
-  justify-content: space-between;
 }

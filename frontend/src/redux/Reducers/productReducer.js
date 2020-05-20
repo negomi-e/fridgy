@@ -1,23 +1,25 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL ,  DELETE_ITEM} from '../Actions/action-types';
+import {
+  LIST_LOADING, LIST_LOADED, LIST_ERROR,
+  LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT, UPDATE_PRODUCT
+} from '../Actions/action-types';
 
 
 const initialState = {
   loading: false,
-  items: false,
+  items: [],
   listError: false,
   itemsApi: "",
   searchTags: [],
   label: "",
 };
 
-export function productReducer (state = initialState, action) {
+export function productReducer(state = initialState, action) {
   switch (action.type) {
     case LIST_LOADING:
       return {
         ...state,
         loading: true,
-        items: false,
         listError: false,
       };
     case LIST_LOADED:
@@ -35,12 +37,13 @@ export function productReducer (state = initialState, action) {
         items: false,
         listError: action.payload,
       };
-    case LOAD_ITEMS: 
-    const newItem = action.payload;
-    return {
-      ...state,
-      itemsApi: [newItem]
-    }
+    case LOAD_ITEMS:
+      const newItem = action.payload;
+      return {
+        ...state,
+        itemsApi: [newItem],
+        loading: false,
+      }
 
     case LOAD_LABEL:
       return {
@@ -48,13 +51,25 @@ export function productReducer (state = initialState, action) {
         label: action.payload
       }
 
-    case DELETE_ITEM: 
-    const  updatedArray = state.items[action.category].filter(result=> result._id !== action.elementID? result: false);
-  
-    return {
-      ...state,
-      items: {...state.items, [action.category]: updatedArray}
-    }
+    case DELETE_ITEM:
+      const updatedArray = state.items.filter(product => product._id !== action.id ? product : false);
+      return {
+        ...state,
+        items: [...updatedArray]
+      }
+
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        items: [...state.items, action.product]
+      }
+    case UPDATE_PRODUCT:
+      const updatedItems = state.items.map(product => {if(product.id === action.id)
+         return action.data} )
+      return {
+        ...state,
+        items: updatedItems
+      }
 
     default:
       return state;

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 function PrivateRoute({ children, loginStatus, email, ...rest }) {
   return (
     <Route {...rest} render={({ location }) =>
-      loginStatus && email != ''
+      loginStatus && email !== ''
         ? (children)
         : (<Redirect to={{ pathname: "/home", state: { from: location } }} />)
     }
