@@ -36,7 +36,7 @@ export const loadItems = (search) => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "yummly2.p.rapidapi.com",
-        "x-rapidapi-key": "bc823de7d7msh02ef7b6e50fa82bp1df302jsn3b6fce001d4a"
+        "x-rapidapi-key": "b4bd3b9d07mshaef0e18dd786026p18c996jsn0633e759ede4"
       }
     })
     let json = await response.json();

@@ -322,6 +322,14 @@ p, span {
   visibility: hidden;
 }
 
+  
+nav {
+  border-radius: 0px 0px 10px 10px;
+  background-color: none !important;
+  background: #0C4D75 !important;
+}
+
 .red {
   color: red !important;
 }
+
