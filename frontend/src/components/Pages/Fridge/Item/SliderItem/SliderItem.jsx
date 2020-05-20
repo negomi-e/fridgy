@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 import { Card } from 'react-bootstrap';
 import '../SliderItem/SliderItem.css'
 import backImg from './backfruit.jpg'
-import ItemModal from '../../../AddFridgeItem/ItemModal'
+import ItemModal from '../../../../Common/Modal/ItemModal'
 import FruitBasket from '../../../../../images/Vegetables.jpg'
 import MeatBasket from '../../../../../images/meat.jpg'
 import DairyBasket from '../../../../../images/Dairy.jpg'
