@@ -57,13 +57,26 @@
   font-weight: 300;
   /* margin-left: 20px ; */
   /* display: flex; */
+}
 
+.display-item-expired {
+  font-size: 30px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #03192D;
 }
 
 .wrapped-recipe-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.display-line1 {
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+  border-right: solid;
 }
 
 .display-items {

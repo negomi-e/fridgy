@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadItems, takeItems, listLoading } from '../../../redux/Actions/fridge-actions'
 import "./recipe.css";
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
+import {Button} from 'reactstrap'
 import Preloader from '../../Common/Preloader/Preloader.jsx'
 
 
