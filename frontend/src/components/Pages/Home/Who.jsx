@@ -31,11 +31,11 @@ class Who extends Component {
         <div className="container">
             <div className="ourteam">
               <h2>OUR AMAZING TEAM</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
               error amet numquam iure provident voluptate esse quasi, veritatis
-        totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+        totam voluptas nostrum quisquam eum porro a pariatur veniam.</span>
 
-              <CardGroup className="wrap-deck">
+              <CardGroup>
                 <TeamMember props={this.state.Imogen} />
                 <TeamMember props={this.state.Dima} />
                 <TeamMember props={this.state.Alexey} />

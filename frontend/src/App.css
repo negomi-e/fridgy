@@ -17,8 +17,12 @@ html, body, .container, .App, #root {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 font-style: normal;
 font-weight: 400;
-color: #000 !important;
+color: #03192D !important
 
+}
+
+h1, h2, h3, h4, p, span{
+  color: #03192D !important
 }
 
 body{
@@ -30,6 +34,7 @@ height: 100%;
 min-height: 100vh;
 align-items: center;
 justify-content: center;
+
 }
 /* Fonts size */
 
@@ -60,10 +65,12 @@ p, span {
 
 /* NAV BAR */
 
-.navbar{
-  background-color: #f49f0a;
-  width: 100%;
-  /* box-shadow: -20px -20px 0px 0px rgba(100,100,100,.1); */
+
+
+nav {
+  border-radius: 0px 0px 10px 10px;
+  background-color: none !important;
+  background: #0C4D75 !important;
 }
 
 .navbar .nav-nav-bar{
@@ -102,6 +109,7 @@ p, span {
   width: 100% ;
  }
 
+
  @media (max-width: 800px) {
   .homepage .fact-banner, .homepage .topbanner,.homepage .features-banner, .homepage .ourApp {
   display: hidden;
@@ -132,6 +140,7 @@ p, span {
 }
 
 .homepage .what-banner .img{
+  /* border-radius: 15px 15px 15px 15px; */
   object-fit: scale-down;
 }
 
@@ -142,12 +151,13 @@ p, span {
    -moz-column-count: 2;
    -moz-column-gap: 0px;
     column-count: 2;    
-    column-gap: 0px;    
+    column-gap: 10px;    
 }  
-.homepage .fact-banner img {    
+.homepage .fact-banner img {   
+  /* border-radius: 10px 10px 10px 10px;  */
   width: 100% !important;    
   height: auto !important;  
-  padding: 10px;
+  margin: 5px;
   object-fit: scale-down;
 } 
 
@@ -260,6 +270,7 @@ p, span {
 .features-block .feature-item, .ourteam .wrap-deck{
   display:flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .teamMember{
@@ -377,11 +388,7 @@ p, span {
 }
 
   
-nav {
-  border-radius: 0px 0px 10px 10px;
-  background-color: none !important;
-  background: #0C4D75 !important;
-}
+
 
 .red {
   color: red !important;
