@@ -23,8 +23,7 @@ route.get('/:id', async function (req, res) {
         return;
       })
     }
-    console.log('alll products>>>>>>', allProducts);
-    
+
     res.json({
       message: 'success',
       allProducts: fridgeitems,
@@ -32,7 +31,7 @@ route.get('/:id', async function (req, res) {
     });
 
   } catch (err) {
-    res.status(404).text('No items')
+    res.json(err.message)
   }
 })
 
@@ -55,7 +54,7 @@ route.put('/update/:id', async (req, res) => {
     item.expiryDate = expiryDate
     item.category = category
     await item.save()
-    res.json({message: 'success'})
+    res.json({ message: 'success' })
   } catch (err) {
     res.send(404).text('Cant update')
   }
