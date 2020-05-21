@@ -111,7 +111,7 @@ class ItemModal extends Component {
                                 <Form.Control onChange={this.changeCategory} as="select" custom>
                                     <option>{this.state.category}</option>
                                     <option>Other</option>
-                                    <option>Vegetables</option>
+                                    <option>Veg</option>
                                     <option>Fruit</option>
                                     <option>Meat</option>
                                     <option>Diary</option>
