@@ -102,6 +102,11 @@ p, span {
   width: 100% ;
  }
 
+ @media (max-width: 800px) {
+  .homepage .fact-banner, .homepage .topbanner,.homepage .features-banner, .homepage .ourApp {
+  display: hidden;
+   }
+ }  
 
 .homepage .welcome-banner .parallax-inner{
   width: 100% !important;
