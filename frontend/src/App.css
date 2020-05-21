@@ -416,5 +416,6 @@ nav {
   text-transform: uppercase;
 }
 
-
-/* SCAN PHOTOS */
+.fridge {
+  margin-bottom: 60px;
+}

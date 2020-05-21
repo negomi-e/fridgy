@@ -1,18 +1,18 @@
 .month {
   padding: 10px;
   margin: 2px;
-  border: 2px #7ED1DD solid;
+  border: 2px #0C4D75 solid;
   border-radius: 3px;
   background-color: white;
   width: 100px;
   font-size: large;
   font-weight: bold;
-  color: #7ED1DD;
+  color: #0C4D75;
   outline: none;
 }
 
 .month:hover {
-  background-color: #7ED1DD;
+  background-color: #0C4D75;
   transition-duration: 300ms;
   color: white;
 }

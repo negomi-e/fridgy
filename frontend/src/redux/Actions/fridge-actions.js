@@ -36,7 +36,7 @@ export function deleteItem(id) {
 
 export const loadItems = (search) => {
   return async (dispatch) => {
-    let response = await fetch(`https://yummly2.p.rapidapi.com/feeds/search?FAT_KCALMax=1000&maxTotalTimeInSeconds=7200&allowedAttribute=diet-lacto-vegetarian%252Cdiet-low-fodmap&q=${search}&start=0&maxResult=3`, {
+    let response = await fetch(`https://yummly2.p.rapidapi.com/feeds/search?FAT_KCALMax=1000&maxTotalTimeInSeconds=7200&allowedAttribute=diet-lacto-vegetarian%252Cdiet-low-fodmap&q=${search}&start=0&maxResult=5`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "yummly2.p.rapidapi.com",

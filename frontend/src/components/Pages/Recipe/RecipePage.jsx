@@ -38,11 +38,11 @@ class RecipePage extends React.Component {
     return (
       <Container>
       <div className="div-display-named">
-        <h2>Просрочка:</h2>
+        <div className="display-item-expired">Your item has expired:</div>
         {this.props.searchTags.map((item) => {
-          return <button style={{ marginRight: 10 }}
+          return <Button color='warning' style={{ marginRight: 10 }}
             onClick={() => this.props.loadItems(item)}
-          >{item}</button>
+          >{item}</Button>
         })}
         <div className="display-search-form">
           <Form inline

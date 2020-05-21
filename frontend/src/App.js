@@ -17,6 +17,7 @@ import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
 import { AlertSuccess, AlertError } from './components/Common/Alerts/Alerts.jsx'
 import { connect } from 'react-redux';
+import Footer from './components/Common/Footer';
 
 
 function App(props) {
@@ -73,7 +74,8 @@ function App(props) {
             <ScanPhoto history={props.history} />
           </PrivateRoute>
         </Switch>
-     
+
+  <Footer />
     </div>
   );
 }

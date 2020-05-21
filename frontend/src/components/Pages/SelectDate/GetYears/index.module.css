@@ -1,18 +1,18 @@
 .year {
   padding: 10px;
   margin: 2px;
-  border: 2px tomato solid;
+  border: 2px #e08d07f3 solid;
   border-radius: 3px;
   background-color: white;
   width: 30%;
   font-size: large;
   font-weight: bold;
-  color: tomato;
+  color: #e08d07f3;
   outline: none;
 }
 
 .year:hover {
-  background-color: tomato;
+  background-color: #e08d07f3;
   transition-duration: 300ms;
   color: white;
 }

@@ -1,3 +1,60 @@
 h4{
     color: black
 }
+
+.button {
+  background-color: #0C4D75;
+  outline: none;
+  font-weight: bolder;
+}
+
+.button:hover {
+  background-color: #e08d07f3;
+}
+
+.button:active {
+  background-color: #0C4D75;
+}
+
+.button:visited {
+  background-color: #0C4D75;
+}
+
+.button:focus {
+  background-color: #0C4D75;
+}
+
+.expiryButton {
+  background-color: white;
+  color: #0C4D75;
+  border-color: #0C4D75;
+  font-weight: bolder;
+}
+
+.expiryButton:hover {
+  background-color: #e08d07f3;
+  border-color: #e08d07f3;
+  color: white;
+  font-weight: bolder;
+}
+
+.expiryButton:active {
+  background-color: white;
+  color: #0C4D75;
+  border-color: #0C4D75;
+  font-weight: bolder;
+}
+
+.expiryButton:visited {
+  background-color: white;
+  color: #0C4D75;
+  border-color: #0C4D75;
+  font-weight: bolder;
+}
+
+.expiryButton:focus {
+  background-color: white;
+  color: #0C4D75;
+  border-color: #0C4D75;
+  font-weight: bolder;
+}
