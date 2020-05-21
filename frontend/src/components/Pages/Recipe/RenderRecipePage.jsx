@@ -34,7 +34,7 @@ class RenderRecipePage extends React.Component {
               <div className="display-items">{item.content.ingredientLines.length} 
               <div className="display-ingredient">items</div></div>
               <div className="display-items">{item.content.details.totalTime} 
-              <div className="display-ingredient">minutes</div></div>
+              <div className="display-ingredient">Time</div></div>
               <div className="display-items">{item.content.nutrition.nutritionEstimates[0].display.value}
               <div className="display-ingredient">Calories</div>
               </div></div>
