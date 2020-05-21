@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../ShoppingList/ShoppingList.module.scss'
 import { connect } from 'react-redux'
 import ProductSL from './ProductSL/ProductSL.jsx'
 import { ListGroup, Container } from 'react-bootstrap'
@@ -18,7 +17,7 @@ class ShoppingList extends Component {
     const { products } = this.props
     return (
       <Container>
-      <section className="shoppinglist">
+      <section className="shoppinglist shadowed-box">
         <h2>Shopping list</h2>
         <ListGroup variant="flush">
           <div>
