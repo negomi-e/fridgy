@@ -38,44 +38,43 @@ function App(props) {
   return (
     <div className="App">
       <Navigation />
-      
 
-        {
-          props.alertSuccess ? <AlertSuccess /> : null
-        }
-        {
-          props.alertError ? <AlertError /> : null
-        }
 
-        <Switch>
-          <Route path="/registration">
-            <Registeration history={props.history} />
-          </Route>
-          <Route path="/login">
-            <Login history={props.history} />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
+      {
+        props.alertSuccess ? <AlertSuccess /> : null
+      }
+      {
+        props.alertError ? <AlertError /> : null
+      }
 
-          <PrivateRoute exact path="/">
-            <Fridge history={props.history} />
-          </PrivateRoute>
-          <PrivateRoute path="/shoppingList">
-            <ShoppingList />
-          </PrivateRoute>
-          <PrivateRoute path="/addFridgeItem">
-            <AddFridgeItem />
-          </PrivateRoute>
-          <PrivateRoute path="/recipes/:label">
-            <RecipePage history={props.history} />
-          </PrivateRoute>
-          <PrivateRoute path="/scanphotos">
-            <ScanPhoto history={props.history} />
-          </PrivateRoute>
-        </Switch>
+      <Switch>
+        <Route path="/registration">
+          <Registeration history={props.history} />
+        </Route>
+        <Route path="/login">
+          <Login history={props.history} />
+        </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <PrivateRoute path="/scanphotos">
+          <ScanPhoto history={props.history} />
+        </PrivateRoute>
+        <PrivateRoute exact path="/">
+          <Fridge history={props.history} />
+        </PrivateRoute>
+        <PrivateRoute path="/shoppingList">
+          <ShoppingList />
+        </PrivateRoute>
+        <PrivateRoute path="/addFridgeItem">
+          <AddFridgeItem />
+        </PrivateRoute>
+        <PrivateRoute path="/recipes/:label">
+          <RecipePage history={props.history} />
+        </PrivateRoute>
+      </Switch>
 
-  <Footer />
+      <Footer />
     </div>
   );
 }

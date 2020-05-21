@@ -1,9 +1,17 @@
 .footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
   background-color: #0C4D75;
   color: white;
-  font-weight: bolder;
   text-align: center;
+  border-radius: 10px 10px 0px 0px;
+
 }
+
+.linkGitFooter {
+  font-size: 40px;
+  color: aliceblue;
+} 
+
+.linkGitFooter:hover {
+  color: aliceblue;
+}
+

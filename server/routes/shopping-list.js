@@ -49,6 +49,18 @@ route.delete('/:id', async function (req, res) {
   }
 })
 
+route.delete('/delete/all', async function (req, res) {
+  try {
+    await ProductSL.collection.drop();
+    res.json({
+      message: 'success'
+    })
+  } catch (error) {
+    res.json(error.message)
+  }
+
+})
+
 route.put('/:id', async function (req, res) {
   const { id } = req.params
   try {

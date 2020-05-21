@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Complete from './Complete.png'
+import { AiFillCheckCircle } from 'react-icons/ai'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { completeProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk.js'
@@ -11,8 +11,8 @@ class BtnComplete extends Component {
   }
   render() {
     return (
-      <Button onClick={this.CheckProduct} variant="light">
-        <img className="btn-img" src={Complete} />
+      <Button className="btnModal" onClick={this.CheckProduct} variant="light">
+        <AiFillCheckCircle />
       </Button>
     )
   }

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Vidaloka&display=swap');
+
+
 .formSend {
   max-width: 300px;
   margin: 0 auto;
@@ -14,10 +17,9 @@
 }
 
 html, body, .container, .App, #root {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-font-style: normal;
-font-weight: 400;
-color: #03192D !important
+  font-family: 'Josefin Sans', sans-serif;  font-style: normal;
+  font-weight: 500;
+  color: #03192D !important
 
 }
 
@@ -26,14 +28,14 @@ h1, h2, h3, h4, p, span{
 }
 
 body{
-background-color: #F2EEDD;
-background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
-background-repeat: no-repeat;
-background-size: cover;
-height: 100%;
-min-height: 100vh;
-align-items: center;
-justify-content: center;
+  background-color: #F2EEDD;
+  background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 
 }
 /* Fonts size */
@@ -419,3 +421,43 @@ nav {
 .fridge {
   margin-bottom: 60px;
 }
+
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.btnModal {
+  padding: 3px 6px;
+}
+.btnModal svg {
+  font-size: 22px;
+  padding: 0px;
+
+}
+
+.btnModal:last-child {
+  color: #AB1538;;
+}
+
+.btnModal:first-child {
+  color: #24c50e;
+}
+
+.btn-primary {
+  border: 0px;
+}
+
+.btn-primary:hover {
+  background: #0cc4c4;
+  
+}
+
+.shoppinglist h2 {
+  color: #F2EEDD !important;
+}
+

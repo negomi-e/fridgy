@@ -4,6 +4,7 @@ import {
   COMPLETE_PRODUCT_SL,
   SET_PRODUCT_SL,
   CHANGE_INPUT_SL,
+  DELETE_ALL_SL,
 } from './action-types'
 
 
@@ -42,6 +43,11 @@ export function changeInputSL_AC(text) {
   }
 }
 
+export function deleteAllAC() {
+  return {
+    type: DELETE_ALL_SL
+  }
+}
 
 
 
