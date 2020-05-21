@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 // import { useHistory } from "react-router-dom";
 // import history from '././history'
 import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
+import Search from '../../Common/Search/Search.jsx'
+
 import {
   loadFridge,
 } from '../../../redux/Thunk/fridgeThunk';
@@ -36,10 +38,23 @@ class Fridge extends Component {
       return accum
     }, {})
 
+    for (const key in sortProduct) {
+      sortProduct[key].sort((a, b) => {
+        if (a.dayRemaining < b.dayRemaining) {
+          return 1
+        }
+        if (a.dayRemaining > b.dayRemaining) {
+          return 0
+        }
+      })
+    }
+
+    console.log(sortProduct)
     return (
       <div className="fridge">
         <h2>Your fridgy</h2>
         <AddFridgeItem />
+        <Search />
 
         {
           categories.map(category => {
