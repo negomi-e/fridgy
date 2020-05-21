@@ -12,6 +12,8 @@ import styles from '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
 import ItemModal from '../../../components/Common/Modal/ItemModal'
+import { AiFillCamera} from 'react-icons/ai'
+import { NavLink } from 'react-router-dom'
 
 const now = new Date();
 class AddFridgeItem extends Component {
@@ -37,6 +39,10 @@ class AddFridgeItem extends Component {
       <>
         <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
+
+        <NavLink to={`/scanphotos`}>
+            <AiFillCamera />
+        </NavLink>
       </>
     );
   }
