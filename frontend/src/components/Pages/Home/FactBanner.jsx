@@ -1,6 +1,6 @@
 import React, { Component, } from 'react'
 import { connect } from 'react-redux';
-
+import {Image} from 'react-bootstrap'
 
 import fact1 from '../../../images/facts/fact1.png'
 import fact2 from '../../../images/facts/fact2.png'
@@ -15,13 +15,13 @@ class FactBanner extends Component {
            <div className='fact-banner'>
         
         
-                <img src={fact1} alt="fact1" />
+                <Image src={fact1} style={{borderRadius:'10px'}} alt="fact1" />
             
-                <img src={fact2} alt="fact2" />
+                <Image src={fact2} style={{borderRadius:'10px'}} alt="fact2" />
            
-                <img src={fact3} alt="fact3" />
+                <Image src={fact3} style={{borderRadius:'10px'}} alt="fact3" />
             
-                <img src={fact4} alt="fact4" />
+                <Image src={fact4} style={{borderRadius:'10px'}} alt="fact4" />
             
         
 

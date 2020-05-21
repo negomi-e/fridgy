@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../ShoppingList/ShoppingList.module.scss'
 import { connect } from 'react-redux'
 import ProductSL from './ProductSL/ProductSL.jsx'
-import { ListGroup } from 'react-bootstrap'
+import { ListGroup, Container } from 'react-bootstrap'
 import Form from './ControlElements/Form'
 import { setProductSL_Thunk } from '../../../redux/Thunk/shoppingListThunk'
 
@@ -17,6 +17,7 @@ class ShoppingList extends Component {
   render() {
     const { products } = this.props
     return (
+      <Container>
       <section className="shoppinglist">
         <h2>Shopping list</h2>
         <ListGroup variant="flush">
@@ -35,6 +36,7 @@ class ShoppingList extends Component {
 
         </ListGroup>
       </section >
+      </Container>
     )
   }
 }

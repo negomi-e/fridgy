@@ -20,7 +20,7 @@ class What extends Component {
         <hr />
         <Row>
           <Col>
-            <Image src={whatimg} fluid />
+            <Image style={{borderRadius:'10px'}} src={whatimg} fluid />
           </Col>
           <Col className="what-text">
             <h3>WHAT DO WE DO</h3>

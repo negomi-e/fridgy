@@ -37,7 +37,7 @@ function App(props) {
   return (
     <div className="App">
       <Navigation />
-      <Container fluid={false}>
+      
 
         {
           props.alertSuccess ? <AlertSuccess /> : null
@@ -70,8 +70,8 @@ function App(props) {
             <RecipePage history={props.history} />
           </PrivateRoute>
         </Switch>
-      </Container>
-      <Footer />
+
+  <Footer />
     </div>
   );
 }

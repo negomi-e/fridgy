@@ -13,9 +13,8 @@ class TeamMember extends Component {
                 <Image src={this.props.props.image} roundedCircle />
                 <Card.Text>
                     <h3>{this.props.props.name}</h3>
-                    <div className="member-description">
                         <p>{this.props.props.job}</p>
-                        <p className="grey-text">
+                        <p>
                             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
                             consectetur, adipisci sed quia non numquam modi tempora eius.
               </p>
@@ -31,7 +30,6 @@ class TeamMember extends Component {
                             </a>
 
                         </ul>
-                    </div>
                 </Card.Text>
             </Card>
             
