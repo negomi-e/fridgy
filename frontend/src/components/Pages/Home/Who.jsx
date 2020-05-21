@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TeamMember from './TeamMember';
 import { CardGroup } from 'react-bootstrap'
 import {Parallax} from 'react-scroll-parallax';
-import dimaimg from '../../../images/TeamPictures/dima.png'
+import dimaimg from '../../../images/TeamPictures/dima.jpg'
 import kostyaimg from '../../../images/TeamPictures/kostya.jpg'
 import imogenimg from '../../../images/TeamPictures/imogen.png'
 import alexeyimg from '../../../images/TeamPictures/alexey.png'

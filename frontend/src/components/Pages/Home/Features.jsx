@@ -43,9 +43,8 @@ class Features extends Component {
                     <CardGroup>
                         {features.map(feature => {
                             return (
-                                <Card className={feature.title}>
+                                <Card className="feature-item">
                                     <Image 
-                                    style={{height:'50px'}, {width:'50px'}}
                                      variant="top" src={feature.image} roundedCircle/>
                                     <Card.Text>
                                         <h3>{feature.name}</h3>
