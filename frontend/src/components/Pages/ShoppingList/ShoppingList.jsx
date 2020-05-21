@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../ShoppingList/ShoppingList.module.scss'
 import { connect } from 'react-redux'
 import ProductSL from './ProductSL/ProductSL.jsx'
 import { ListGroup, Container } from 'react-bootstrap'

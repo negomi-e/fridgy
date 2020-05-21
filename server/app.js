@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index.js')
 const fridgeRouter = require('./routes/fridge');
 const shoppingListRouter = require('./routes/shopping-list');
+const scanRouter = require('./routes/scanphoto');
 
 require('dotenv').config()
 const logger = require('morgan');
@@ -35,6 +36,8 @@ app.use('/', indexRouter)
 app.use('/fridge', fridgeRouter);
 app.use('/shopping-list', shoppingListRouter);
 app.use('/auth', authRouter);
+app.use('/upload', scanRouter)
+
 
 
 // catch 404 and forward to error handler

@@ -11,6 +11,7 @@ import AddFridgeItem from './components/Pages/AddFridgeItem/AddFridgeItem.jsx'
 import RecipePage from './components/Pages/Recipe/RecipePage.jsx'
 
 import Home from './components/Pages/Home/Home'
+import ScanPhoto from './components/Pages/ScanPhotos/ScanPhoto'
 import Login from './components/Pages/Login/Login.jsx'
 import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
@@ -56,7 +57,9 @@ function App(props) {
         <Route path="/home">
           <Home />
         </Route>
-
+        <PrivateRoute path="/scanphotos">
+          <ScanPhoto history={props.history} />
+        </PrivateRoute>
         <PrivateRoute exact path="/">
           <Fridge history={props.history} />
         </PrivateRoute>
