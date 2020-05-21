@@ -8,7 +8,7 @@ import {
   Modal,
   Collapse,
 } from 'react-bootstrap';
-import '../AddFridgeItem/AddFridgeItem.module.scss';
+import styles from '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
 import ItemModal from '../../../components/Common/Modal/ItemModal'
@@ -33,10 +33,9 @@ class AddFridgeItem extends Component {
   setOpen = () => { this.setState({ open: !this.state.open }) };
   
   render() {
-    console.log(this.props)
     return (
       <>
-        <Button onClick={() => this.setOpen()}>Add item</Button>
+        <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
       </>
     );
