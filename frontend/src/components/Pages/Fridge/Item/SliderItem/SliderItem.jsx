@@ -62,7 +62,7 @@ class SliderItem extends Component {
       "Meat": MeatBasket,
       "Diary": DairyBasket,
       "Other": OtherBasket,
-      "Vegetables": VeganBasket,
+      "Veg": VeganBasket,
     }
 
     return (
