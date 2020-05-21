@@ -28,11 +28,19 @@
 
 .display-container {
   display: flex;
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 30px;
-  /* width: 900px; */
-  flex-wrap: wrap;
+  width: 900px;
+  /* flex-wrap: wrap; */
+}
+
+.display-search-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .display-image {
@@ -48,9 +56,9 @@
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
   /* margin-left: 20px ; */
+  /* display: flex; */
+
 }
-
-
 
 .wrapped-recipe-card {
   display: flex;
@@ -63,7 +71,7 @@
   font-weight: 300;
   font-size: 40px;
   margin: 30 0 ;
-  justify-content: left;
+  justify-content: center;
   display: flex;
 }
 
@@ -72,6 +80,7 @@
   font-weight: 700;
   font-size: 30px;
   margin-top: 30px;
+
 }
 
 

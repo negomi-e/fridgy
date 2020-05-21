@@ -42,16 +42,18 @@ class RecipePage extends React.Component {
             onClick={() => this.props.loadItems(item)}
           >{item}</button>
         })}
-        <Form inline
-        onSubmit={this.onSubmit}
+        <div className="display-search-form">
+          <Form inline
+          onSubmit={this.onSubmit}
         >
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="examplePassword" className="display-ingredient">Search Recipe</Label>
-            <Input type="text" placeholder="type you search word" onChange={this.onChange} value={this.state.searchText}/>
+            <Input type="text" placeholder="type you search word" onChange={this.onChange} value={this.state.searchText} />
           </FormGroup>
           <Button color='warning' type='submit'>Search</Button>
         </Form>
-        <RenderRecipePage />
+        </div>
+          <RenderRecipePage />
       </div>
     )
   }
@@ -68,4 +70,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {loadItems, takeItems})(RecipePage);
+export default connect(mapStateToProps, { loadItems, takeItems })(RecipePage);
