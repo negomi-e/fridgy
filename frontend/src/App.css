@@ -148,6 +148,7 @@ p, span {
   width: 100% !important;    
   height: auto !important;  
   padding: 10px;
+  object-fit: scale-down;
 } 
 
 .homepage .fact-banner{    
@@ -166,6 +167,7 @@ p, span {
 
 .ourteam, .homepage .features-banner .title-bar{
   padding: 50px;
+  align-items:center;
 }
 
 
@@ -230,7 +232,7 @@ p, span {
 
 .who-banner .container {
   position: relative;
-  width: 40em;
+  width: 100%;
 }
 
 .who-banner .boxOutline {
@@ -255,19 +257,26 @@ p, span {
 }
 
 
-.homepage .ourteam{
-  height: 300px;
-}
-
-.ourteam .wrap-deck{
+.features-block .feature-item, .ourteam .wrap-deck{
   display:flex;
   justify-content: space-between;
 }
 
-.teamMember img{
+.teamMember{
   margin: 20px
 }
 
+.rounded-circle{
+  align-items: center;
+  width:  200px;
+  height: 200px;
+  background-size: cover;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  margin-bottom: 20px;
+}
 
 /* FRIDGE PAGE */
 
