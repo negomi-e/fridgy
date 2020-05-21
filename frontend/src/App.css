@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Vidaloka&display=swap');
 
+h1 {
+  font-weight: 800;
+}
+
+li {
+  list-style: none;
+}
 
 .formSend {
   max-width: 300px;
@@ -106,10 +113,7 @@ nav {
 .homepage{
   position: relative;
 }
- .homepage div{
-  min-height: 200px;
-  width: 100% ;
- }
+
 
  .homepage .topbanner{
    width: 100% !important
@@ -275,7 +279,6 @@ nav {
 
 .features-block .feature-item, .ourteam .wrap-deck{
   display:flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -407,9 +410,6 @@ nav {
   visibility: hidden;
 }
 
-  
-
-
 .red {
   color: red !important;
 }
@@ -422,13 +422,12 @@ nav {
   margin-bottom: 60px;
 }
 
-
-
 .App {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 100vh;
+  height: 100vh;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .btnModal {
@@ -461,3 +460,86 @@ nav {
   color: #F2EEDD !important;
 }
 
+.logo {
+  height: 50px;
+}
+
+legend {
+  font-weight: 800 !important;
+}
+
+.basic-navbar-nav {
+  color: #F2EEDD;
+}
+
+.modal-header button span:first-child {
+  font-size: 36px;
+}
+
+
+/* HOMEPAGE */
+
+.home__banner {
+  min-height: 200px;
+  width: 100% ;
+  background: url('./images/vegetables-main.jpg') no-repeat ;
+  background-size: 120%;
+  background-attachment: fixed;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(28,28,28,0.76);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(28,28,28,0.76);
+  box-shadow: inset 0px 0px 5px 0px rgba(28,28,28,0.76);
+
+}
+
+.features-block, .card-group {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.what-content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.feature-item img, .teamMember img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.feature-item, .teamMember {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 20px;
+}
+
+
+.teamMember {
+  max-width: 200px;
+}
+
+.teamMemberLinks a svg {
+  font-size: 30px;
+  margin: 3px;
+  color: rgb(102, 11, 114);
+}
+
+.teamMemberLinks a:first-child svg {
+  color: rgb(38, 144, 231);
+}
+
+.teamMemberLinks a:last-child svg {
+  color: rgb(240, 199, 20)
+}
+
+
+.display-container {
+  
+}

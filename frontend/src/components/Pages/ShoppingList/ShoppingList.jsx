@@ -17,7 +17,7 @@ class ShoppingList extends Component {
     const { products } = this.props
     return (
       <Container>
-        <section className="shoppinglist">
+        <section className="shoppinglist shadowed-box">
           <h2>Shopping list</h2>
           <ListGroup variant="flush">
             <div>

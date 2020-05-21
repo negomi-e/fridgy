@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Vidaloka&display=swap');
  
  .display-named {
-   display: flex;
+  display: flex;
   font-size: 30px ;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   color: #03192D;
+  max-width: 400px;
   justify-content: space-between;
   /* margin: 0 70px 0 0; */
   
 }
-
+.div-display-named {
+  margin-bottom: 40px;
+}
 .display-items-container {
   display: flex;
   flex-direction: row;
+}
+
+.display-named-items-container {
+  margin: 20px;
 }
 
 .display-a {
@@ -28,27 +35,35 @@
 
 .display-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 30px;
-  width: 900px;
+  flex-wrap: wrap;
   /* flex-wrap: wrap; */
 }
 
 .display-search-form {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
   padding-top: 30px;
   padding-bottom: 30px;
+  justify-content: center;
+}
+
+.display-search-form form {
+  display: flex;
+  flex-flow: row;
+}
+
+.display-search-form form * {
+  margin: 5px
 }
 
 .display-image {
   display: flex;
   justify-content: center;
-  width: auto;
   height: auto;
+  max-width: 400px;
   border-radius: 10px;
+  margin: 20px;
 }
 
 .display-ingredient {

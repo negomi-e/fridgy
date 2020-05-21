@@ -4,7 +4,7 @@ import { loadItems, takeItems } from '../../../redux/Actions/fridge-actions'
 import RenderRecipePage from './RenderRecipePage';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import './recipe.css';
-import {Container} from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 
 class RecipePage extends React.Component {
@@ -37,26 +37,22 @@ class RecipePage extends React.Component {
 
     return (
       <Container>
-      <div className="div-display-named">
-        <div className="display-item-expired">Your item has expired:</div>
-        {this.props.searchTags.map((item) => {
-          return <Button color='warning' style={{ marginRight: 10 }}
-            onClick={() => this.props.loadItems(item)}
-          >{item}</Button>
-        })}
-        <div className="display-search-form">
-          <Form inline
-          onSubmit={this.onSubmit}
-        >
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="examplePassword" className="display-ingredient">Search Recipe</Label>
-            <Input type="text" placeholder="type you search word" onChange={this.onChange} value={this.state.searchText} />
-          </FormGroup>
-          <Button color='warning' type='submit'>Search</Button>
-        </Form>
-        </div>
+        <div className="div-display-named">
+          <div className="display-item-expired">Your item has expired:</div>
+          {this.props.searchTags.map((item) => {
+            return <Button color='warning' style={{ marginRight: 10 }}
+              onClick={() => this.props.loadItems(item)}
+            >{item}</Button>
+          })}
+          <div className="display-search-form">
+            <Form inline onSubmit={this.onSubmit}>
+              {/* <Label for="examplePassword" className="display-ingredient">Search Recipe </Label> */}
+              <Input type="text" placeholder="type you search word" onChange={this.onChange} value={this.state.searchText} />
+              <Button color='warning' type='submit'>Search</Button>
+            </Form>
+          </div>
           <RenderRecipePage />
-      </div>
+        </div>
       </Container>
     )
   }
