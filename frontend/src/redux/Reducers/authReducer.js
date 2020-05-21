@@ -1,15 +1,14 @@
 import {
   LOGIN_SUCCESS, LOGOUT,
-  CHANGE_INPUT_PASS, CHANGE_INPUT_LOGIN, ERROR
+  ERROR, CHANGE_INPUT
 } from '../Actions/action-types'
 
 const initialState = {
-  loginStatus: !!window.localStorage.getItem('isAuthenticated') || false,
+  loginStatus: !!window.localStorage.getItem('loginStatus') || false,
   userInfo: {
-
+    email: window.localStorage.getItem('email') || false,
+    id: window.localStorage.getItem('id') || false,
   },
-  inputLogin: '',
-  inputPass: '',
   error: {
     status: false,
     message: '',
@@ -19,7 +18,11 @@ const initialState = {
 export function authReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      window.localStorage.setItem('isAuthenticated', 'true');
+
+      window.localStorage.setItem('loginStatus', 'true');
+      window.localStorage.setItem('id', action.userInfo.id);
+      window.localStorage.setItem('email', action.userInfo.email);
+
       return {
         ...state,
         loginStatus: true,
@@ -38,16 +41,13 @@ export function authReducer(state = initialState, action) {
         userInfo: {},
       }
 
-    case CHANGE_INPUT_PASS:
+    case CHANGE_INPUT:
       return {
         ...state,
-        inputPass: action.pass,
-      }
-
-    case CHANGE_INPUT_LOGIN:
-      return {
-        ...state,
-        inputLogin: action.login,
+        [action.formName]: {
+          ...state[action.formName],
+          [action.inputName]: action.inputValue
+        },
       }
 
     case ERROR:

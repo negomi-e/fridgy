@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import classes from './Login.module.scss'
-import { changeInputLoginAC, changeInputPassAC } from '../../../redux/Actions/actions'
-import { thunkLogin } from '../../../redux/Think/authThink'
+import { changeInputAC } from '../../../redux/Actions/actions'
+import { thunkLogin } from '../../../redux/Thunk/authThunk'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import AddFridgeItem from '../AddFridgeItem/AddFridgeItem'
 
 class Login extends Component {
   componentDidUpdate() {
@@ -16,65 +17,58 @@ class Login extends Component {
   login = (e) => {
     e.preventDefault()
     //Refact Сделать валидацию
-    const { inputLogin, inputPass } = this.props
-    this.props.thunkLogin(inputLogin, inputPass)
+    const { loginText, loginPass } = this.props
+    this.props.thunkLogin(loginText, loginPass)
   }
 
-  changeLoginInput = (e) => {
-    const login = e.target.value
-    this.props.changeInputLoginAC(login)
+  changeInput = (e) => {
+    const inputValue = e.target.value
+    const inputName = e.target.name
+    const formName = e.target.closest('form').name
+    this.props.changeInputAC(formName, inputName, inputValue)
   }
 
-  changePassInput = (e) => {
-    const pass = e.target.value
-    this.props.changeInputPassAC(pass)
-  }
 
   render() {
-    const { inputLogin, inputPass, error } = this.props
+    const { loginText, loginPass, error } = this.props
     return (
       <section className='authPage'>
-        <Form className={classes.form + ' formSend'} onSubmit={this.login}>
+        <Form name="loginForm" className={classes.form + ' formSend'} onSubmit={this.login}>
+          <legend>Login</legend>
           <Form.Group controlId="formBasicEmail">
-            <Form.Control required value={inputLogin} onChange={this.changeLoginInput} type="email" placeholder="Enter email" />
+            <Form.Control required value={loginText} onChange={this.changeInput} type="email" placeholder="Enter email" name="loginText" />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Control required value={inputPass} onChange={this.changePassInput} type="password" placeholder="Password" />
+            <Form.Control required value={loginPass} onChange={this.changeInput} type="password" placeholder="Password" name="loginPass" />
           </Form.Group>
 
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
+            <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
 
           <Button variant="primary" type="submit" >
             Submit
           </Button>
           <div>
-            <NavLink activeClassName={classes.active} to="/registration">Registration</NavLink>
+            <hr />
+            <NavLink activeClassName={classes.active} to="/registration">Not registered? Register here </NavLink>
           </div>
 
           {
             <Form.Text className={`${error.status ? "red" : "hidden"} `}>error: {error.message}</Form.Text>
           }
-
         </Form>
       </section>
-
     )
   }
 }
 
 export default connect(
   (state) => ({
+    ...state.authReducer.loginForm,
     loginStatus: state.authReducer.loginStatus,
-    inputLogin: state.authReducer.inputLogin,
-    inputPass: state.authReducer.inputPass,
     error: state.authReducer.error
   }),
-  (dispatch) => ({
-    thunkLogin: (login, pass) => dispatch(thunkLogin(login, pass)),
-    changeInputLoginAC: (login) => dispatch(changeInputLoginAC(login)),
-    changeInputPassAC: (pass) => dispatch(changeInputPassAC(pass)),
-  })
+  { changeInputAC, thunkLogin }
 )(Login)

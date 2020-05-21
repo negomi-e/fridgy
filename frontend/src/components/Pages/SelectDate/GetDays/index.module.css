@@ -1,0 +1,18 @@
+.day {
+  padding: 10px;
+  margin: 2px;
+  border: 2px #ED4085 solid;
+  border-radius: 3px;
+  background-color: white;
+  width: 80px;
+  font-size: large;
+  font-weight: bold;
+  color: #ED4085;
+  outline: none;
+}
+
+.day:hover {
+  background-color: #ED4085;
+  transition-duration: 300ms;
+  color: white;
+}

@@ -1,12 +1,38 @@
 import React, { Component } from 'react'
-import Nav from '../../Common/Nav/Navigation.jsx'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
-export default class Home extends Component {
+import { connect } from 'react-redux';
+import Welcome from './Welcome'
+import What from './What'
+import OurApp from './OurApp'
+import Who from './Who'
+import FactBanner from './FactBanner'
+import Features from './Features'
+import TopBanner from './TopBanner'
+
+
+
+class Home extends Component {
+  componentDidMount() {
+  }
+
   render() {
+
     return (
-      <div>
-        <h1>Homepage</h1>
+      <ParallaxProvider>
+      <div className="homepage">
+        <TopBanner />
+        <Welcome />
+        <What />
+        <FactBanner />
+        <Features />
+        <OurApp/>
+        <Who />
+        
       </div>
+      </ParallaxProvider>
     )
   }
 }
+
+export default connect()(Home);

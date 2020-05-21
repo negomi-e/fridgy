@@ -8,7 +8,11 @@ let validateEmail = function (email) {
 };
 
 let userSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
     type: String,
     required: true
   },
