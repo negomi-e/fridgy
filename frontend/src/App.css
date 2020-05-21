@@ -109,6 +109,10 @@ nav {
   width: 100% ;
  }
 
+ .homepage .topbanner{
+   width: 100% !important
+ }
+
 
  @media (max-width: 800px) {
   .homepage .fact-banner, .homepage .topbanner,.homepage .features-banner, .homepage .ourApp {
@@ -311,7 +315,7 @@ nav {
     margin:4rem auto;
     padding:2rem 3rem 3rem;
     max-width:500px;
-    background: #f49f0a;
+    background: #f6a922;
     color:#FFF;
     box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
     border-radius: 10px;

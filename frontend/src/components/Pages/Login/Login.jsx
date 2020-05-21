@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 import classes from './Login.module.scss'
 import { changeInputAC } from '../../../redux/Actions/actions'
 import { thunkLogin } from '../../../redux/Thunk/authThunk'
@@ -32,6 +32,7 @@ class Login extends Component {
   render() {
     const { loginText, loginPass, error } = this.props
     return (
+      <Container>
       <section className='authPage'>
         <Form name="loginForm" className={classes.form + ' formSend'} onSubmit={this.login}>
           <legend>Login</legend>
@@ -60,6 +61,7 @@ class Login extends Component {
           }
         </Form>
       </section>
+      </Container>
     )
   }
 }

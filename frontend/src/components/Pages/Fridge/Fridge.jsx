@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
+import {Container} from 'react-bootstrap'
 
 import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
 import Search from '../../Common/Search/Search.jsx'
@@ -50,6 +51,7 @@ class Fridge extends Component {
 
     console.log(sortProduct)
     return (
+      <Container>
       <div className="fridge">
         <h2>Your fridgy</h2>
         <AddFridgeItem />
@@ -62,6 +64,7 @@ class Fridge extends Component {
         }
 
       </div>
+      </Container>
     )
   }
 }

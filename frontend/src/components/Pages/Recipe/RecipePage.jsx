@@ -4,6 +4,7 @@ import { loadItems, takeItems } from '../../../redux/Actions/fridge-actions'
 import RenderRecipePage from './RenderRecipePage';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import './recipe.css';
+import {Container} from 'react-bootstrap'
 
 
 class RecipePage extends React.Component {
@@ -35,6 +36,7 @@ class RecipePage extends React.Component {
     console.log(this.props.items, 'THIS CONSOLE FOR RECIPE COMPONENT')
 
     return (
+      <Container>
       <div className="div-display-named">
         <h2>Просрочка:</h2>
         {this.props.searchTags.map((item) => {
@@ -55,6 +57,7 @@ class RecipePage extends React.Component {
         </div>
           <RenderRecipePage />
       </div>
+      </Container>
     )
   }
 }

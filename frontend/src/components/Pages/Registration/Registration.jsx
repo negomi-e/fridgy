@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 import classes from './Registation.module.scss'
 import { connect } from 'react-redux'
 import { thunkRegistration } from '../../../redux/Thunk/authThunk'
@@ -30,6 +30,7 @@ class Registation extends Component {
   render() {
     const { error, inputEmail, inputPass, inputFirstName, inputLastName } = this.props
     return (
+      <Container>
 
       <section className="authPage">
 
@@ -70,6 +71,7 @@ class Registation extends Component {
         </Form>
 
       </section>
+      </Container>
     )
   }
 }
