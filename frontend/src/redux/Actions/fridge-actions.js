@@ -1,5 +1,9 @@
 
-import { LIST_LOADING, LIST_LOADED, LIST_ERROR, LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM, ADD_PRODUCT, UPDATE_PRODUCT } from './action-types';
+import {
+  LIST_LOADING, LIST_LOADED, LIST_ERROR,
+  LOAD_ITEMS, LOAD_LABEL, DELETE_ITEM,
+  ADD_PRODUCT, UPDATE_PRODUCT, SEARCH
+} from './action-types';
 
 
 export function listLoading() {
@@ -75,4 +79,9 @@ export function updateProductAC(data) {
   }
 }
 
-
+export function searchAC(text) {
+  return {
+    type: SEARCH,
+    text
+  }
+}

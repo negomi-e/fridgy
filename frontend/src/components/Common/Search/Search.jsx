@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
 import { Form, FormControl, Button } from 'react-bootstrap'
-export default class Search extends Component {
+import { searchAC } from '../../../redux//Actions/fridge-actions'
+import { connect } from 'react-redux'
+
+class Search extends Component {
+
+  state = {
+    inputSearch: '',
+  }
+
+  Search = (e) => {
+    this.props.searchAC(e.target.value)
+  }
+
   render() {
     return (
       <div>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+
+        <FormControl onChange={this.Search} type="text" placeholder="Search" className="mr-sm-2" />
+
       </div>
     )
   }
 }
+
+export default connect(
+  (state) => { },
+  { searchAC }
+)(Search)
