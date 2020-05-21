@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import '../AddFridgeItem/AddFridgeItem.module.scss';
+import styles from '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import ItemModal from './ItemModal'
 
@@ -26,7 +26,7 @@ class AddFridgeItem extends Component {
   render() {
     return (
       <>
-        <Button onClick={() => this.setOpen()}>Add item</Button>
+        <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
       </>
     );
