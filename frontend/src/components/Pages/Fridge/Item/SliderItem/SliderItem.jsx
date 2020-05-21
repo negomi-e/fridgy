@@ -10,8 +10,6 @@ import { Card } from 'react-bootstrap';
 import { IoIosListBox, IoIosTrash } from "react-icons/io";
 import '../SliderItem/SliderItem.css'
 
-import backImg from './backfruit.jpg'
-
 import ItemModal from '../../../../Common/Modal/ItemModal'
 
 import FruitBasket from '../../../../../images/imgArt/fruit.png'

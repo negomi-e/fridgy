@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { deleteProductSL_Thunk } from '../../../../redux/Thunk/shoppingListThunk.js'
+import { IoIosListBox, IoIosTrash } from "react-icons/io";
 
 
 class BtnDelete extends Component {
@@ -11,7 +12,7 @@ class BtnDelete extends Component {
   }
   render() {
     return (
-      <Button onClick={this.deleteProduct} variant="danger">Delete</Button>
+      <a href="#" onClick={this.deleteProduct} variant="light"><IoIosTrash /></a>
     )
   }
 }
