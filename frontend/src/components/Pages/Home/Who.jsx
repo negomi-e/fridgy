@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 
-//PARALLAX
-// import style from './Marquee.scss';
-// import { Svg } from 'components';
-import { Parallax } from 'react-scroll-parallax';
-
 import { connect } from 'react-redux';
 import TeamMember from './TeamMember';
-import dimaimg from '../../../images/dima.png'
-import kostyaimg from '../../../images/kostya.jpg'
-import imogenimg from '../../../images/imogen.png'
-import alexeyimg from '../../../images/alexey.png'
-
-const test = 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+import { CardGroup } from 'react-bootstrap'
+import {Parallax} from 'react-scroll-parallax';
+import dimaimg from '../../../images/TeamPictures/dima.png'
+import kostyaimg from '../../../images/TeamPictures/kostya.jpg'
+import imogenimg from '../../../images/TeamPictures/imogen.png'
+import alexeyimg from '../../../images/TeamPictures/alexey.png'
 
 
 
@@ -32,40 +27,26 @@ class Who extends Component {
 
     return (
       <div className="root who-banner">
-        {/* <Svg svg={divider} className={style.divider} /> */}
+
         <div className="container">
-            {/* <Svg svg={boxBg} className={style.boxBg} /> */}
-            <Parallax
-                className="text"
-                offsetYMax={70}
-                offsetYMin={-70}
-                offsetXMax={-30}
-                offsetXMin={30}
-            >
-                <div className="ourteam">
-        <h2>Our amazing team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-        error amet numquam iure provident voluptate esse quasi, veritatis
+            <div className="ourteam">
+              <h2>OUR AMAZING TEAM</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+              error amet numquam iure provident voluptate esse quasi, veritatis
         totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
 
-        <div className="wrap-deck">
-          <TeamMember props={this.state.Imogen} />
-          <TeamMember props={this.state.Dima} />
-          <TeamMember props={this.state.Alexey} />
-          <TeamMember props={this.state.Kostya} />
+              <CardGroup className="wrap-deck">
+                <TeamMember props={this.state.Imogen} />
+                <TeamMember props={this.state.Dima} />
+                <TeamMember props={this.state.Alexey} />
+                <TeamMember props={this.state.Kostya} />
+              </CardGroup>
+            </div>
+          
+
         </div>
       </div>
-            </Parallax>
-            <Parallax
-                className="boxOutline"
-                offsetYMax={35}
-                offsetYMin={-35}
-            >
-                {/* <Svg svg={boxOutline} /> */}
-            </Parallax>
-        </div>
-    </div>
-      
+
     )
   }
 }

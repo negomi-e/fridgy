@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
-// import { useHistory } from "react-router-dom";
-// import history from '././history'
+
 import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
 import Search from '../../Common/Search/Search.jsx'
 
