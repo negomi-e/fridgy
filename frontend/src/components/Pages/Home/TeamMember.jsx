@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
-import { Image, Card } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { AiFillTwitterCircle, AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 
 

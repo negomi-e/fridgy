@@ -43,7 +43,7 @@ class Fridge extends Component {
 
         {
           categories.map(category => {
-            return <ItemsCarousel data={sortProduct[category]} />
+            return <ItemsCarousel key={category} data={sortProduct[category]} />
           })
         }
 
@@ -63,5 +63,3 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, { loadFridge, })(Fridge);
-
-

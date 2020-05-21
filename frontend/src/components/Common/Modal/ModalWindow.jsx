@@ -9,7 +9,7 @@ export function ModalWindow(props) {
   return (
     <>
       <Button variant="light" onClick={() => setSmShow(true)}>
-        <img className="btn-img" src={deleteImg} />
+        <img className="btn-img" src={deleteImg} alt="button"/>
       </Button>
 
       <Modal

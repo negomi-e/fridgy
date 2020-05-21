@@ -12,7 +12,7 @@ import kostyaimg from '../../../images/kostya.jpg'
 import imogenimg from '../../../images/imogen.png'
 import alexeyimg from '../../../images/alexey.png'
 
-const test = 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+// const test = 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
 
 
 
@@ -72,4 +72,3 @@ class Who extends Component {
 
 
 export default connect()(Who);
-

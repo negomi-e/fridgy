@@ -23,7 +23,7 @@ export const deleteItemThunk = (id) => async (dispatch) => {
       method: 'DELETE',
     })
     let res = await req.json()
-    if (res.message = 'success') {
+    if ((res.message = 'success')) {
       dispatch(deleteItem(id))
     }
   } catch (err) {

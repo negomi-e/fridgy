@@ -12,7 +12,7 @@ class BtnComplete extends Component {
   render() {
     return (
       <Button onClick={this.CheckProduct} variant="light">
-        <img className="btn-img" src={Complete} />
+        <img className="btn-img" src={Complete} alt="button"/>
       </Button>
     )
   }

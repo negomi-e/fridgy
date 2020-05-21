@@ -34,7 +34,6 @@ const mapStateToProps = (state) => {
     itemsApi: state.productReducer.itemsApi,
     searchTags: state.productReducer.searchTags,
     label: state.productReducer.label
-
   };
 };
 

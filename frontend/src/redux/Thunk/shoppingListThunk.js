@@ -27,11 +27,11 @@ export const addProductSL_Thunk = (text, userId) => async (dispatch) => {
       }),
     })
     const product = await res.json()
-    if (product.message = 'success') {
+    if ((product.message = 'success')) {
       dispatch(addProductSL_AC(product.createdProduct))
       dispatch(alertSuccesAC())
     } else {
-      throw `product`
+      throw new Error('product')
     }
   } catch (error) {
     dispatch(alertErrorAC())
@@ -40,10 +40,10 @@ export const addProductSL_Thunk = (text, userId) => async (dispatch) => {
 
 export const deleteProductSL_Thunk = (id) => async (dispatch) => {
   try {
-    const res = await fetch(`/shopping-list/${id}`, {
+    await (await fetch(`/shopping-list/${id}`, {
       method: 'DELETE'
-    })
-    const json = await res.json()
+    })).json()
+    // const json = await res.json()
     dispatch(deleteProductSL_AC(id))
   } catch (error) {
     console.log(error)
@@ -52,14 +52,12 @@ export const deleteProductSL_Thunk = (id) => async (dispatch) => {
 
 export const completeProductSL_Thunk = (id) => async (dispatch) => {
   try {
-    const res = await fetch(`/shopping-list/${id}`, {
+    await (await fetch(`/shopping-list/${id}`, {
       method: 'PUT'
-    })
-    const json = await res.json()
+    })).json()
+    // const json = await res.json()
     dispatch(completeProductSL_AC(id))
   } catch (error) {
     console.log(error)
   }
 }
-
-

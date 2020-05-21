@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
-import SelectDate from '../SelectDate';
-import {
-  InputGroup,
-  FormControl,
-  Form,
-  Button,
-  Modal,
-  Collapse,
-} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
-import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
 import ItemModal from './ItemModal'
 
 const now = new Date();
@@ -33,7 +24,6 @@ class AddFridgeItem extends Component {
   setOpen = () => { this.setState({ open: !this.state.open }) };
   
   render() {
-    console.log(this.props)
     return (
       <>
         <Button onClick={() => this.setOpen()}>Add item</Button>

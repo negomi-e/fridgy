@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Nav, Navbar, Form, Button, FormControl } from 'react-bootstrap'
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Navigation.module.scss";
 import { logoutAC } from "../../../redux/Actions/actions"
 import { connect } from "react-redux"

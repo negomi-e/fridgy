@@ -6,15 +6,15 @@ import { BsFillCircleFill } from 'react-icons/bs'
 import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
 import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
 import { NavLink } from 'react-router-dom'
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 import { IoIosListBox, IoIosTrash } from "react-icons/io";
 import '../SliderItem/SliderItem.css'
 
-import backImg from './backfruit.jpg'
+// import backImg from './backfruit.jpg'
 import ItemModal from '../../../AddFridgeItem/ItemModal'
-import FruitBasket from '../../../../../images/Vegetables.jpg'
-import MeatBasket from '../../../../../images/meat.jpg'
-import DairyBasket from '../../../../../images/Dairy.jpg'
+// import FruitBasket from '../../../../../images/Vegetables.jpg'
+// import MeatBasket from '../../../../../images/meat.jpg'
+// import DairyBasket from '../../../../../images/Dairy.jpg'
 
 
 
@@ -33,7 +33,7 @@ class SliderItem extends Component {
   setOpen = () => { this.setState({ open: !this.state.open }) };
 
   render() {
-    const { label, dayRemaining, _id, category } = this.props.data
+    const { label, dayRemaining, _id } = this.props.data
 
     let expiryText = '';
     let toggleColor;
@@ -59,7 +59,7 @@ class SliderItem extends Component {
         {this.state.open? <ItemModal props={this.state}/>: null}
 
         <div className="sliderItem-close">
-          <a onClick={() => this.props.deleteItemThunk(_id)} variant="light"><IoIosTrash /></a>
+          <a onClick={() => this.props.deleteItemThunk(_id)} variant="light"><IoIosTrash /> </a>
         </div>
 
 
@@ -85,7 +85,6 @@ class SliderItem extends Component {
           <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
             <AiOutlineShoppingCart />
           </a>
-
         </div>
 
       </>
@@ -99,4 +98,3 @@ export default connect(
   }),
   { addProductSL_Thunk, deleteItemThunk, getRecipes }
 )(SliderItem);
-
