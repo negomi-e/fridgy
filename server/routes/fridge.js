@@ -24,6 +24,7 @@ route.get('/:id', async function (req, res) {
       })
     }
 
+
     res.json({
       message: 'success',
       allProducts: fridgeitems,

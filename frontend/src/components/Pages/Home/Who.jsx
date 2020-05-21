@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TeamMember from './TeamMember';
 import { CardGroup } from 'react-bootstrap'
 import {Parallax} from 'react-scroll-parallax';
-import dimaimg from '../../../images/TeamPictures/dima.png'
+import dimaimg from '../../../images/TeamPictures/dima.jpg'
 import kostyaimg from '../../../images/TeamPictures/kostya.jpg'
 import imogenimg from '../../../images/TeamPictures/imogen.png'
 import alexeyimg from '../../../images/TeamPictures/alexey.png'
@@ -31,11 +31,11 @@ class Who extends Component {
         <div className="container">
             <div className="ourteam">
               <h2>OUR AMAZING TEAM</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
               error amet numquam iure provident voluptate esse quasi, veritatis
-        totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+        totam voluptas nostrum quisquam eum porro a pariatur veniam.</span>
 
-              <CardGroup className="wrap-deck">
+              <CardGroup>
                 <TeamMember props={this.state.Imogen} />
                 <TeamMember props={this.state.Dima} />
                 <TeamMember props={this.state.Alexey} />

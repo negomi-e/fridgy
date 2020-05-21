@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SelectDate from '../../Pages/SelectDate'
 import { InputGroup, FormControl, Form, Button, Modal, Collapse } from 'react-bootstrap';
-import '../../Pages/AddFridgeItem/AddFridgeItem.module.scss'
+import styles from '../../Pages/AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
 import { addProductThunk, updateProductThunk } from '../../../redux/Thunk/fridgeThunk'
 
@@ -111,7 +111,7 @@ class ItemModal extends Component {
                                 <Form.Control onChange={this.changeCategory} as="select" custom>
                                     <option>{this.state.category}</option>
                                     <option>Other</option>
-                                    <option>Vegetables</option>
+                                    <option>Veg</option>
                                     <option>Fruit</option>
                                     <option>Meat</option>
                                     <option>Diary</option>
@@ -120,10 +120,10 @@ class ItemModal extends Component {
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant='outline-primary' onClick={this.setOpenCalendar} aria-controls="example-collapse-text" aria-expanded={this.state.isSelectDateOpen} type='submit' value='expireDate'>Expiry Date: {this.state.day}.{this.state.month}.{this.state.year}</Button>
+                        <Button className={styles.expiryButton} ariant='outline-primary' onClick={this.setOpenCalendar} aria-controls="example-collapse-text" aria-expanded={this.state.isSelectDateOpen} type='submit' value='expireDate'>Expiry Date: {this.state.day}.{this.state.month}.{this.state.year}</Button>
                         {this.state.update ?
-                        <Button variant="primary" onClick={this.updateItem} type="submit" value='addItem'>Update item</Button>:
-                        <Button variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>}
+                        <Button className={styles.button} variant="primary" onClick={this.updateItem} type="submit" value='addItem'>Update item</Button>:
+                        <Button className={styles.button} variant="primary" onClick={this.addItem} type="submit" value='addItem'>Add item</Button>}
                         
                         <Collapse in={this.state.isSelectDateOpen}>
                             <div id="example-collapse-text">

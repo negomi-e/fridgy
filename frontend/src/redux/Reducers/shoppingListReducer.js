@@ -6,6 +6,7 @@ import {
   CHANGE_INPUT_SL,
   ALERT_ERROR,
   ALERT_SUCCESS,
+  DELETE_ALL_SL,
 
 } from '../Actions/action-types'
 
@@ -81,6 +82,11 @@ export function shoppingListReducer(state = initialState, action) {
       return {
         ...state,
         successAlert: !state.successAlert,
+      }
+    case DELETE_ALL_SL:
+      return {
+        ...state,
+        products: []
       }
 
     default:

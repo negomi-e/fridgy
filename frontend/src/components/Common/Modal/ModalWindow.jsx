@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import deleteImg from './delete.png'
+import { IoIosTrash } from 'react-icons/io'
 
 
 export function ModalWindow(props) {
@@ -8,8 +8,9 @@ export function ModalWindow(props) {
   //Refact - ошибка при открытии окна
   return (
     <>
-      <Button variant="light" onClick={() => setSmShow(true)}>
-        <img className="btn-img" src={deleteImg} />
+
+      <Button className={'btnModal'} variant="light" onClick={() => setSmShow(true)}>
+        {props.text ? props.text : null}<IoIosTrash />
       </Button>
 
       <Modal
@@ -24,7 +25,7 @@ export function ModalWindow(props) {
         </Modal.Header>
         <Modal.Body>
           {
-            props.children
+            React.cloneElement(props.children, { setSmShow: setSmShow })
           }
         </Modal.Body>
       </Modal>

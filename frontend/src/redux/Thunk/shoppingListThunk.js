@@ -1,6 +1,6 @@
 import {
   setProductSL_AC, addProductSL_AC,
-  deleteProductSL_AC, completeProductSL_AC
+  deleteProductSL_AC, completeProductSL_AC, deleteAllAC
 } from '../Actions/actions-sl'
 import {
   alertErrorAC, alertSuccesAC
@@ -62,4 +62,17 @@ export const completeProductSL_Thunk = (id) => async (dispatch) => {
   }
 }
 
+export const deleteAllThunk = () => async (dispatch) => {
+  try {
+    const res = await fetch('/shopping-list/delete/all', {
+      method: 'DELETE'
+    })
+    const json = await res.json()
+    if (json.message === 'success') {
+      dispatch(deleteAllAC())
+    }
+  } catch (error) {
+    dispatch(alertErrorAC())
+  }
+}
 

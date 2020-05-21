@@ -16,6 +16,7 @@ import Registeration from './components/Pages/Registration/Registration.jsx'
 import Navigation from './components/Common/Nav/Navigation.jsx'
 import { AlertSuccess, AlertError } from './components/Common/Alerts/Alerts.jsx'
 import { connect } from 'react-redux';
+import Footer from './components/Common/Footer';
 
 
 function App(props) {
@@ -36,40 +37,41 @@ function App(props) {
   return (
     <div className="App">
       <Navigation />
-      <Container fluid={false}>
 
-        {
-          props.alertSuccess ? <AlertSuccess /> : null
-        }
-        {
-          props.alertError ? <AlertError /> : null
-        }
 
-        <Switch>
-          <Route path="/registration">
-            <Registeration history={props.history} />
-          </Route>
-          <Route path="/login">
-            <Login history={props.history} />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
+      {
+        props.alertSuccess ? <AlertSuccess /> : null
+      }
+      {
+        props.alertError ? <AlertError /> : null
+      }
 
-          <PrivateRoute exact path="/">
-            <Fridge history={props.history} />
-          </PrivateRoute>
-          <PrivateRoute path="/shoppingList">
-            <ShoppingList />
-          </PrivateRoute>
-          <PrivateRoute path="/addFridgeItem">
-            <AddFridgeItem />
-          </PrivateRoute>
-          <PrivateRoute path="/recipes/:label">
-            <RecipePage history={props.history} />
-          </PrivateRoute>
-        </Switch>
-      </Container>
+      <Switch>
+        <Route path="/registration">
+          <Registeration history={props.history} />
+        </Route>
+        <Route path="/login">
+          <Login history={props.history} />
+        </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
+
+        <PrivateRoute exact path="/">
+          <Fridge history={props.history} />
+        </PrivateRoute>
+        <PrivateRoute path="/shoppingList">
+          <ShoppingList />
+        </PrivateRoute>
+        <PrivateRoute path="/addFridgeItem">
+          <AddFridgeItem />
+        </PrivateRoute>
+        <PrivateRoute path="/recipes/:label">
+          <RecipePage history={props.history} />
+        </PrivateRoute>
+      </Switch>
+
+      <Footer />
     </div>
   );
 }

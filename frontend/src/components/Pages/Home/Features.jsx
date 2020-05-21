@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
 import { CardGroup, Card, Image } from 'react-bootstrap'
-import fridgeimg from '../../../images/features/mainpage-fridge.jpg'
-import recipeimg from '../../../images/features/mainpage-recipe.jpg'
-import shoppinglistimg from '../../../images/features/mainpage-shoppinglist.jpg'
+import fridgeimg from '../../../images/features/mainpage-fridge1.jpg'
+import recipeimg from '../../../images/features/mainpage-recipe1.jpg'
+import shoppinglistimg from '../../../images/features/mainpage-shoppinglist1.jpg'
 
 
 
@@ -43,12 +43,11 @@ class Features extends Component {
                     <CardGroup>
                         {features.map(feature => {
                             return (
-                                <Card className={feature.title}>
+                                <Card className="feature-item" >
                                     <Image 
-                                    style={{height:'50px'}, {width:'50px'}}
-                                     variant="top" src={feature.image} roundedCircle/>
-                                    <Card.Text>
-                                        <h3>{feature.name}</h3>
+                                      variant="top" src={feature.image} roundedCircle/>
+                                    <Card.Text style={{padding:'10px'}}>
+                                        <h3>{feature.title}</h3>
                                         <p >
                                             {feature.body}
                                         </p>

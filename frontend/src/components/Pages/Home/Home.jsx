@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import {Container} from 'react-bootstrap'
 
 import { connect } from 'react-redux';
 import Welcome from './Welcome'
@@ -22,12 +23,14 @@ class Home extends Component {
       <ParallaxProvider>
       <div className="homepage">
         <TopBanner />
+        <Container>
         <Welcome />
         <What />
         <FactBanner />
         <Features />
         <OurApp/>
         <Who />
+        </Container>
         
       </div>
       </ParallaxProvider>
