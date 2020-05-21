@@ -23,7 +23,6 @@ route.get('/:id', async function (req, res) {
         return;
       })
     }
-    console.log('alll products>>>>>>', allProducts);
     
     res.json({
       message: 'success',
