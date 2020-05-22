@@ -20,7 +20,7 @@ class AddFridgeItem extends Component {
     label: '',
     expiryDate: now,
     dayRemaining: 0,
-    category: 'Other',
+    category: '',
 
     year: String(now.getFullYear()),
     month: String(now.getMonth() + 1),
@@ -35,9 +35,12 @@ class AddFridgeItem extends Component {
         <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
 
+        {/* <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
+        {this.state.open? <ItemModal props={this.state}/>: null} */}
         <NavLink to={`/scanphotos`}>
-            <AiFillCamera />
+            <Button className="marginLeft"><AiFillCamera /></Button>
         </NavLink>
+        
       </>
     );
   }

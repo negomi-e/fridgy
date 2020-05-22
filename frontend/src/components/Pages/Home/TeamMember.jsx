@@ -16,8 +16,7 @@ class TeamMember extends Component {
             <h3>{this.props.props.name}</h3>
             <p>{this.props.props.job}</p>
             <p>
-              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-              consectetur, adipisci sed quia non numquam modi tempora eius.
+             {this.props.props.description}
               </p>
           </div>
           <div className="teamMemberLinks">

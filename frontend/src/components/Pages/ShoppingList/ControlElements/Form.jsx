@@ -31,6 +31,7 @@ class Form extends Component {
           />
           <InputGroup.Append>
             <Button
+              className="shopping-list-add-btn"
               onClick={this.addProduct}>
               Add
             </Button>

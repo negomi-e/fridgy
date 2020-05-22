@@ -38,7 +38,7 @@ class RecipePage extends React.Component {
     return (
       <Container>
         <div className="div-display-named">
-          <div className="display-item-expired">Your item has expired:</div>
+          <div className="display-item-expired">Your expired items:</div>
           {this.props.searchTags.map((item) => {
             return <Button color='warning' style={{ marginRight: 10 }}
               onClick={() => this.props.loadItems(item)}
