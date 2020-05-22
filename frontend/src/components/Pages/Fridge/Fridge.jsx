@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import ItemsCarousel from './Item/Item'
 import { connect } from 'react-redux';
-import {Container} from 'react-bootstrap'
-
+import { Container } from 'react-bootstrap'
+import fridgyTopImg from '../../../images/fridgyTop.png'
 import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
 import Search from '../../Common/Search/Search.jsx'
+import fridgyBottom from '../../../images/frifgyBottom.png'
 
 import {
   loadFridge,
@@ -52,18 +53,24 @@ class Fridge extends Component {
     console.log(sortProduct)
     return (
       <Container>
-      <div className="fridge">
-        <h2>Your fridgy</h2>
-        <AddFridgeItem />
-        <Search />
-
-        {
-          categories.map(category => {
-            return <ItemsCarousel data={sortProduct[category]} />
-          })
-        }
-
-      </div>
+        <div className="fridge">
+          <div className="frifgy-wrap-top">
+            <img className="frifgy-img-top" src={fridgyTopImg} />
+            <div className="frifgy-wrap-top-control">
+              <h2>Your fridgy</h2>
+              <AddFridgeItem />
+              <Search />
+            </div>
+          </div>
+          {
+            categories.map(category => {
+              return <ItemsCarousel data={sortProduct[category]} />
+            })
+          }
+          <div className="frifgy-wrap-bottom">
+            <img className="frifgy-img-top" src={fridgyBottom} />
+          </div>
+        </div>
       </Container>
     )
   }

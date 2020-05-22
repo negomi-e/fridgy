@@ -481,8 +481,8 @@ legend {
 
 .home__banner {
   min-height: 200px;
-  width: 100% ;
-  background: url('./images/vegetables-main.jpg') no-repeat ;
+  width: 100%;
+  background: url('./images/vegetables-main.jpg') no-repeat;
   background-size: 120%;
   background-attachment: fixed;
   margin-top: 80px;
@@ -539,7 +539,52 @@ legend {
   color: rgb(240, 199, 20)
 }
 
+.frifgy-img-top {
+  display: block;
+  margin: 0 auto;
+  max-width: 767px;
+}
 
-.display-container {
+.frifgy-wrap-bottom img {
+  max-width: 769px;
+}
+
+
+.frifgy-wrap-top-control * {
+  position: absolute;
+  top: 0px
+}
+
+.frifgy-wrap-top-control div input {
+  width: 300px;
+  top: 20%;
   
+}
+
+.frifgy-wrap-top-control div {
+  top: 40%;
+  right: 69%;
+}
+
+.frifgy-wrap-top-control h2 {
+  top: 3%;
+  right: calc(50% - 150px / 2) ;
+}
+
+.frifgy-wrap-top-control button {
+  top: 60%;
+  right: 25%;
+}
+
+.frifgy-wrap-top-control a {
+  top: 60%;
+  left: 25%;
+  font-size: 40px;
+}
+
+.frifgy-wrap-top {
+  margin: 0 auto;
+  position: relative;
+  margin-top: 40px;
+  padding-bottom: 23px;
 }
