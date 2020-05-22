@@ -62,14 +62,23 @@ class Fridge extends Component {
               <Search />
             </div>
           </div>
+          <div className="frifgy-wrap-top-control-mobile">
+            <Search />
+            <AddFridgeItem />
+          </div>
           {
-            categories.map(category => {
-              return <ItemsCarousel data={sortProduct[category]} />
-            })
+            categories.length > 0
+              ?
+              categories.map(category => {
+                return <ItemsCarousel data={sortProduct[category]} />
+              })
+              : <ItemsCarousel />
           }
           <div className="frifgy-wrap-bottom">
             <img className="frifgy-img-top" src={fridgyBottom} />
           </div>
+
+
         </div>
       </Container>
     )

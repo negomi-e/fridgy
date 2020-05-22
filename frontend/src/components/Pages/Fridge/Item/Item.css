@@ -10,13 +10,9 @@
     max-width:640px;
     margin: 40px auto;
     text-align: center;
-    -webkit-box-shadow: 0px 3px 4px 0px rgba(181,181,181,1);
-    -moz-box-shadow: 0px 3px 4px 0px rgba(181,181,181,1);
-    box-shadow: 0px 3px 4px 0px rgba(181,181,181,1);
-
     -webkit-box-shadow: 0px -1px 0px 63px  #ffb909;
--moz-box-shadow: 0px -1px 0px 63px  #ffb909;
-box-shadow: 0px -1px 0px 63px #ffb909;
+    -moz-box-shadow: 0px -1px 0px 63px  #ffb909;
+    box-shadow: 0px -1px 0px 63px #ffb909;
 }
 .card {
   background: none !important;
