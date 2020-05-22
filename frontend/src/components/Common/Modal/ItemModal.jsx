@@ -22,7 +22,7 @@ class ItemModal extends Component {
       category: this.props.props.category,
 
       year: String(new Date(this.props.props.expiryDate).getFullYear()),
-      month: String(new Date(this.props.props.expiryDate).getMonth()),
+      month: String(new Date(this.props.props.expiryDate).getMonth() + 1),
       day: String(new Date(this.props.props.expiryDate).getDate()),
     }
   }
@@ -40,7 +40,7 @@ class ItemModal extends Component {
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     this.setState({
       dayRemaining: diffDays,
-      expiryDate: new Date(this.state.year, this.state.month, this.state.day)
+      expiryDate: new Date(this.state.year, this.state.month - 1, this.state.day)
     });
   }
 
