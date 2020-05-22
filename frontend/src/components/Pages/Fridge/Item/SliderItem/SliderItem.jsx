@@ -86,8 +86,6 @@ class SliderItem extends Component {
 
         </div>
         <div className="wrapSliderItem-control">
-
-
           <a onClick={this.setOpen}>
             <BsListOl />
           </a>

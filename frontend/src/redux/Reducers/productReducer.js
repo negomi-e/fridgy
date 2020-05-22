@@ -67,9 +67,12 @@ export function productReducer(state = initialState, action) {
         tempItems: [...state.tempItems, action.product]
       }
     case UPDATE_PRODUCT:
+      debugger
       const updatedItems = state.items.map(product => {
-        if (product.id === action.id)
+        if (product._id === action.id) {
           return action.data
+        }
+        return product
       })
       return {
         ...state,

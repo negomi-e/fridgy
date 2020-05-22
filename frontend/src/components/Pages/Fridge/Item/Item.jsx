@@ -17,8 +17,8 @@ class Items extends Component {
             items
               ? items.map(item => (
                 <Carousel.Item key={item._id} >
-                  <img className="d-block backSlider" 
-                  src={sliderimg} 
+                  <img className="d-block backSlider"
+                    src={sliderimg}
                   />
                   <Carousel.Caption>
                     <SliderItem data={item} />
@@ -26,19 +26,19 @@ class Items extends Component {
                 </Carousel.Item>
               ))
               : <Carousel.Item>
-                <img className="d-block w-100" 
-                src={sliderimg} 
-                alt="slide" />
+                <img className="d-block w-100"
+                  src={sliderimg}
+                  alt="slide" />
                 <Carousel.Caption>
-                  <div>No items available</div>
+                  <p>Your fridgy is empty!</p>
                 </Carousel.Caption>
               </Carousel.Item>}
 
           {
             this.props.error && <Carousel.Item>
-              <img className="d-block w-100" 
-              src={sliderimg} 
-              alt="slide" />
+              <img className="d-block w-100"
+                src={sliderimg}
+                alt="slide" />
               <Carousel.Caption>
                 <div className="error">{this.props.error}</div>
               </Carousel.Caption>

@@ -15,7 +15,7 @@ class ItemModal extends Component {
       update: this.props.props.update,
       open: true,
       isSelectDateOpen: false,
-
+      id: this.props.props.id,
       label: this.props.props.label,
       expiryDate: this.props.props.expiryDate,
       dayRemaining: this.props.props.dayRemaining,
@@ -55,20 +55,23 @@ class ItemModal extends Component {
       category: this.state.category,
       id: this.props.id,
     }
+
     if (product.label != '') {
       this.props.addProductThunk(product)
     }
     this.setOpen()
   }
 
-  editItem = () => {
+  updateItem = () => {
     const product = {
       userId: this.props.userId,
       label: this.state.label,
       expiryDate: this.state.expiryDate,
       dayRemaining: this.state.dayRemaining,
       category: this.state.category,
+      id: this.state.id
     }
+    console.log(this.props)
     if (product.label != '') {
       this.props.updateProductThunk(product)
     }

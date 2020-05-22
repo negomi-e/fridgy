@@ -50,14 +50,14 @@ route.delete('/delete/:id', async (req, res) => {
 route.put('/update/:id', async (req, res) => {
   try {
     const { label, expiryDate, category } = req.body
-    let item = await Product.findbyId({ '_id': req.params.id })
+    let item = await Product.findById(req.params.id)
     item.label = label
     item.expiryDate = expiryDate
     item.category = category
     await item.save()
     res.json({ message: 'success' })
   } catch (err) {
-    res.send(404).text('Cant update')
+    res.json(err.message)
   }
 })
 
