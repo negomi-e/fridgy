@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const util = require('util');
-const mime = require('mime');
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' });
 require('dotenv').config()

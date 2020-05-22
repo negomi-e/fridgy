@@ -12,14 +12,14 @@ class OurApp extends Component {
   render() {
 
     return (
-        <div className="ourApp" id="inner_wrap">  
+      <div className="ourApp" id="inner_wrap">
 
-    <div id="wrapper">
-    <div className="phone view_1" id="phone_1">
-      <iframe src="http://designhooks.com" id="frame_1"></iframe>
-    </div>
-    </div>
-    </div>
+        <div id="wrapper">
+          <div className="phone view_1" id="phone_1">
+            <iframe src="http://designhooks.com" id="frame_1"></iframe>
+          </div>
+        </div>
+      </div>
     )
   }
 }
