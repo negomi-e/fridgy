@@ -74,7 +74,7 @@ class ScanPhoto extends Component {
             <input type='file' name='image' />
             <input type='submit' />
           </form>
-          {this.state.loaded? <Preloader />: null }
+          {/* {this.state.loaded? <Preloader />: null } */}
           {!this.state.isHidden ? (
           <div className="scan-results" >
           <label >SELECT CORRECT ITEM</label>
