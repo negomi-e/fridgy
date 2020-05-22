@@ -38,7 +38,7 @@ class AddFridgeItem extends Component {
         {/* <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null} */}
         <NavLink to={`/scanphotos`}>
-            <Button className="marginLeft"><AiFillCamera /></Button>
+            <AiFillCamera />
         </NavLink>
         
       </>

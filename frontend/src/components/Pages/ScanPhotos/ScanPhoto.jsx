@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import ItemModal from '../../Common/Modal/ItemModal'
 import { Container, Button, Form, InputGroup, FormControl } from 'react-bootstrap'
-
+import Preloader from '../../Common/Preloader/Preloader.jsx'
 
 class ScanPhoto extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class ScanPhoto extends Component {
       tempLabels: [],
       tempDates: [],
       isHidden: true,
+      loaded: false,
     }
   }
 
@@ -44,6 +45,7 @@ class ScanPhoto extends Component {
 
   async scanPhoto(event) {
     event.preventDefault()
+    this.setState({loaded:true })
     const formData = new FormData(event.target)
 
     let request = await fetch(`/upload`, {
@@ -53,8 +55,8 @@ class ScanPhoto extends Component {
       body: formData,
     })
     let response = await request.json()
-    this.setState({ tempLabels: response.labels, tempDates: response.dates, isHidden: false })
-
+    this.setState({ loaded: false, tempLabels: response.labels, tempDates: response.dates, isHidden: false })
+  
   }
 
   setOpen = () => { this.setState({ open: !this.state.open }) };
@@ -72,7 +74,7 @@ class ScanPhoto extends Component {
             <input type='file' name='image' />
             <input type='submit' />
           </form>
-
+          {this.state.loaded? <Preloader />: null }
           {!this.state.isHidden ? (
           <div className="scan-results" >
           <label >SELECT CORRECT ITEM</label>

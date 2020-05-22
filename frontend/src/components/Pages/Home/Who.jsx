@@ -14,9 +14,9 @@ import alexeyimg from '../../../images/TeamPictures/alexey.png'
 class Who extends Component {
   state = {
     Imogen: { name: 'Imogen', job: 'Web Developer', image: imogenimg, twitter: 'https://twitter.com/negomi13', github: 'https://github.com/negomi-e/', description: 'The Best from the West' },
-    Dima: { name: 'Dima', job: 'Web Developer', image: dimaimg, twitter: '', github: 'https://github.com/pakdmitry88', description:'The creative genuis' },
-    Alexey: { name: 'Alexey', job: 'Web Developer', image: alexeyimg, twitter: '', github: 'https://github.com/AV-Aleksey', description:'The cleaner' },
-    Kostya: { name: 'Kostya', job: 'Web Developer', image: kostyaimg, twitter: '', github: 'https://github.com/samolevich', description:'The master of jokes' },
+    Dima: { name: 'Dima', job: 'Web Developer', image: dimaimg, twitter: '', github: 'https://github.com/pakdmitry88', description:'The Creative Genuis' },
+    Alexey: { name: 'Alexey', job: 'Web Developer', image: alexeyimg, twitter: '', github: 'https://github.com/AV-Aleksey', description:'The Solver' },
+    Kostya: { name: 'Kostya', job: 'Web Developer', image: kostyaimg, twitter: '', github: 'https://github.com/samolevich', description:'The Master of Jokes' },
   }
 
   componentDidMount() {
