@@ -15,7 +15,7 @@ class Features extends Component {
 
     const features = [{
       title: 'Personal Shopping List',
-      body: 'This is allows to create a dynamic shopping list once you finish a product or notice you are lacking an ingredient for your next delicious meal.',
+      body: 'This allows you to create a dynamic shopping list to replenish used up food items or the necessary ingredients for your next delicious meal.',
       image: shoppinglistimg
     },
     {
