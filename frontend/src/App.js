@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import Container from 'react-bootstrap/Container'
 import { Switch, Route, withRouter } from "react-router-dom"
 import PrivateRoute from "./components/Common/PrivateRoute/PrivateRoute.js"
 import { alertErrorAC, alertSuccesAC } from "./redux/Actions/actions"

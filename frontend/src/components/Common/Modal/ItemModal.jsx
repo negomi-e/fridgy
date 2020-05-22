@@ -40,7 +40,7 @@ class ItemModal extends Component {
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     this.setState({
       dayRemaining: diffDays,
-      expiryDate: new Date(this.state.year, this.state.month, this.state.day)
+      expiryDate: new Date(this.state.year, this.state.month - 1, this.state.day)
     });
   }
 

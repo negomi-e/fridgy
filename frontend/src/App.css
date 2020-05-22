@@ -58,19 +58,36 @@ p, span {
 }
 
 /* BUTTONS */
-.btn-primary .scan-form input{
-  background-color: #00a6a6;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 
-.btn-outline-success {
+/* .btn-outline-success {
   color: #e08d07f3;
   border-color: #e08d07f3;
-}
+} */
 
 .btn-img {
   height: 20px;
+}
+
+.btn-primary {
+background-color: #0C4D75;
+outline: none;
+font-weight: bolder;
+}
+
+.btn-primary:hover {
+background-color: #e08d07f3;
+}
+
+.btn-primary:active {
+background-color: #0C4D75;
+}
+
+.btn-primary:visited {
+background-color: #0C4D75;
+}
+
+.btn-primary:focus {
+background-color: #0C4D75;
 }
 
 /* NAV BAR */
@@ -453,10 +470,13 @@ nav {
   border: 0px;
 }
 
-.btn-primary:hover {
-  background: #0cc4c4;
-  
+.marginLeft{
+  margin-left: 5px;
 }
+
+.shopping-list-add-btn:hover {
+  background: #0cc4c4;
+} 
 
 .shoppinglist h2 {
   color: #F2EEDD !important;

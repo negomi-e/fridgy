@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import SelectDate from '../SelectDate';
 import {
-  InputGroup,
-  FormControl,
-  Form,
   Button,
-  Modal,
-  Collapse,
 } from 'react-bootstrap';
 import styles from '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
-import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
+
 import ItemModal from '../../../components/Common/Modal/ItemModal'
 import { AiFillCamera} from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
@@ -25,7 +20,7 @@ class AddFridgeItem extends Component {
     label: '',
     expiryDate: now,
     dayRemaining: 0,
-    category: 'Other',
+    category: '',
 
     year: String(now.getFullYear()),
     month: String(now.getMonth() + 1),
@@ -40,9 +35,12 @@ class AddFridgeItem extends Component {
         <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
         {this.state.open? <ItemModal props={this.state}/>: null}
 
+        {/* <Button className={styles.button} onClick={() => this.setOpen()}>Add item</Button>
+        {this.state.open? <ItemModal props={this.state}/>: null} */}
         <NavLink to={`/scanphotos`}>
-            <AiFillCamera />
+            <Button className="marginLeft"><AiFillCamera /></Button>
         </NavLink>
+        
       </>
     );
   }

@@ -17,8 +17,10 @@ class Items extends Component {
             items
               ? items.map(item => (
                 <Carousel.Item key={item._id} >
+
                   <img className="d-block backSlider"
                     src={sliderimg}
+                    alt="slide"
                   />
                   <Carousel.Caption>
                     <SliderItem data={item} />
