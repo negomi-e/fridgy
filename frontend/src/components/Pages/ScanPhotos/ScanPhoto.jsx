@@ -45,7 +45,7 @@ class ScanPhoto extends Component {
 
   async scanPhoto(event) {
     event.preventDefault()
-    this.setState({loaded:true })
+    // this.setState({loaded:true })
     const formData = new FormData(event.target)
 
     let request = await fetch(`/upload`, {
