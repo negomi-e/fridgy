@@ -22,7 +22,7 @@ class ItemModal extends Component {
       category: this.props.props.category,
 
       year: String(new Date(this.props.props.expiryDate).getFullYear()),
-      month: String(new Date(this.props.props.expiryDate).getMonth() + 1),
+      month: String(new Date(this.props.props.expiryDate).getMonth()),
       day: String(new Date(this.props.props.expiryDate).getDate()),
     }
   }
