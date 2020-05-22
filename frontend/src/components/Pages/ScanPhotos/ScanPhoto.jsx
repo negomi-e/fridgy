@@ -54,8 +54,8 @@ class ScanPhoto extends Component {
       },
       body: formData,
     })
-    let labels = response.labels.slice(0, 3)
     let response = await request.json()
+    let labels = response.labels.slice(0, 3)
     this.setState({ tempLabels: labels, tempDates: response.dates, isHidden: false })
   
   }
