@@ -7,7 +7,7 @@ export class AlertSuccess extends Component {
   render() {
     return (
       <div className={classes.wrap}>
-        <img src={okImg} />
+        <img src={okImg} alt="ok"/>
         <p>Success!</p>
       </div>
     )
@@ -18,7 +18,7 @@ export class AlertError extends Component {
   render() {
     return (
       <div className={classes.wrap}>
-        <img src={errorImg} />
+        <img src={errorImg} alt="err"/>
         <p>Error!</p>
       </div>
     )

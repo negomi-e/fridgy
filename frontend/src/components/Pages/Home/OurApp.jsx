@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
-// import './OurApp.css'
 
 
 class OurApp extends Component {
@@ -16,7 +15,7 @@ class OurApp extends Component {
 
         <div id="wrapper">
           <div className="phone view_1" id="phone_1">
-            <iframe src="http://designhooks.com" id="frame_1"></iframe>
+            <iframe src="http://designhooks.com" id="frame_123" key="frame_1"></iframe>
           </div>
         </div>
       </div>

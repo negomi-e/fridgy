@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import SelectDate from '../SelectDate';
 import {
-  InputGroup,
-  FormControl,
-  Form,
   Button,
-  Modal,
-  Collapse,
 } from 'react-bootstrap';
 import styles from '../AddFridgeItem/AddFridgeItem.module.scss';
 import { connect } from 'react-redux'
-import { addProductThunk } from '../../../redux/Thunk/fridgeThunk'
+
 import ItemModal from '../../../components/Common/Modal/ItemModal'
 import { AiFillCamera} from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
