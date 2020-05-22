@@ -75,7 +75,7 @@ class ScanPhoto extends Component {
             <input type='submit' />
           </form>
           
-          {!this.state.isHidden ? (
+          {/* {!this.state.isHidden ? ( */}
           <div className="scan-results" >
           <label >SELECT CORRECT ITEM</label>
           {this.state.tempLabels ? this.state.tempLabels.map(label => (
@@ -85,7 +85,9 @@ class ScanPhoto extends Component {
           <label >SELECT EXPIRY DATE</label>
           {this.state.tempDates ? this.state.tempDates.map(date => (
             <p><a href='#' onClick={() => this.setDate(date)}>{date}</a></p>)) : null}
-          </div>): null}
+          </div>
+          
+          {/* ): null} */}
 
           <Button onClick={this.setOpen}>Add Item</Button>
           </div>
