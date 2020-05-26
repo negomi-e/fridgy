@@ -20,7 +20,7 @@ class What extends Component {
         <hr />
         <Row>
           <Col>
-            <Image style={{ borderRadius: '10px' }} src={whatimg} fluid />
+            <Image style={{ borderRadius: '10px' }} src={whatimg} alt='img' fluid />
           </Col>
           <Col className="what-text">
             <div className="what-content-wrap">

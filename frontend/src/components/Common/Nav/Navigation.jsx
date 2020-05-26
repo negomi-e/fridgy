@@ -30,7 +30,7 @@ class Navigation extends Component {
                     <NavLink activeClassName={classes.active} to="/" exact >My Fridge</NavLink>
                     <NavLink className="nav_link" activeClassName={classes.active} to="/shoppingList">My Shopping List</NavLink>
                     <NavLink className="nav_link" activeClassName={classes.active} to="/recipes/:id">Recipe</NavLink>
-                    <Link onClick={this.logout} >Logout</Link>
+                    <Link onClick={this.logout} to='/' >Logout</Link>
                   </>
                   :
                   <>
