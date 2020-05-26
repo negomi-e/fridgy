@@ -6,11 +6,10 @@ const bcrypt = require('bcrypt')
 /* GET users listing. */
 router.post('/login', async (req, res) => {
   const { email, pass } = req.body;
-  console.log(email)
+
 
   try {
     const user = await User.findOne({ email: email })
-    console.log(user)
     if (!user) throw 'cant find user'
     const passAuth = await bcrypt.compare(pass, user.pass)
     if (!passAuth) throw 'incorrect pass'

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getRecipes } from '../../../../../redux/Actions/fridge-actions'
-import { AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsFillCircleFill } from 'react-icons/bs'
 import { deleteItemThunk } from '../../../../../redux/Thunk/fridgeThunk'
 import { addProductSL_Thunk } from '../../../../../redux/Thunk/shoppingListThunk'
 import { NavLink } from 'react-router-dom'
-import { Card } from 'react-bootstrap';
 import { IoIosTrash } from "react-icons/io";
 import { BsListOl } from 'react-icons/bs'
 import '../SliderItem/SliderItem.css'
@@ -70,7 +69,7 @@ class SliderItem extends Component {
           this.state.open ? <ItemModal props={this.state} /> : null}
         <div className="sliderItem-imgCategory">
           <h4>{category}</h4>
-          <img src={categoryImg[category]} />
+          <img src={categoryImg[category]} alt='img' />
         </div>
 
 
@@ -90,12 +89,11 @@ class SliderItem extends Component {
             <BsListOl />
           </a>
           <NavLink to={`/recipes/${label}`} onClick={() => this.props.getRecipes(label)}>
-            <img className='recipeImgLink' src={imgRecipe} />
+            <img className='recipeImgLink' src={imgRecipe} alt='img' />
           </NavLink>
           <a onClick={() => this.props.addProductSL_Thunk(label, this.props.userId)}>
             <AiOutlineShoppingCart />
           </a>
-
         </div>
 
       </>
