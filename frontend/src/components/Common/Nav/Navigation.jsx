@@ -17,9 +17,9 @@ class Navigation extends Component {
       <Navbar expand="lg">
 
         <Container>
-          <Navbar.Brand href="/home">
+          <NavLink to="/home">
             <img src={logoImg} alt="logo" className="logo" />
-          </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={classes.NavBarWrap + " mr-auto"}>
