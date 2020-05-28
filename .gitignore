@@ -2,6 +2,7 @@
 
 # dependencies
 /frontend/node_modules
+/server/.env
 /server/node_modules
 /node_modules
 /.pnp
