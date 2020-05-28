@@ -12,10 +12,9 @@ class OurApp extends Component {
 
     return (
       <div className="ourApp" id="inner_wrap">
-
         <div id="wrapper">
           <div className="phone view_1" id="phone_1">
-            <iframe src="http://fridgy-2020.herokuapp.com/" id="frame_1"></iframe>
+            <iframe src="http://fridgy-2020.herokuapp.com/" id="frame_1" title="frame_phone" />
           </div>
         </div>
       </div>

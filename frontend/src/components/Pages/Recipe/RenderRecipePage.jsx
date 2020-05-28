@@ -19,9 +19,7 @@ class RenderRecipePage extends React.Component {
     this.props.listLoading()
   }
   render() {
-    console.log(this.props)
     return (
-
       <div className='wrapped-recipe-card'>
         {this.props.loading
           ? <Preloader />
@@ -38,7 +36,7 @@ class RenderRecipePage extends React.Component {
                   <div className="display-items">{item.content.nutrition.nutritionEstimates[0].display.value}
                     <div className="display-ingredient">Calories</div>
                   </div></div>
-                <div className='display-image'><img className="img" style={{ borderRadius: 10 }} src={item.display.images[0]}></img></div></div>
+                <div className='display-image'><img className="img" style={{ borderRadius: 10 }} src={item.display.images[0]} alt='img'></img></div></div>
               <div className="display-ingredient" ><div className="ingredients">Ingredients:</div> {item.content.ingredientLines.map((item) => { return <li>{item.wholeLine}</li> })}</div><br></br>
               <div><Button color="warning"><a className="display-a" target='_blank' rel='noopener noreferrer' href={item.content.details.directionsUrl}>Show Recipe!</a></Button></div>
             </>

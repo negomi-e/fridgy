@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems, takeItems } from '../../../redux/Actions/fridge-actions'
 import RenderRecipePage from './RenderRecipePage';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, Input } from 'reactstrap'
 import './recipe.css';
 import { Container } from 'react-bootstrap'
 
@@ -33,7 +33,6 @@ class RecipePage extends React.Component {
   }
 
   render() {
-    console.log(this.props.items, 'THIS CONSOLE FOR RECIPE COMPONENT')
 
     return (
       <Container>

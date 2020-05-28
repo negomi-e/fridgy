@@ -43,9 +43,7 @@ route.delete('/:id', async function (req, res) {
       message: 'success',
     })
   } catch (error) {
-    res.json({
-      message: 'cant delete',
-    })
+    res.json(error.message)
   }
 })
 

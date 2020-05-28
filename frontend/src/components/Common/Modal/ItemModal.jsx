@@ -56,7 +56,7 @@ class ItemModal extends Component {
       id: this.props.id,
     }
 
-    if (product.label != '') {
+    if (product.label !== '') {
       this.props.addProductThunk(product)
     }
     this.setOpen()
@@ -71,8 +71,7 @@ class ItemModal extends Component {
       category: this.state.category,
       id: this.state.id
     }
-    console.log(this.props)
-    if (product.label != '') {
+    if (product.label !== '') {
       this.props.updateProductThunk(product)
     }
     this.setOpen()
@@ -100,8 +99,6 @@ class ItemModal extends Component {
 
   render() {
 
-    console.log('you have found modal', this.props)
-    console.log('label', this.props.label)
     return (
       <Modal show={this.state.open} onHide={this.setOpen} animation={false}>
         <Modal.Header closeButton>

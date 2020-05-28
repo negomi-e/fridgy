@@ -6,10 +6,7 @@ import fridgyTopImg from '../../../images/fridgyTop.png'
 import AddFridgeItem from '../../Pages/AddFridgeItem/AddFridgeItem';
 import Search from '../../Common/Search/Search.jsx'
 import fridgyBottom from '../../../images/frifgyBottom.png'
-
-import {
-  loadFridge,
-} from '../../../redux/Thunk/fridgeThunk';
+import { loadFridge } from '../../../redux/Thunk/fridgeThunk';
 
 class Fridge extends Component {
   componentDidMount() {
@@ -41,21 +38,22 @@ class Fridge extends Component {
 
     for (const key in sortProduct) {
       sortProduct[key].sort((a, b) => {
-        if (a.dayRemaining < b.dayRemaining) {
+        if (a.dayRemaining > b.dayRemaining) {
           return 1
         }
-        if (a.dayRemaining > b.dayRemaining) {
-          return 0
+        if (a.dayRemaining < b.dayRemaining) {
+          return -1
         }
+        return 0
       })
     }
 
-    console.log(sortProduct)
+
     return (
       <Container>
         <div className="fridge">
           <div className="frifgy-wrap-top">
-            <img className="frifgy-img-top" src={fridgyTopImg} />
+            <img className="frifgy-img-top" src={fridgyTopImg} alt='img' />
             <div className="frifgy-wrap-top-control">
               <h2>Your fridgy</h2>
               <AddFridgeItem />
@@ -69,13 +67,13 @@ class Fridge extends Component {
           {
             categories.length > 0
               ?
-              categories.map(category => {
-                return <ItemsCarousel data={sortProduct[category]} />
+              categories.map((category, i) => {
+                return <ItemsCarousel key={'category' + i} data={sortProduct[category]} />
               })
               : <ItemsCarousel />
           }
           <div className="frifgy-wrap-bottom">
-            <img className="frifgy-img-top" src={fridgyBottom} />
+            <img className="frifgy-img-top" src={fridgyBottom} alt='img' />
           </div>
 
 
@@ -87,7 +85,6 @@ class Fridge extends Component {
 
 const mapStateToProps = state => {
   return {
-    //key is your prop name and it's value from global state
     items: state.productReducer.items,
     error: state.productReducer.listError,
     id: state.authReducer.userInfo.id
@@ -95,6 +92,6 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { loadFridge, })(Fridge);
+export default connect(mapStateToProps, { loadFridge })(Fridge);
 
 
