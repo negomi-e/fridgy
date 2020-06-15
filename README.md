@@ -67,6 +67,7 @@ $ npm start
 ### Development
 
    -Develop on React Native to make it mobile friendly
+   
    -Connect shopping list feature to online food shop that delivers
 
 
