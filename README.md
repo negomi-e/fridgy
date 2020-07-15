@@ -1,6 +1,6 @@
 # Fridgy
 
-![mockup] (https://github.com/negomi-e/fridgy/blob/master/smartmockups_kcn92qns.png)
+![mockup] (https://github.com/negomi-e/fridgy/blob/master/smartmockups_kcn92qns.png?raw=true)
 
 Fridgy is an application to help track your products in your fridge by thier expiry date. You can both manually add and scan new products. You can create an interactive shopping list and easily add all expired and used products to it. Finally, it helps suggest recipes that use products in your fridge.
 
