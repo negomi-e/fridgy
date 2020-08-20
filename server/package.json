@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@google-cloud/vision": "^1.11.0",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
