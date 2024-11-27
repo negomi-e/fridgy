@@ -137,6 +137,11 @@ nav {
    width: 100% !important
  }
 
+ @media (max-width: 800px) {
+  .homepage .fact-banner, .homepage .topbanner,.homepage .features-banner, .homepage .ourApp {
+  display: hidden;
+   }
+ }  
 
  @media (max-width: 800px) {
   .homepage .fact-banner, .homepage .topbanner,.homepage .features-banner, .homepage .ourApp {
